@@ -12,13 +12,11 @@ export class AuthService {
 
   async login({ email, password }: LoginRequest) {
     const user = await this.userRepository.findByEmail(email, true);
-    console.log(user);
     if (!user) {
       throw new Error("Email ou senha inválidos");
     }
 
     const userPassword = await this.userRepository.getPasswordById(user.id);
-    console.log(userPassword);
 
     if (!userPassword) {
       throw new Error("Email ou senha inválidos");
