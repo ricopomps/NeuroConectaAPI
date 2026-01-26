@@ -1,8 +1,8 @@
 import { Router } from "express";
 import authRoutes from "./modules/auth/auth.routes";
 import institutionRoutes from "./modules/institution/institution.routes";
+import studentsRoutes from "./modules/student/student.routes";
 import userRoutes from "./modules/user/user.routes";
-import { ensureAuthenticated } from "./shared/middlewares/ensureAuthenticated";
 const routes = Router();
 
 routes.get("/health", (req, res) => {
@@ -11,6 +11,7 @@ routes.get("/health", (req, res) => {
 
 routes.use("/users", userRoutes);
 routes.use("/auth", authRoutes);
-routes.use("/institutions", ensureAuthenticated, institutionRoutes);
+routes.use("/institutions", institutionRoutes);
+routes.use("/students", studentsRoutes);
 
 export default routes;
