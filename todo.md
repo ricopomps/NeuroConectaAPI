@@ -1,0 +1,6 @@
+- Usar zod pra configurar cleanENV
+- usar zod pra configurar valores que vem do controller
+- Criar classe de erro personalizada, para não ficar jogando throw Error()
+- Centralizar mensagens de retorno (pt-br, possivelmente múltiplas linguas)
+- Usar interfaces para service, repo, etc
+- Criar autenticação com token dependendo da instituição

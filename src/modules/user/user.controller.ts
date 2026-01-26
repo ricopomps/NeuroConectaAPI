@@ -4,9 +4,17 @@ import { UserService } from "./user.service";
 export class UserController {
   private userService = new UserService();
 
+  async me(req: Request, res: Response) {
+    const userId = req.userId;
+
+    const user = await this.userService.getUserById(userId!);
+
+    return res.json(user);
+  }
+
   async get(req: Request, res: Response) {
     try {
-      const user = await this.userService.getUser(
+      const user = await this.userService.getUserById(
         req.params.userUuid as string,
       );
       return res.status(201).json(user);
