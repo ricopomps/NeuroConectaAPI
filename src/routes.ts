@@ -1,16 +1,11 @@
 import { Router } from "express";
-import { UserController } from "./modules/user/user.controller";
-
+import userRoutes from "./modules/user/user.routes";
 const routes = Router();
-
-const userController = new UserController();
 
 routes.get("/health", (req, res) => {
   return res.json({ status: "ok", service: "NeuroConecta" });
 });
 
-routes.post("/users", (req, res) => {
-  return userController.create(req, res);
-});
+routes.use("/users", userRoutes);
 
 export default routes;
