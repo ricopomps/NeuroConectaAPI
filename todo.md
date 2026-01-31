@@ -6,3 +6,4 @@
 - Criar autenticação com token dependendo da instituição
 - Criar roles e permissões
 - Rever nomeclatura das rotas de students
+- Salvar sessão em cookie, ao invés de jwt

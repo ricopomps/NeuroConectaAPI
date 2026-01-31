@@ -25,15 +25,13 @@ export class StudentRepository {
   }
 
   async addFile(studentId: string, name: string, url: string) {
-    await prisma.studentFile.create({
+    return await prisma.studentFile.create({
       data: {
         studentId,
         name,
         url,
       },
     });
-
-    return true;
   }
 
   async getFiles(studentId: string, take: number, skip: number) {
