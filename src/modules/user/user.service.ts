@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { CreateUserData, UserRepository } from "./user.repository";
 
 export class UserService {
-  private userRepository = new UserRepository();
+  private readonly userRepository = new UserRepository();
 
   async getUserByEmail(email: string) {
     return await this.userRepository.findByEmail(email);

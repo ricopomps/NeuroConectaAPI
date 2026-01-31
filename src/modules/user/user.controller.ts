@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { UserService } from "./user.service";
 
 export class UserController {
-  private userService = new UserService();
+  private readonly userService = new UserService();
 
   async me(req: Request, res: Response) {
     const userId = req.userId;

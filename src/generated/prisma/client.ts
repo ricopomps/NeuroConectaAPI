@@ -57,3 +57,8 @@ export type InstitutionUser = Prisma.InstitutionUserModel
  * 
  */
 export type Student = Prisma.StudentModel
+/**
+ * Model StudentFile
+ * 
+ */
+export type StudentFile = Prisma.StudentFileModel

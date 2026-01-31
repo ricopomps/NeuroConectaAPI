@@ -17,4 +17,37 @@ export class StudentRepository {
       orderBy: { createdAt: "desc" },
     });
   }
+
+  async findById(studentId: string) {
+    return prisma.student.findUnique({
+      where: { id: studentId },
+      include: { files: true },
+    });
+  }
+
+  async addFile(studentId: string, name: string, url: string) {
+    await prisma.studentFile.create({
+      data: {
+        studentId,
+        name,
+        url,
+      },
+    });
+
+    return true;
+  }
+
+  async getFiles(studentId: string, take: number, skip: number) {
+    const [files, count] = await Promise.all([
+      prisma.studentFile.findMany({
+        where: { studentId },
+        take,
+        skip,
+        orderBy: { createdAt: "desc" },
+      }),
+      prisma.studentFile.count({ where: { studentId } }),
+    ]);
+
+    return { files, count };
+  }
 }
