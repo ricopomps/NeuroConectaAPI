@@ -32,6 +32,31 @@ export class StudentService {
     return this.studentRepo.findByInstitution(institutionId);
   }
 
+  async getStudentById(
+    userId: string,
+    institutionId: string,
+    studentId: string,
+  ) {
+    const membership = await prisma.institutionUser.findFirst({
+      where: {
+        institutionId,
+        userId,
+      },
+    });
+
+    if (!membership) {
+      throw new Error("Accesso negado");
+    }
+
+    const student = await this.studentRepo.findById(studentId);
+
+    if (!student) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    return student;
+  }
+
   async addStudentFile(
     userId: string,
     institutionId: string,
@@ -40,7 +65,7 @@ export class StudentService {
     fileUrl: string,
   ) {
     if (!fileName || !fileUrl) {
-      throw new Error("fileName and fileUrl are required");
+      throw new Error("Nome e URL do arquivo são obrigatórios");
     }
 
     const membership = await prisma.institutionUser.findFirst({
@@ -51,17 +76,17 @@ export class StudentService {
     });
 
     if (!membership) {
-      throw new Error("Access denied");
+      throw new Error("Acceso negado");
     }
 
     const student = await this.studentRepo.findById(studentId);
 
     if (!student) {
-      throw new Error("Student not found");
+      throw new Error("Aluno não encontrado");
     }
 
     if (student.institutionId !== institutionId) {
-      throw new Error("Student does not belong to this institution");
+      throw new Error("Aluno não encontrado");
     }
 
     return this.studentRepo.addFile(studentId, fileName, fileUrl);
@@ -76,11 +101,11 @@ export class StudentService {
     const student = await this.studentRepo.findById(studentId);
 
     if (!student) {
-      throw new Error("Student not found");
+      throw new Error("Aluno não encontrado");
     }
 
     if (student.institutionId !== institutionId) {
-      throw new Error("Student does not belong to this institution");
+      throw new Error("Aluno não encontrado");
     }
 
     return this.studentRepo.getFiles(studentId, take, skip);

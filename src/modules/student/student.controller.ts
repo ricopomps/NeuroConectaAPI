@@ -37,6 +37,22 @@ export class StudentController {
     }
   }
 
+  async getStudent(req: Request, res: Response) {
+    try {
+      const { institutionId, studentId } = req.params;
+
+      const student = await this.studentService.getStudentById(
+        req.userId!,
+        institutionId as string,
+        studentId as string,
+      );
+
+      return res.json(student);
+    } catch (error: any) {
+      return res.status(400).json({ error: error.message });
+    }
+  }
+
   async addFile(req: Request, res: Response) {
     try {
       const { institutionId, studentId } = req.params;
