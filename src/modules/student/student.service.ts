@@ -2,7 +2,7 @@ import { prisma } from "../../shared/prisma";
 import { StudentRepository } from "./student.repository";
 
 export class StudentService {
-  private studentRepo = new StudentRepository();
+  private readonly studentRepo = new StudentRepository();
 
   async createStudent(
     userId: string,
@@ -30,5 +30,84 @@ export class StudentService {
     }
 
     return this.studentRepo.findByInstitution(institutionId);
+  }
+
+  async getStudentById(
+    userId: string,
+    institutionId: string,
+    studentId: string,
+  ) {
+    const membership = await prisma.institutionUser.findFirst({
+      where: {
+        institutionId,
+        userId,
+      },
+    });
+
+    if (!membership) {
+      throw new Error("Accesso negado");
+    }
+
+    const student = await this.studentRepo.findById(studentId);
+
+    if (!student) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    return student;
+  }
+
+  async addStudentFile(
+    userId: string,
+    institutionId: string,
+    studentId: string,
+    fileName: string,
+    fileUrl: string,
+  ) {
+    if (!fileName || !fileUrl) {
+      throw new Error("Nome e URL do arquivo são obrigatórios");
+    }
+
+    const membership = await prisma.institutionUser.findFirst({
+      where: {
+        institutionId,
+        userId,
+      },
+    });
+
+    if (!membership) {
+      throw new Error("Acceso negado");
+    }
+
+    const student = await this.studentRepo.findById(studentId);
+
+    if (!student) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    if (student.institutionId !== institutionId) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    return this.studentRepo.addFile(studentId, fileName, fileUrl);
+  }
+
+  async getFiles(
+    institutionId: string,
+    studentId: string,
+    take: number,
+    skip: number,
+  ) {
+    const student = await this.studentRepo.findById(studentId);
+
+    if (!student) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    if (student.institutionId !== institutionId) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    return this.studentRepo.getFiles(studentId, take, skip);
   }
 }

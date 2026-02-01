@@ -387,7 +387,8 @@ export const ModelName = {
   User: 'User',
   Institution: 'Institution',
   InstitutionUser: 'InstitutionUser',
-  Student: 'Student'
+  Student: 'Student',
+  StudentFile: 'StudentFile'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "institution" | "institutionUser" | "student"
+    modelProps: "user" | "institution" | "institutionUser" | "student" | "studentFile"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -703,6 +704,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    StudentFile: {
+      payload: Prisma.$StudentFilePayload<ExtArgs>
+      fields: Prisma.StudentFileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StudentFileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StudentFileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>
+        }
+        findFirst: {
+          args: Prisma.StudentFileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StudentFileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>
+        }
+        findMany: {
+          args: Prisma.StudentFileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>[]
+        }
+        create: {
+          args: Prisma.StudentFileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>
+        }
+        createMany: {
+          args: Prisma.StudentFileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StudentFileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>[]
+        }
+        delete: {
+          args: Prisma.StudentFileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>
+        }
+        update: {
+          args: Prisma.StudentFileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>
+        }
+        deleteMany: {
+          args: Prisma.StudentFileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StudentFileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StudentFileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>[]
+        }
+        upsert: {
+          args: Prisma.StudentFileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentFilePayload>
+        }
+        aggregate: {
+          args: Prisma.StudentFileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStudentFile>
+        }
+        groupBy: {
+          args: Prisma.StudentFileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StudentFileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StudentFileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StudentFileCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -782,6 +857,17 @@ export const StudentScalarFieldEnum = {
 } as const
 
 export type StudentScalarFieldEnum = (typeof StudentScalarFieldEnum)[keyof typeof StudentScalarFieldEnum]
+
+
+export const StudentFileScalarFieldEnum = {
+  id: 'id',
+  studentId: 'studentId',
+  name: 'name',
+  url: 'url',
+  createdAt: 'createdAt'
+} as const
+
+export type StudentFileScalarFieldEnum = (typeof StudentFileScalarFieldEnum)[keyof typeof StudentFileScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -946,6 +1032,7 @@ export type GlobalOmitConfig = {
   institution?: Prisma.InstitutionOmit
   institutionUser?: Prisma.InstitutionUserOmit
   student?: Prisma.StudentOmit
+  studentFile?: Prisma.StudentFileOmit
 }
 
 /* Types for Logging */
