@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { ensureAuthenticated } from "../../shared/middlewares/ensureAuthenticated";
 import { AiTesterController } from "./ai-tester.controller";
 
 const aiTesterRoutes = Router();

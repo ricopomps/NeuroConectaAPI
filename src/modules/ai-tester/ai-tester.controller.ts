@@ -5,9 +5,7 @@ export class AiTesterController {
   private aiTesterService = new AiTesterService();
 
   async teste(req: Request, res: Response) {
-    const { text } = req.body;
-
-    const response = await this.aiTesterService.teste(text);
+    const response = await this.aiTesterService.teste('Quanto é 1 + 1');
 
     return res.json({ response });
   }
