@@ -54,6 +54,7 @@ model Student {
 
     institution Institution @relation(fields: [institutionId], references: [id])
     files        StudentFile[]
+    assessments  Assessment[]
 }
 
 model StudentFile {
@@ -66,4 +67,14 @@ model StudentFile {
     student Student @relation(fields: [studentId], references: [id])
 
     @@index([studentId])
+}
+
+model Assessment {
+    id            String   @id @default(uuid())
+    name          String
+    content       String
+    studentId     String
+    createdAt     DateTime @default(now())
+
+    student Student @relation(fields: [studentId], references: [id])
 }

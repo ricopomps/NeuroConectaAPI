@@ -184,6 +184,7 @@ export type StudentWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Student"> | Date | string
   institution?: Prisma.XOR<Prisma.InstitutionScalarRelationFilter, Prisma.InstitutionWhereInput>
   files?: Prisma.StudentFileListRelationFilter
+  assessments?: Prisma.AssessmentListRelationFilter
 }
 
 export type StudentOrderByWithRelationInput = {
@@ -194,6 +195,7 @@ export type StudentOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   institution?: Prisma.InstitutionOrderByWithRelationInput
   files?: Prisma.StudentFileOrderByRelationAggregateInput
+  assessments?: Prisma.AssessmentOrderByRelationAggregateInput
 }
 
 export type StudentWhereUniqueInput = Prisma.AtLeast<{
@@ -207,6 +209,7 @@ export type StudentWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Student"> | Date | string
   institution?: Prisma.XOR<Prisma.InstitutionScalarRelationFilter, Prisma.InstitutionWhereInput>
   files?: Prisma.StudentFileListRelationFilter
+  assessments?: Prisma.AssessmentListRelationFilter
 }, "id">
 
 export type StudentOrderByWithAggregationInput = {
@@ -238,6 +241,7 @@ export type StudentCreateInput = {
   createdAt?: Date | string
   institution: Prisma.InstitutionCreateNestedOneWithoutStudentsInput
   files?: Prisma.StudentFileCreateNestedManyWithoutStudentInput
+  assessments?: Prisma.AssessmentCreateNestedManyWithoutStudentInput
 }
 
 export type StudentUncheckedCreateInput = {
@@ -247,6 +251,7 @@ export type StudentUncheckedCreateInput = {
   institutionId: string
   createdAt?: Date | string
   files?: Prisma.StudentFileUncheckedCreateNestedManyWithoutStudentInput
+  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type StudentUpdateInput = {
@@ -256,6 +261,7 @@ export type StudentUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   institution?: Prisma.InstitutionUpdateOneRequiredWithoutStudentsNestedInput
   files?: Prisma.StudentFileUpdateManyWithoutStudentNestedInput
+  assessments?: Prisma.AssessmentUpdateManyWithoutStudentNestedInput
 }
 
 export type StudentUncheckedUpdateInput = {
@@ -265,6 +271,7 @@ export type StudentUncheckedUpdateInput = {
   institutionId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   files?: Prisma.StudentFileUncheckedUpdateManyWithoutStudentNestedInput
+  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type StudentCreateManyInput = {
@@ -385,12 +392,27 @@ export type StudentUpdateOneRequiredWithoutFilesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.StudentUpdateToOneWithWhereWithoutFilesInput, Prisma.StudentUpdateWithoutFilesInput>, Prisma.StudentUncheckedUpdateWithoutFilesInput>
 }
 
+export type StudentCreateNestedOneWithoutAssessmentsInput = {
+  create?: Prisma.XOR<Prisma.StudentCreateWithoutAssessmentsInput, Prisma.StudentUncheckedCreateWithoutAssessmentsInput>
+  connectOrCreate?: Prisma.StudentCreateOrConnectWithoutAssessmentsInput
+  connect?: Prisma.StudentWhereUniqueInput
+}
+
+export type StudentUpdateOneRequiredWithoutAssessmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.StudentCreateWithoutAssessmentsInput, Prisma.StudentUncheckedCreateWithoutAssessmentsInput>
+  connectOrCreate?: Prisma.StudentCreateOrConnectWithoutAssessmentsInput
+  upsert?: Prisma.StudentUpsertWithoutAssessmentsInput
+  connect?: Prisma.StudentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StudentUpdateToOneWithWhereWithoutAssessmentsInput, Prisma.StudentUpdateWithoutAssessmentsInput>, Prisma.StudentUncheckedUpdateWithoutAssessmentsInput>
+}
+
 export type StudentCreateWithoutInstitutionInput = {
   id?: string
   name: string
   birthDate: Date | string
   createdAt?: Date | string
   files?: Prisma.StudentFileCreateNestedManyWithoutStudentInput
+  assessments?: Prisma.AssessmentCreateNestedManyWithoutStudentInput
 }
 
 export type StudentUncheckedCreateWithoutInstitutionInput = {
@@ -399,6 +421,7 @@ export type StudentUncheckedCreateWithoutInstitutionInput = {
   birthDate: Date | string
   createdAt?: Date | string
   files?: Prisma.StudentFileUncheckedCreateNestedManyWithoutStudentInput
+  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type StudentCreateOrConnectWithoutInstitutionInput = {
@@ -444,6 +467,7 @@ export type StudentCreateWithoutFilesInput = {
   birthDate: Date | string
   createdAt?: Date | string
   institution: Prisma.InstitutionCreateNestedOneWithoutStudentsInput
+  assessments?: Prisma.AssessmentCreateNestedManyWithoutStudentInput
 }
 
 export type StudentUncheckedCreateWithoutFilesInput = {
@@ -452,6 +476,7 @@ export type StudentUncheckedCreateWithoutFilesInput = {
   birthDate: Date | string
   institutionId: string
   createdAt?: Date | string
+  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutStudentInput
 }
 
 export type StudentCreateOrConnectWithoutFilesInput = {
@@ -476,6 +501,7 @@ export type StudentUpdateWithoutFilesInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   institution?: Prisma.InstitutionUpdateOneRequiredWithoutStudentsNestedInput
+  assessments?: Prisma.AssessmentUpdateManyWithoutStudentNestedInput
 }
 
 export type StudentUncheckedUpdateWithoutFilesInput = {
@@ -484,6 +510,59 @@ export type StudentUncheckedUpdateWithoutFilesInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   institutionId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutStudentNestedInput
+}
+
+export type StudentCreateWithoutAssessmentsInput = {
+  id?: string
+  name: string
+  birthDate: Date | string
+  createdAt?: Date | string
+  institution: Prisma.InstitutionCreateNestedOneWithoutStudentsInput
+  files?: Prisma.StudentFileCreateNestedManyWithoutStudentInput
+}
+
+export type StudentUncheckedCreateWithoutAssessmentsInput = {
+  id?: string
+  name: string
+  birthDate: Date | string
+  institutionId: string
+  createdAt?: Date | string
+  files?: Prisma.StudentFileUncheckedCreateNestedManyWithoutStudentInput
+}
+
+export type StudentCreateOrConnectWithoutAssessmentsInput = {
+  where: Prisma.StudentWhereUniqueInput
+  create: Prisma.XOR<Prisma.StudentCreateWithoutAssessmentsInput, Prisma.StudentUncheckedCreateWithoutAssessmentsInput>
+}
+
+export type StudentUpsertWithoutAssessmentsInput = {
+  update: Prisma.XOR<Prisma.StudentUpdateWithoutAssessmentsInput, Prisma.StudentUncheckedUpdateWithoutAssessmentsInput>
+  create: Prisma.XOR<Prisma.StudentCreateWithoutAssessmentsInput, Prisma.StudentUncheckedCreateWithoutAssessmentsInput>
+  where?: Prisma.StudentWhereInput
+}
+
+export type StudentUpdateToOneWithWhereWithoutAssessmentsInput = {
+  where?: Prisma.StudentWhereInput
+  data: Prisma.XOR<Prisma.StudentUpdateWithoutAssessmentsInput, Prisma.StudentUncheckedUpdateWithoutAssessmentsInput>
+}
+
+export type StudentUpdateWithoutAssessmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  institution?: Prisma.InstitutionUpdateOneRequiredWithoutStudentsNestedInput
+  files?: Prisma.StudentFileUpdateManyWithoutStudentNestedInput
+}
+
+export type StudentUncheckedUpdateWithoutAssessmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  institutionId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  files?: Prisma.StudentFileUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type StudentCreateManyInstitutionInput = {
@@ -499,6 +578,7 @@ export type StudentUpdateWithoutInstitutionInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   files?: Prisma.StudentFileUpdateManyWithoutStudentNestedInput
+  assessments?: Prisma.AssessmentUpdateManyWithoutStudentNestedInput
 }
 
 export type StudentUncheckedUpdateWithoutInstitutionInput = {
@@ -507,6 +587,7 @@ export type StudentUncheckedUpdateWithoutInstitutionInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   files?: Prisma.StudentFileUncheckedUpdateManyWithoutStudentNestedInput
+  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutStudentNestedInput
 }
 
 export type StudentUncheckedUpdateManyWithoutInstitutionInput = {
@@ -523,10 +604,12 @@ export type StudentUncheckedUpdateManyWithoutInstitutionInput = {
 
 export type StudentCountOutputType = {
   files: number
+  assessments: number
 }
 
 export type StudentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   files?: boolean | StudentCountOutputTypeCountFilesArgs
+  assessments?: boolean | StudentCountOutputTypeCountAssessmentsArgs
 }
 
 /**
@@ -546,6 +629,13 @@ export type StudentCountOutputTypeCountFilesArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.StudentFileWhereInput
 }
 
+/**
+ * StudentCountOutputType without action
+ */
+export type StudentCountOutputTypeCountAssessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AssessmentWhereInput
+}
+
 
 export type StudentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -555,6 +645,7 @@ export type StudentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   createdAt?: boolean
   institution?: boolean | Prisma.InstitutionDefaultArgs<ExtArgs>
   files?: boolean | Prisma.Student$filesArgs<ExtArgs>
+  assessments?: boolean | Prisma.Student$assessmentsArgs<ExtArgs>
   _count?: boolean | Prisma.StudentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["student"]>
 
@@ -588,6 +679,7 @@ export type StudentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type StudentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   institution?: boolean | Prisma.InstitutionDefaultArgs<ExtArgs>
   files?: boolean | Prisma.Student$filesArgs<ExtArgs>
+  assessments?: boolean | Prisma.Student$assessmentsArgs<ExtArgs>
   _count?: boolean | Prisma.StudentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StudentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -602,6 +694,7 @@ export type $StudentPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   objects: {
     institution: Prisma.$InstitutionPayload<ExtArgs>
     files: Prisma.$StudentFilePayload<ExtArgs>[]
+    assessments: Prisma.$AssessmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1005,6 +1098,7 @@ export interface Prisma__StudentClient<T, Null = never, ExtArgs extends runtime.
   readonly [Symbol.toStringTag]: "PrismaPromise"
   institution<T extends Prisma.InstitutionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InstitutionDefaultArgs<ExtArgs>>): Prisma.Prisma__InstitutionClient<runtime.Types.Result.GetResult<Prisma.$InstitutionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   files<T extends Prisma.Student$filesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Student$filesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StudentFilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  assessments<T extends Prisma.Student$assessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Student$assessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1456,6 +1550,30 @@ export type Student$filesArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.StudentFileScalarFieldEnum | Prisma.StudentFileScalarFieldEnum[]
+}
+
+/**
+ * Student.assessments
+ */
+export type Student$assessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Assessment
+   */
+  select?: Prisma.AssessmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Assessment
+   */
+  omit?: Prisma.AssessmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AssessmentInclude<ExtArgs> | null
+  where?: Prisma.AssessmentWhereInput
+  orderBy?: Prisma.AssessmentOrderByWithRelationInput | Prisma.AssessmentOrderByWithRelationInput[]
+  cursor?: Prisma.AssessmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AssessmentScalarFieldEnum | Prisma.AssessmentScalarFieldEnum[]
 }
 
 /**

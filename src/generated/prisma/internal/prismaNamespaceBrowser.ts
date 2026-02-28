@@ -55,7 +55,8 @@ export const ModelName = {
   Institution: 'Institution',
   InstitutionUser: 'InstitutionUser',
   Student: 'Student',
-  StudentFile: 'StudentFile'
+  StudentFile: 'StudentFile',
+  Assessment: 'Assessment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -125,6 +126,17 @@ export const StudentFileScalarFieldEnum = {
 } as const
 
 export type StudentFileScalarFieldEnum = (typeof StudentFileScalarFieldEnum)[keyof typeof StudentFileScalarFieldEnum]
+
+
+export const AssessmentScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  content: 'content',
+  studentId: 'studentId',
+  createdAt: 'createdAt'
+} as const
+
+export type AssessmentScalarFieldEnum = (typeof AssessmentScalarFieldEnum)[keyof typeof AssessmentScalarFieldEnum]
 
 
 export const SortOrder = {

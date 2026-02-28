@@ -3,7 +3,7 @@ import authRoutes from "./modules/auth/auth.routes";
 import institutionRoutes from "./modules/institution/institution.routes";
 import studentsRoutes from "./modules/student/student.routes";
 import userRoutes from "./modules/user/user.routes";
-import aiGeneratorRoutes from "./modules/ai-generator/ai-generator.routes";
+import assessmentRoutes from "./modules/assessment/assessment.routes";
 const routes = Router();
 
 routes.get("/health", (req, res) => {
@@ -14,6 +14,6 @@ routes.use("/users", userRoutes);
 routes.use("/auth", authRoutes);
 routes.use("/institutions", institutionRoutes);
 routes.use("/students", studentsRoutes);
-routes.use("/ai-generator", aiGeneratorRoutes);
+routes.use("/assessment", assessmentRoutes);
 
 export default routes;
