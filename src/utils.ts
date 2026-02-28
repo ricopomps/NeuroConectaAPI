@@ -1,5 +1,4 @@
 import htmlPdf, { CreateOptions } from "html-pdf";
-import { marked } from "marked";
 
 export const htmlToPdf = (
   htmlContent: string,
@@ -24,11 +23,17 @@ export const htmlToPdf = (
       });
   });
 
-export const markdownToPdf = async (markdownContent: string, options: CreateOptions = {}) => {
-    const htmlContent = await markdownToHtml(markdownContent);
-    return htmlToPdf(htmlContent, options);
-}
+export const markdownToPdf = async (
+  markdownContent: string,
+  options: CreateOptions = {},
+) => {
+  const htmlContent = await markdownToHtml(markdownContent);
+  return htmlToPdf(htmlContent, options);
+};
 
-export const markdownToHtml = async (markdownContent: string): Promise<string> => {
+export const markdownToHtml = async (
+  markdownContent: string,
+): Promise<string> => {
+  const { marked } = await import("marked");
   return marked.parse(markdownContent);
-}
+};
