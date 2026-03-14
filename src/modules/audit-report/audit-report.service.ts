@@ -1,15 +1,15 @@
-import moment from "moment";
 import jwt from "jsonwebtoken";
+import moment from "moment";
+import { SELF_BASE_URL } from "../../config/env";
+import { TreatedAiFeatures } from "../../constants/ai-constants/ai-features";
+import { AiProviders } from "../../constants/ai-constants/ai-providers";
+import { PRIVATE_KEY, PUBLIC_KEY } from "../../constants/ai-constants/keys";
+import { AiFeature } from "../../generated/prisma/enums";
+import { toExcel } from "../../utils";
 import {
   AiAuditReportFiltersDto,
   AuditReportRepository,
 } from "./audit-report.repository";
-import { PRIVATE_KEY, PUBLIC_KEY } from "../../constants/ai-constants/keys";
-import { SELF_BASE_URL } from "../../config/env";
-import { TreatedAiFeatures } from "../../constants/ai-constants/ai-features";
-import { toExcel } from "../../utils";
-import { AiFeature } from "../../generated/prisma/enums";
-import { AiProviders } from "../../constants/ai-constants/ai-providers";
 
 export class AuditLogService {
   private readonly auditReportRepository = new AuditReportRepository();
@@ -32,7 +32,7 @@ export class AuditLogService {
       data: auditReportData,
       totalTokenInputQty,
       totalTokenOutputQty,
-      excelUrl: await this.getExcelUrl(filters),
+      //   excelUrl: await this.getExcelUrl(filters),
     };
   }
 
@@ -103,6 +103,14 @@ export class AuditLogService {
     model: string,
   ) {
     // TODO LUIZ - Obter o usuário logado
-    await this.auditReportRepository.saveAuditLog({ aiProvider, feature, tokenInputQty, tokenOutputQty, imagesQty, model, userId: '0218f043-a9aa-4a85-91d0-d6f7ad859466' });
+    await this.auditReportRepository.saveAuditLog({
+      aiProvider,
+      feature,
+      tokenInputQty,
+      tokenOutputQty,
+      imagesQty,
+      model,
+      userId: "0218f043-a9aa-4a85-91d0-d6f7ad859466",
+    });
   }
 }
