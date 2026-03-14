@@ -8,19 +8,20 @@ import { GenerateTextParams } from "./dto/generate-text-params";
 import { GenerateTextResponse } from "./dto/generate-text-response";
 import { GenerativeAiService } from "./generative-ai.service";
 import { ContentRoles } from "../../constants/ai-constants/content-roles";
-import { AiFeatures } from "../../constants/ai-constants/ai-features";
 import { AiProviders } from "../../constants/ai-constants/ai-providers";
 import { AzureOpenAI } from "openai";
+import { AiFeature } from "../../generated/prisma/enums";
+import { AuditLogService } from "../audit-report/audit-report.service";
 
-export class ChatGptAiService implements GenerativeAiService {
-  constructor() {
-    // private auditLogService: AuditLogService
+export class ChatGptAiService extends GenerativeAiService {
+  constructor(private readonly auditLogService: AuditLogService) {
+    super();
   }
 
   async generateText(
-    params: GenerateTextParams
+    params: GenerateTextParams,
   ): Promise<GenerateTextResponse> {
-    if (params.feature === AiFeatures.SUMMARIZE_TEXT) {
+    if (params.feature === AiFeature.SUMMARIZE_TEXT) {
       // // convert
       // const contentChat: OpenAIContent = {
       //   role:
@@ -70,14 +71,14 @@ export class ChatGptAiService implements GenerativeAiService {
         model: AZURE_OPENAI_DEPLOYMENT || "",
       });
 
-      // await this.auditLogService.saveRequest(
-      //   AiProviders.OPEN_AI,
-      //   params.feature,
-      //   result.usage.promptTokens,
-      //   result.usage.completionTokens,
-      //   params.imagesQty || 0,
-      //   AZURE_OPENAI_MODEL || '',
-      // );
+      await this.auditLogService.saveRequest(
+        AiProviders.OPEN_AI,
+        params.feature,
+        response.usage?.prompt_tokens,
+        response.usage?.completion_tokens,
+        params.imagesQty || 0,
+        AZURE_OPENAI_MODEL || "",
+      );
 
       return {
         text: response.choices[0].message.content,

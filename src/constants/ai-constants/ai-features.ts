@@ -1,15 +1,12 @@
-export enum AiFeatures {
-  GENERATE_PAEE = 'GENERATE_PAEE',
-  SUMMARIZE_TEXT = 'SUMMARIZE_TEXT',
-}
+import { AiFeature } from "../../generated/prisma/enums";
 
 export const TreatedAiFeatures = [
   {
     name: 'Gerar PAEE',
-    value: AiFeatures.GENERATE_PAEE,
+    value: AiFeature.GENERATE_PAEE,
   },
   {
     name: 'Resumir Documentos',
-    value: AiFeatures.SUMMARIZE_TEXT,
+    value: AiFeature.SUMMARIZE_TEXT,
   },
 ];

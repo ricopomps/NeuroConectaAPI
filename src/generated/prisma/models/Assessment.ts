@@ -183,6 +183,7 @@ export type AssessmentWhereInput = {
   studentId?: Prisma.StringFilter<"Assessment"> | string
   createdAt?: Prisma.DateTimeFilter<"Assessment"> | Date | string
   student?: Prisma.XOR<Prisma.StudentScalarRelationFilter, Prisma.StudentWhereInput>
+  olderVersions?: Prisma.AssessmentHistoryListRelationFilter
 }
 
 export type AssessmentOrderByWithRelationInput = {
@@ -192,6 +193,7 @@ export type AssessmentOrderByWithRelationInput = {
   studentId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   student?: Prisma.StudentOrderByWithRelationInput
+  olderVersions?: Prisma.AssessmentHistoryOrderByRelationAggregateInput
 }
 
 export type AssessmentWhereUniqueInput = Prisma.AtLeast<{
@@ -204,6 +206,7 @@ export type AssessmentWhereUniqueInput = Prisma.AtLeast<{
   studentId?: Prisma.StringFilter<"Assessment"> | string
   createdAt?: Prisma.DateTimeFilter<"Assessment"> | Date | string
   student?: Prisma.XOR<Prisma.StudentScalarRelationFilter, Prisma.StudentWhereInput>
+  olderVersions?: Prisma.AssessmentHistoryListRelationFilter
 }, "id">
 
 export type AssessmentOrderByWithAggregationInput = {
@@ -234,6 +237,7 @@ export type AssessmentCreateInput = {
   content: string
   createdAt?: Date | string
   student: Prisma.StudentCreateNestedOneWithoutAssessmentsInput
+  olderVersions?: Prisma.AssessmentHistoryCreateNestedManyWithoutAssessmentInput
 }
 
 export type AssessmentUncheckedCreateInput = {
@@ -242,6 +246,7 @@ export type AssessmentUncheckedCreateInput = {
   content: string
   studentId: string
   createdAt?: Date | string
+  olderVersions?: Prisma.AssessmentHistoryUncheckedCreateNestedManyWithoutAssessmentInput
 }
 
 export type AssessmentUpdateInput = {
@@ -250,6 +255,7 @@ export type AssessmentUpdateInput = {
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   student?: Prisma.StudentUpdateOneRequiredWithoutAssessmentsNestedInput
+  olderVersions?: Prisma.AssessmentHistoryUpdateManyWithoutAssessmentNestedInput
 }
 
 export type AssessmentUncheckedUpdateInput = {
@@ -258,6 +264,7 @@ export type AssessmentUncheckedUpdateInput = {
   content?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  olderVersions?: Prisma.AssessmentHistoryUncheckedUpdateManyWithoutAssessmentNestedInput
 }
 
 export type AssessmentCreateManyInput = {
@@ -317,6 +324,11 @@ export type AssessmentMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
 }
 
+export type AssessmentScalarRelationFilter = {
+  is?: Prisma.AssessmentWhereInput
+  isNot?: Prisma.AssessmentWhereInput
+}
+
 export type AssessmentCreateNestedManyWithoutStudentInput = {
   create?: Prisma.XOR<Prisma.AssessmentCreateWithoutStudentInput, Prisma.AssessmentUncheckedCreateWithoutStudentInput> | Prisma.AssessmentCreateWithoutStudentInput[] | Prisma.AssessmentUncheckedCreateWithoutStudentInput[]
   connectOrCreate?: Prisma.AssessmentCreateOrConnectWithoutStudentInput | Prisma.AssessmentCreateOrConnectWithoutStudentInput[]
@@ -359,11 +371,26 @@ export type AssessmentUncheckedUpdateManyWithoutStudentNestedInput = {
   deleteMany?: Prisma.AssessmentScalarWhereInput | Prisma.AssessmentScalarWhereInput[]
 }
 
+export type AssessmentCreateNestedOneWithoutOlderVersionsInput = {
+  create?: Prisma.XOR<Prisma.AssessmentCreateWithoutOlderVersionsInput, Prisma.AssessmentUncheckedCreateWithoutOlderVersionsInput>
+  connectOrCreate?: Prisma.AssessmentCreateOrConnectWithoutOlderVersionsInput
+  connect?: Prisma.AssessmentWhereUniqueInput
+}
+
+export type AssessmentUpdateOneRequiredWithoutOlderVersionsNestedInput = {
+  create?: Prisma.XOR<Prisma.AssessmentCreateWithoutOlderVersionsInput, Prisma.AssessmentUncheckedCreateWithoutOlderVersionsInput>
+  connectOrCreate?: Prisma.AssessmentCreateOrConnectWithoutOlderVersionsInput
+  upsert?: Prisma.AssessmentUpsertWithoutOlderVersionsInput
+  connect?: Prisma.AssessmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AssessmentUpdateToOneWithWhereWithoutOlderVersionsInput, Prisma.AssessmentUpdateWithoutOlderVersionsInput>, Prisma.AssessmentUncheckedUpdateWithoutOlderVersionsInput>
+}
+
 export type AssessmentCreateWithoutStudentInput = {
   id?: string
   name: string
   content: string
   createdAt?: Date | string
+  olderVersions?: Prisma.AssessmentHistoryCreateNestedManyWithoutAssessmentInput
 }
 
 export type AssessmentUncheckedCreateWithoutStudentInput = {
@@ -371,6 +398,7 @@ export type AssessmentUncheckedCreateWithoutStudentInput = {
   name: string
   content: string
   createdAt?: Date | string
+  olderVersions?: Prisma.AssessmentHistoryUncheckedCreateNestedManyWithoutAssessmentInput
 }
 
 export type AssessmentCreateOrConnectWithoutStudentInput = {
@@ -410,6 +438,54 @@ export type AssessmentScalarWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Assessment"> | Date | string
 }
 
+export type AssessmentCreateWithoutOlderVersionsInput = {
+  id?: string
+  name: string
+  content: string
+  createdAt?: Date | string
+  student: Prisma.StudentCreateNestedOneWithoutAssessmentsInput
+}
+
+export type AssessmentUncheckedCreateWithoutOlderVersionsInput = {
+  id?: string
+  name: string
+  content: string
+  studentId: string
+  createdAt?: Date | string
+}
+
+export type AssessmentCreateOrConnectWithoutOlderVersionsInput = {
+  where: Prisma.AssessmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.AssessmentCreateWithoutOlderVersionsInput, Prisma.AssessmentUncheckedCreateWithoutOlderVersionsInput>
+}
+
+export type AssessmentUpsertWithoutOlderVersionsInput = {
+  update: Prisma.XOR<Prisma.AssessmentUpdateWithoutOlderVersionsInput, Prisma.AssessmentUncheckedUpdateWithoutOlderVersionsInput>
+  create: Prisma.XOR<Prisma.AssessmentCreateWithoutOlderVersionsInput, Prisma.AssessmentUncheckedCreateWithoutOlderVersionsInput>
+  where?: Prisma.AssessmentWhereInput
+}
+
+export type AssessmentUpdateToOneWithWhereWithoutOlderVersionsInput = {
+  where?: Prisma.AssessmentWhereInput
+  data: Prisma.XOR<Prisma.AssessmentUpdateWithoutOlderVersionsInput, Prisma.AssessmentUncheckedUpdateWithoutOlderVersionsInput>
+}
+
+export type AssessmentUpdateWithoutOlderVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  student?: Prisma.StudentUpdateOneRequiredWithoutAssessmentsNestedInput
+}
+
+export type AssessmentUncheckedUpdateWithoutOlderVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  studentId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type AssessmentCreateManyStudentInput = {
   id?: string
   name: string
@@ -422,6 +498,7 @@ export type AssessmentUpdateWithoutStudentInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  olderVersions?: Prisma.AssessmentHistoryUpdateManyWithoutAssessmentNestedInput
 }
 
 export type AssessmentUncheckedUpdateWithoutStudentInput = {
@@ -429,6 +506,7 @@ export type AssessmentUncheckedUpdateWithoutStudentInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  olderVersions?: Prisma.AssessmentHistoryUncheckedUpdateManyWithoutAssessmentNestedInput
 }
 
 export type AssessmentUncheckedUpdateManyWithoutStudentInput = {
@@ -439,6 +517,35 @@ export type AssessmentUncheckedUpdateManyWithoutStudentInput = {
 }
 
 
+/**
+ * Count Type AssessmentCountOutputType
+ */
+
+export type AssessmentCountOutputType = {
+  olderVersions: number
+}
+
+export type AssessmentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  olderVersions?: boolean | AssessmentCountOutputTypeCountOlderVersionsArgs
+}
+
+/**
+ * AssessmentCountOutputType without action
+ */
+export type AssessmentCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AssessmentCountOutputType
+   */
+  select?: Prisma.AssessmentCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * AssessmentCountOutputType without action
+ */
+export type AssessmentCountOutputTypeCountOlderVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AssessmentHistoryWhereInput
+}
+
 
 export type AssessmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -447,6 +554,8 @@ export type AssessmentSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   studentId?: boolean
   createdAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
+  olderVersions?: boolean | Prisma.Assessment$olderVersionsArgs<ExtArgs>
+  _count?: boolean | Prisma.AssessmentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["assessment"]>
 
 export type AssessmentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -478,6 +587,8 @@ export type AssessmentSelectScalar = {
 export type AssessmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "content" | "studentId" | "createdAt", ExtArgs["result"]["assessment"]>
 export type AssessmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
+  olderVersions?: boolean | Prisma.Assessment$olderVersionsArgs<ExtArgs>
+  _count?: boolean | Prisma.AssessmentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AssessmentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -490,6 +601,7 @@ export type $AssessmentPayload<ExtArgs extends runtime.Types.Extensions.Internal
   name: "Assessment"
   objects: {
     student: Prisma.$StudentPayload<ExtArgs>
+    olderVersions: Prisma.$AssessmentHistoryPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -892,6 +1004,7 @@ readonly fields: AssessmentFieldRefs;
 export interface Prisma__AssessmentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   student<T extends Prisma.StudentDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StudentDefaultArgs<ExtArgs>>): Prisma.Prisma__StudentClient<runtime.Types.Result.GetResult<Prisma.$StudentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  olderVersions<T extends Prisma.Assessment$olderVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Assessment$olderVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssessmentHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1319,6 +1432,30 @@ export type AssessmentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Limit how many Assessments to delete.
    */
   limit?: number
+}
+
+/**
+ * Assessment.olderVersions
+ */
+export type Assessment$olderVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AssessmentHistory
+   */
+  select?: Prisma.AssessmentHistorySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AssessmentHistory
+   */
+  omit?: Prisma.AssessmentHistoryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AssessmentHistoryInclude<ExtArgs> | null
+  where?: Prisma.AssessmentHistoryWhereInput
+  orderBy?: Prisma.AssessmentHistoryOrderByWithRelationInput | Prisma.AssessmentHistoryOrderByWithRelationInput[]
+  cursor?: Prisma.AssessmentHistoryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AssessmentHistoryScalarFieldEnum | Prisma.AssessmentHistoryScalarFieldEnum[]
 }
 
 /**

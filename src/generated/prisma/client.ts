@@ -67,3 +67,13 @@ export type StudentFile = Prisma.StudentFileModel
  * 
  */
 export type Assessment = Prisma.AssessmentModel
+/**
+ * Model AssessmentHistory
+ * 
+ */
+export type AssessmentHistory = Prisma.AssessmentHistoryModel
+/**
+ * Model AuditLog
+ * 
+ */
+export type AuditLog = Prisma.AuditLogModel

@@ -4,6 +4,7 @@ import institutionRoutes from "./modules/institution/institution.routes";
 import studentsRoutes from "./modules/student/student.routes";
 import userRoutes from "./modules/user/user.routes";
 import assessmentRoutes from "./modules/assessment/assessment.routes";
+import auditLogRoutes from "./modules/audit-report/audit-report.routes";
 const routes = Router();
 
 routes.get("/health", (req, res) => {
@@ -15,5 +16,6 @@ routes.use("/auth", authRoutes);
 routes.use("/institutions", institutionRoutes);
 routes.use("/students", studentsRoutes);
 routes.use("/assessment", assessmentRoutes);
+routes.use("/audit-report", auditLogRoutes);
 
 export default routes;

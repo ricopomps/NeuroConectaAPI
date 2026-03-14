@@ -9,7 +9,9 @@
 * 🟢 You can import this file directly.
 */
 
+export const AiFeature = {
+  GENERATE_PAEE: 'GENERATE_PAEE',
+  SUMMARIZE_TEXT: 'SUMMARIZE_TEXT'
+} as const
 
-
-// This file is empty because there are no enums in the schema.
-export {}
+export type AiFeature = (typeof AiFeature)[keyof typeof AiFeature]

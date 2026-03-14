@@ -1,23 +1,23 @@
 import { GenerativeAiService } from "../generative-ai/generative-ai.service";
 import { GoogleGenerativeAiService } from "../generative-ai/google-generative-ai.service";
-import { AiFeatures } from "../../constants/ai-constants/ai-features";
-import { GenerateTextResponse } from "../generative-ai/dto/generate-text-response";
 import { AI_SOURCE, SELF_BASE_URL } from "../../config/env";
 import { AI_SOURCE_OPEN_AI } from "../../constants/ai-constants/ai-source";
 import { ChatGptAiService } from "../generative-ai/chatgpt-generative-ai.service";
-import { StudentFile } from "../../generated/prisma/client";
+import { AiFeature, StudentFile } from "../../generated/prisma/client";
 import { StudentRepository } from "../student/student.repository";
 import { StudentService } from "../student/student.service";
-import { AiProviders } from "../../constants/ai-constants/ai-providers";
 import { AssessmentRepository } from "./assessment.repository";
 import { PRIVATE_KEY, PUBLIC_KEY } from "../../constants/ai-constants/keys";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 import { markdownToPdf } from "../../utils";
+import { AssessmentHistoryRepository } from "../assessment-history/assessment-history.repository";
+import { prisma } from "../../shared/prisma";
 
 export class AssessmentService {
   private readonly generativeAiService: GenerativeAiService;
   private readonly studentRepo = new StudentRepository();
   private readonly assessmentRepo = new AssessmentRepository();
+  private readonly assessmentHistoryRepo = new AssessmentHistoryRepository();
   private studentService: StudentService;
 
   constructor() {
@@ -30,7 +30,10 @@ export class AssessmentService {
 
   async listAssessments(studentId: string) {
     const assessments = await this.assessmentRepo.findByStudent(studentId);
-    return assessments.map(a => ({ ...a, url: this.getTokenData(a.name, a.content)}));
+    return assessments.map((a) => ({
+      ...a,
+      url: this.getTokenData(a.name, a.content),
+    }));
   }
 
   async createAssessment(name: string, content: string, studentId: string) {
@@ -39,8 +42,19 @@ export class AssessmentService {
   }
 
   async updateAssessment(id: string, name?: string, content?: string) {
-    const assessment = await this.assessmentRepo.update(id, name, content);
-    return this.getTokenData(assessment.name, assessment.content);
+    await prisma.$transaction(async (tx) => {
+      const oldAssessment = await this.assessmentRepo.findById(id);
+
+      await this.assessmentHistoryRepo.create(oldAssessment.content, id, tx);
+      const assessment = await this.assessmentRepo.update(
+        id,
+        name,
+        content,
+        tx,
+      );
+
+      return this.getTokenData(assessment.name, assessment.content);
+    });
   }
 
   async downloadDocument(token: string) {
@@ -57,10 +71,12 @@ export class AssessmentService {
 
   getTokenData(name: string, content: string) {
     const token = jwt.sign({ sub: content }, PRIVATE_KEY, {
-      expiresIn: '1h',
-      algorithm: 'RS256',
+      expiresIn: "1h",
+      algorithm: "RS256",
     });
-    return encodeURI(`${SELF_BASE_URL}/assessment/download/${token}/${name}.pdf`);
+    return encodeURI(
+      `${SELF_BASE_URL}/assessment/download/${token}/${name}.pdf`,
+    );
   }
 
   async generateDoc(files: StudentFile[]): Promise<string> {
@@ -77,7 +93,7 @@ export class AssessmentService {
     const response = await this.generativeAiService.generateText({
       contents: [],
       systemInstruction,
-      feature: AiFeatures.GENERATE_PAEE,
+      feature: AiFeature.GENERATE_PAEE,
     });
     return response.text || "";
   }

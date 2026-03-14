@@ -7,7 +7,6 @@ export class AssessmentController {
   async generateDoc(req: Request, res: Response) {
     const files = req.body?.files;
     const response = await this.assessmentService.generateDoc(files);
-    console.log("CHEGOU AQUI, DE BOAÇA");
     return res.json({ response });
   }
 

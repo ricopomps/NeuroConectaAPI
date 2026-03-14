@@ -56,7 +56,9 @@ export const ModelName = {
   InstitutionUser: 'InstitutionUser',
   Student: 'Student',
   StudentFile: 'StudentFile',
-  Assessment: 'Assessment'
+  Assessment: 'Assessment',
+  AssessmentHistory: 'AssessmentHistory',
+  AuditLog: 'AuditLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -137,6 +139,31 @@ export const AssessmentScalarFieldEnum = {
 } as const
 
 export type AssessmentScalarFieldEnum = (typeof AssessmentScalarFieldEnum)[keyof typeof AssessmentScalarFieldEnum]
+
+
+export const AssessmentHistoryScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  assessmentId: 'assessmentId',
+  createdAt: 'createdAt'
+} as const
+
+export type AssessmentHistoryScalarFieldEnum = (typeof AssessmentHistoryScalarFieldEnum)[keyof typeof AssessmentHistoryScalarFieldEnum]
+
+
+export const AuditLogScalarFieldEnum = {
+  id: 'id',
+  aiProvider: 'aiProvider',
+  feature: 'feature',
+  model: 'model',
+  tokenInputQty: 'tokenInputQty',
+  tokenOutputQty: 'tokenOutputQty',
+  imagesQty: 'imagesQty',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
 export const SortOrder = {

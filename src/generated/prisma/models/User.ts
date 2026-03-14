@@ -191,6 +191,7 @@ export type UserWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   institutionUsers?: Prisma.InstitutionUserListRelationFilter
+  requisitionsToAi?: Prisma.AuditLogListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -201,6 +202,7 @@ export type UserOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   institutionUsers?: Prisma.InstitutionUserOrderByRelationAggregateInput
+  requisitionsToAi?: Prisma.AuditLogOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -214,6 +216,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   institutionUsers?: Prisma.InstitutionUserListRelationFilter
+  requisitionsToAi?: Prisma.AuditLogListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -248,6 +251,7 @@ export type UserCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   institutionUsers?: Prisma.InstitutionUserCreateNestedManyWithoutUserInput
+  requisitionsToAi?: Prisma.AuditLogCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -258,6 +262,7 @@ export type UserUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   institutionUsers?: Prisma.InstitutionUserUncheckedCreateNestedManyWithoutUserInput
+  requisitionsToAi?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -268,6 +273,7 @@ export type UserUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   institutionUsers?: Prisma.InstitutionUserUpdateManyWithoutUserNestedInput
+  requisitionsToAi?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -278,6 +284,7 @@ export type UserUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   institutionUsers?: Prisma.InstitutionUserUncheckedUpdateManyWithoutUserNestedInput
+  requisitionsToAi?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -361,6 +368,20 @@ export type UserUpdateOneRequiredWithoutInstitutionUsersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutInstitutionUsersInput, Prisma.UserUpdateWithoutInstitutionUsersInput>, Prisma.UserUncheckedUpdateWithoutInstitutionUsersInput>
 }
 
+export type UserCreateNestedOneWithoutRequisitionsToAiInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRequisitionsToAiInput, Prisma.UserUncheckedCreateWithoutRequisitionsToAiInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRequisitionsToAiInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutRequisitionsToAiNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRequisitionsToAiInput, Prisma.UserUncheckedCreateWithoutRequisitionsToAiInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRequisitionsToAiInput
+  upsert?: Prisma.UserUpsertWithoutRequisitionsToAiInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRequisitionsToAiInput, Prisma.UserUpdateWithoutRequisitionsToAiInput>, Prisma.UserUncheckedUpdateWithoutRequisitionsToAiInput>
+}
+
 export type UserCreateWithoutInstitutionUsersInput = {
   id?: string
   name: string
@@ -368,6 +389,7 @@ export type UserCreateWithoutInstitutionUsersInput = {
   password: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  requisitionsToAi?: Prisma.AuditLogCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutInstitutionUsersInput = {
@@ -377,6 +399,7 @@ export type UserUncheckedCreateWithoutInstitutionUsersInput = {
   password: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  requisitionsToAi?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutInstitutionUsersInput = {
@@ -402,6 +425,7 @@ export type UserUpdateWithoutInstitutionUsersInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  requisitionsToAi?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutInstitutionUsersInput = {
@@ -411,6 +435,63 @@ export type UserUncheckedUpdateWithoutInstitutionUsersInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  requisitionsToAi?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutRequisitionsToAiInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  institutionUsers?: Prisma.InstitutionUserCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutRequisitionsToAiInput = {
+  id?: string
+  name: string
+  email: string
+  password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  institutionUsers?: Prisma.InstitutionUserUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutRequisitionsToAiInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutRequisitionsToAiInput, Prisma.UserUncheckedCreateWithoutRequisitionsToAiInput>
+}
+
+export type UserUpsertWithoutRequisitionsToAiInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutRequisitionsToAiInput, Prisma.UserUncheckedUpdateWithoutRequisitionsToAiInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutRequisitionsToAiInput, Prisma.UserUncheckedCreateWithoutRequisitionsToAiInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutRequisitionsToAiInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutRequisitionsToAiInput, Prisma.UserUncheckedUpdateWithoutRequisitionsToAiInput>
+}
+
+export type UserUpdateWithoutRequisitionsToAiInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  institutionUsers?: Prisma.InstitutionUserUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutRequisitionsToAiInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  institutionUsers?: Prisma.InstitutionUserUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -420,10 +501,12 @@ export type UserUncheckedUpdateWithoutInstitutionUsersInput = {
 
 export type UserCountOutputType = {
   institutionUsers: number
+  requisitionsToAi: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   institutionUsers?: boolean | UserCountOutputTypeCountInstitutionUsersArgs
+  requisitionsToAi?: boolean | UserCountOutputTypeCountRequisitionsToAiArgs
 }
 
 /**
@@ -443,6 +526,13 @@ export type UserCountOutputTypeCountInstitutionUsersArgs<ExtArgs extends runtime
   where?: Prisma.InstitutionUserWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountRequisitionsToAiArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AuditLogWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -452,6 +542,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   institutionUsers?: boolean | Prisma.User$institutionUsersArgs<ExtArgs>
+  requisitionsToAi?: boolean | Prisma.User$requisitionsToAiArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -485,6 +576,7 @@ export type UserSelectScalar = {
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   institutionUsers?: boolean | Prisma.User$institutionUsersArgs<ExtArgs>
+  requisitionsToAi?: boolean | Prisma.User$requisitionsToAiArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -494,6 +586,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "User"
   objects: {
     institutionUsers: Prisma.$InstitutionUserPayload<ExtArgs>[]
+    requisitionsToAi: Prisma.$AuditLogPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -897,6 +990,7 @@ readonly fields: UserFieldRefs;
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   institutionUsers<T extends Prisma.User$institutionUsersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$institutionUsersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InstitutionUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  requisitionsToAi<T extends Prisma.User$requisitionsToAiArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$requisitionsToAiArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1341,6 +1435,30 @@ export type User$institutionUsersArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.InstitutionUserScalarFieldEnum | Prisma.InstitutionUserScalarFieldEnum[]
+}
+
+/**
+ * User.requisitionsToAi
+ */
+export type User$requisitionsToAiArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AuditLog
+   */
+  select?: Prisma.AuditLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AuditLog
+   */
+  omit?: Prisma.AuditLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AuditLogInclude<ExtArgs> | null
+  where?: Prisma.AuditLogWhereInput
+  orderBy?: Prisma.AuditLogOrderByWithRelationInput | Prisma.AuditLogOrderByWithRelationInput[]
+  cursor?: Prisma.AuditLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AuditLogScalarFieldEnum | Prisma.AuditLogScalarFieldEnum[]
 }
 
 /**

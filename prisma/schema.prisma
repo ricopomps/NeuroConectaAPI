@@ -22,6 +22,7 @@ model User {
     updatedAt DateTime @updatedAt
 
     institutionUsers InstitutionUser[]
+    requisitionsToAi AuditLog[]
 }
 
 model Institution {
@@ -77,4 +78,33 @@ model Assessment {
     createdAt     DateTime @default(now())
 
     student Student @relation(fields: [studentId], references: [id])
+    olderVersions AssessmentHistory[]
+}
+
+model AssessmentHistory {
+    id            String   @id @default(uuid())
+    content       String
+    assessmentId     String
+    createdAt     DateTime @default(now())
+
+    assessment Assessment @relation(fields: [assessmentId], references: [id])
+}
+
+enum AiFeature {
+  GENERATE_PAEE
+  SUMMARIZE_TEXT
+}
+
+model AuditLog {
+    id              String   @id @default(uuid())
+    aiProvider      String
+    feature         AiFeature
+    model           String
+    tokenInputQty   Int
+    tokenOutputQty  Int
+    imagesQty       Int
+    userId          String
+    createdAt       DateTime @default(now())
+
+    user User @relation(fields: [userId], references: [id])
 }
