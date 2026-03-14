@@ -391,7 +391,8 @@ export const ModelName = {
   StudentFile: 'StudentFile',
   Assessment: 'Assessment',
   AssessmentHistory: 'AssessmentHistory',
-  AuditLog: 'AuditLog'
+  AuditLog: 'AuditLog',
+  CaseStudy: 'CaseStudy'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "institution" | "institutionUser" | "student" | "studentFile" | "assessment" | "assessmentHistory" | "auditLog"
+    modelProps: "user" | "institution" | "institutionUser" | "student" | "studentFile" | "assessment" | "assessmentHistory" | "auditLog" | "caseStudy"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1003,6 +1004,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    CaseStudy: {
+      payload: Prisma.$CaseStudyPayload<ExtArgs>
+      fields: Prisma.CaseStudyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CaseStudyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CaseStudyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+        }
+        findFirst: {
+          args: Prisma.CaseStudyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CaseStudyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+        }
+        findMany: {
+          args: Prisma.CaseStudyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>[]
+        }
+        create: {
+          args: Prisma.CaseStudyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+        }
+        createMany: {
+          args: Prisma.CaseStudyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CaseStudyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>[]
+        }
+        delete: {
+          args: Prisma.CaseStudyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+        }
+        update: {
+          args: Prisma.CaseStudyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+        }
+        deleteMany: {
+          args: Prisma.CaseStudyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CaseStudyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CaseStudyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>[]
+        }
+        upsert: {
+          args: Prisma.CaseStudyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+        }
+        aggregate: {
+          args: Prisma.CaseStudyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCaseStudy>
+        }
+        groupBy: {
+          args: Prisma.CaseStudyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CaseStudyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CaseStudyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CaseStudyCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1131,6 +1206,66 @@ export const AuditLogScalarFieldEnum = {
 export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
+export const CaseStudyScalarFieldEnum = {
+  id: 'id',
+  studentId: 'studentId',
+  schoolClass: 'schoolClass',
+  responsibleName: 'responsibleName',
+  responsibleEmail: 'responsibleEmail',
+  referredBy: 'referredBy',
+  hasDiagnosis: 'hasDiagnosis',
+  diagnosis: 'diagnosis',
+  informantName: 'informantName',
+  informantRelation: 'informantRelation',
+  informantEmail: 'informantEmail',
+  responsiblePhone: 'responsiblePhone',
+  informantPhone: 'informantPhone',
+  pregnancyHistory: 'pregnancyHistory',
+  developmentMilestones: 'developmentMilestones',
+  healthHistory: 'healthHistory',
+  walkingDevelopment: 'walkingDevelopment',
+  speechDevelopment: 'speechDevelopment',
+  sphincterControl: 'sphincterControl',
+  vision: 'vision',
+  hearing: 'hearing',
+  sleep: 'sleep',
+  usesMedication: 'usesMedication',
+  medicationName: 'medicationName',
+  medicationAtSchool: 'medicationAtSchool',
+  feeding: 'feeding',
+  foodSelectivity: 'foodSelectivity',
+  foodRestrictions: 'foodRestrictions',
+  bathroomIndependence: 'bathroomIndependence',
+  dressing: 'dressing',
+  locomotion: 'locomotion',
+  comprehensionLevel: 'comprehensionLevel',
+  socialInteraction: 'socialInteraction',
+  communicationTypes: 'communicationTypes',
+  specificInterest: 'specificInterest',
+  crisisRegulationStrategy: 'crisisRegulationStrategy',
+  priorityAreas: 'priorityAreas',
+  sensorySensitivity: 'sensorySensitivity',
+  attention: 'attention',
+  frustrationTolerance: 'frustrationTolerance',
+  commandUnderstanding: 'commandUnderstanding',
+  classificationSkill: 'classificationSkill',
+  seriationSkill: 'seriationSkill',
+  spatialConcepts: 'spatialConcepts',
+  readingLevel: 'readingLevel',
+  mathReasoning: 'mathReasoning',
+  learningStyle: 'learningStyle',
+  strengths: 'strengths',
+  difficulties: 'difficulties',
+  currentSupports: 'currentSupports',
+  aeeOpinion: 'aeeOpinion',
+  suggestedAdaptations: 'suggestedAdaptations',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CaseStudyScalarFieldEnum = (typeof CaseStudyScalarFieldEnum)[keyof typeof CaseStudyScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1145,6 +1280,14 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 
@@ -1206,6 +1349,13 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -1325,6 +1475,7 @@ export type GlobalOmitConfig = {
   assessment?: Prisma.AssessmentOmit
   assessmentHistory?: Prisma.AssessmentHistoryOmit
   auditLog?: Prisma.AuditLogOmit
+  caseStudy?: Prisma.CaseStudyOmit
 }
 
 /* Types for Logging */

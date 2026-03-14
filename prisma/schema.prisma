@@ -53,9 +53,10 @@ model Student {
     institutionId String
     createdAt     DateTime @default(now())
 
-    institution Institution @relation(fields: [institutionId], references: [id])
-    files        StudentFile[]
-    assessments  Assessment[]
+    institution Institution   @relation(fields: [institutionId], references: [id])
+    files       StudentFile[]
+    assessments Assessment[]
+    caseStudies CaseStudy[]
 }
 
 model StudentFile {
@@ -71,40 +72,99 @@ model StudentFile {
 }
 
 model Assessment {
-    id            String   @id @default(uuid())
-    name          String
-    content       String
-    studentId     String
-    createdAt     DateTime @default(now())
+    id        String   @id @default(uuid())
+    name      String
+    content   String
+    studentId String
+    createdAt DateTime @default(now())
 
-    student Student @relation(fields: [studentId], references: [id])
+    student       Student             @relation(fields: [studentId], references: [id])
     olderVersions AssessmentHistory[]
 }
 
 model AssessmentHistory {
-    id            String   @id @default(uuid())
-    content       String
-    assessmentId     String
-    createdAt     DateTime @default(now())
+    id           String   @id @default(uuid())
+    content      String
+    assessmentId String
+    createdAt    DateTime @default(now())
 
     assessment Assessment @relation(fields: [assessmentId], references: [id])
 }
 
 enum AiFeature {
-  GENERATE_PAEE
-  SUMMARIZE_TEXT
+    GENERATE_PAEE
+    SUMMARIZE_TEXT
 }
 
 model AuditLog {
-    id              String   @id @default(uuid())
-    aiProvider      String
-    feature         AiFeature
-    model           String
-    tokenInputQty   Int
-    tokenOutputQty  Int
-    imagesQty       Int
-    userId          String
-    createdAt       DateTime @default(now())
+    id             String    @id @default(uuid())
+    aiProvider     String
+    feature        AiFeature
+    model          String
+    tokenInputQty  Int
+    tokenOutputQty Int
+    imagesQty      Int
+    userId         String
+    createdAt      DateTime  @default(now())
 
     user User @relation(fields: [userId], references: [id])
+}
+
+model CaseStudy {
+    id                       String   @id @default(uuid())
+    studentId                String
+    schoolClass              String
+    responsibleName          String
+    responsibleEmail         String
+    referredBy               String
+    hasDiagnosis             Boolean
+    diagnosis                String?
+    informantName            String
+    informantRelation        String
+    informantEmail           String
+    responsiblePhone         String
+    informantPhone           String
+    pregnancyHistory         String
+    developmentMilestones    String
+    healthHistory            String
+    walkingDevelopment       String
+    speechDevelopment        String
+    sphincterControl         String
+    vision                   String
+    hearing                  String
+    sleep                    String
+    usesMedication           Boolean
+    medicationName           String?
+    medicationAtSchool       Boolean
+    feeding                  String
+    foodSelectivity          Boolean
+    foodRestrictions         String?
+    bathroomIndependence     String
+    dressing                 String
+    locomotion               String
+    comprehensionLevel       String
+    socialInteraction        String
+    communicationTypes       String[]
+    specificInterest         String?
+    crisisRegulationStrategy String?
+    priorityAreas            String[]
+    sensorySensitivity       String[]
+    attention                String
+    frustrationTolerance     String
+    commandUnderstanding     String
+    classificationSkill      String
+    seriationSkill           String
+    spatialConcepts          String
+    readingLevel             String
+    mathReasoning            String
+    learningStyle            String
+    strengths                String?
+    difficulties             String?
+    currentSupports          String?
+    aeeOpinion               String
+    suggestedAdaptations     String?
+    createdAt                DateTime @default(now())
+    updatedAt                DateTime @updatedAt
+
+    student Student @relation(fields: [studentId], references: [id])
 }

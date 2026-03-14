@@ -57,3 +57,8 @@ export type AssessmentHistory = Prisma.AssessmentHistoryModel
  * 
  */
 export type AuditLog = Prisma.AuditLogModel
+/**
+ * Model CaseStudy
+ * 
+ */
+export type CaseStudy = Prisma.CaseStudyModel

@@ -58,7 +58,8 @@ export const ModelName = {
   StudentFile: 'StudentFile',
   Assessment: 'Assessment',
   AssessmentHistory: 'AssessmentHistory',
-  AuditLog: 'AuditLog'
+  AuditLog: 'AuditLog',
+  CaseStudy: 'CaseStudy'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -166,6 +167,66 @@ export const AuditLogScalarFieldEnum = {
 export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
+export const CaseStudyScalarFieldEnum = {
+  id: 'id',
+  studentId: 'studentId',
+  schoolClass: 'schoolClass',
+  responsibleName: 'responsibleName',
+  responsibleEmail: 'responsibleEmail',
+  referredBy: 'referredBy',
+  hasDiagnosis: 'hasDiagnosis',
+  diagnosis: 'diagnosis',
+  informantName: 'informantName',
+  informantRelation: 'informantRelation',
+  informantEmail: 'informantEmail',
+  responsiblePhone: 'responsiblePhone',
+  informantPhone: 'informantPhone',
+  pregnancyHistory: 'pregnancyHistory',
+  developmentMilestones: 'developmentMilestones',
+  healthHistory: 'healthHistory',
+  walkingDevelopment: 'walkingDevelopment',
+  speechDevelopment: 'speechDevelopment',
+  sphincterControl: 'sphincterControl',
+  vision: 'vision',
+  hearing: 'hearing',
+  sleep: 'sleep',
+  usesMedication: 'usesMedication',
+  medicationName: 'medicationName',
+  medicationAtSchool: 'medicationAtSchool',
+  feeding: 'feeding',
+  foodSelectivity: 'foodSelectivity',
+  foodRestrictions: 'foodRestrictions',
+  bathroomIndependence: 'bathroomIndependence',
+  dressing: 'dressing',
+  locomotion: 'locomotion',
+  comprehensionLevel: 'comprehensionLevel',
+  socialInteraction: 'socialInteraction',
+  communicationTypes: 'communicationTypes',
+  specificInterest: 'specificInterest',
+  crisisRegulationStrategy: 'crisisRegulationStrategy',
+  priorityAreas: 'priorityAreas',
+  sensorySensitivity: 'sensorySensitivity',
+  attention: 'attention',
+  frustrationTolerance: 'frustrationTolerance',
+  commandUnderstanding: 'commandUnderstanding',
+  classificationSkill: 'classificationSkill',
+  seriationSkill: 'seriationSkill',
+  spatialConcepts: 'spatialConcepts',
+  readingLevel: 'readingLevel',
+  mathReasoning: 'mathReasoning',
+  learningStyle: 'learningStyle',
+  strengths: 'strengths',
+  difficulties: 'difficulties',
+  currentSupports: 'currentSupports',
+  aeeOpinion: 'aeeOpinion',
+  suggestedAdaptations: 'suggestedAdaptations',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CaseStudyScalarFieldEnum = (typeof CaseStudyScalarFieldEnum)[keyof typeof CaseStudyScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -180,4 +241,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
