@@ -62,22 +62,37 @@ export class ChatGptAiService extends GenerativeAiService {
 
       const client = new AzureOpenAI(options);
 
-      const response = await client.chat.completions.create({
-        messages: [
-          { role: "system", content: "You are a helpful assistant." },
-          { role: "user", content: params.systemInstruction },
+      // const response = await client.chat.completions.create({
+      //   messages: [
+      //     { role: "system", content: "You are a helpful assistant." },
+      //     { role: "user", content: params.systemInstruction },
+      //   ],
+      //   max_completion_tokens: 16384,
+      //   model: AZURE_OPENAI_DEPLOYMENT || "",
+      // });
+
+      const response = {
+        usage: {
+          prompt_tokens: 333,
+          completion_tokens: 344,
+        },
+        choices: [
+          {
+            message: {
+              content: "APENAS UMA RESPOSTA TESTE",
+            },
+          },
         ],
-        max_completion_tokens: 16384,
-        model: AZURE_OPENAI_DEPLOYMENT || "",
-      });
+        model: "gpt-teste-mock",
+      };
 
       await this.auditLogService.saveRequest(
         AiProviders.OPEN_AI,
         params.feature,
-        response.usage?.prompt_tokens,
-        response.usage?.completion_tokens,
+        response.usage?.prompt_tokens || 0,
+        response.usage?.completion_tokens || 0,
         params.imagesQty || 0,
-        AZURE_OPENAI_MODEL || "",
+        response.model,
       );
 
       return {

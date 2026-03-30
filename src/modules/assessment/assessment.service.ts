@@ -3,7 +3,11 @@ import { GoogleGenerativeAiService } from "../generative-ai/google-generative-ai
 import { AI_SOURCE, SELF_BASE_URL } from "../../config/env";
 import { AI_SOURCE_OPEN_AI } from "../../constants/ai-constants/ai-source";
 import { ChatGptAiService } from "../generative-ai/chatgpt-generative-ai.service";
-import { AiFeature, StudentFile } from "../../generated/prisma/client";
+import {
+  AiFeature,
+  CaseStudy,
+  StudentFile,
+} from "../../generated/prisma/client";
 import { StudentRepository } from "../student/student.repository";
 import { StudentService } from "../student/student.service";
 import { AssessmentRepository } from "./assessment.repository";
@@ -12,18 +16,22 @@ import jwt from "jsonwebtoken";
 import { markdownToPdf } from "../../utils";
 import { AssessmentHistoryRepository } from "../assessment-history/assessment-history.repository";
 import { prisma } from "../../shared/prisma";
+import { AuditLogService } from "../audit-report/audit-report.service";
+import { CaseStudyRepository } from "../case-study/case-study.repository";
 
 export class AssessmentService {
   private readonly generativeAiService: GenerativeAiService;
   private readonly studentRepo = new StudentRepository();
+  private readonly caseStudyRepo = new CaseStudyRepository();
   private readonly assessmentRepo = new AssessmentRepository();
   private readonly assessmentHistoryRepo = new AssessmentHistoryRepository();
   private studentService: StudentService;
 
   constructor() {
+    const auditLogService = new AuditLogService();
     this.generativeAiService =
       AI_SOURCE?.toLowerCase() === AI_SOURCE_OPEN_AI
-        ? new ChatGptAiService()
+        ? new ChatGptAiService(auditLogService)
         : new GoogleGenerativeAiService();
     this.studentService = new StudentService();
   }
@@ -79,35 +87,39 @@ export class AssessmentService {
     );
   }
 
-  async generateDoc(files: StudentFile[]): Promise<string> {
-    const studentId = "de437eef-aa92-4dbe-99ff-b1615e8b5127"; //files[0].studentId;
+  async generateDoc(studentId: string, files: StudentFile[]): Promise<string> {
     const student = await this.studentRepo.findById(studentId);
     if (!student) {
       throw new Error("Estudante não encontrado");
     }
 
+    const lastCaseStudy = await this.caseStudyRepo.findByStudentId(studentId);
+    if (!lastCaseStudy) {
+      throw new Error("Estudo de caso não encontrado");
+    }
+
     const systemInstruction = await this.getPromptForGenerateDoc(
       student.name,
-      studentId,
+      student.birthDate,
+      lastCaseStudy,
     );
     const response = await this.generativeAiService.generateText({
       contents: [],
       systemInstruction,
       feature: AiFeature.GENERATE_PAEE,
     });
-    return response.text || "";
+    return response.text?.replace(/```markdown\n?/, "")?.replace(/```$/, "") || "";
   }
 
   private async getPromptForGenerateDoc(
     studentName: string,
-    studentId: string,
+    studentBirthDate: Date,
+    studentInfo: CaseStudy,
   ): Promise<string> {
-    const example =
-      "Esse aluno tem 15 anos e no momento encontra-se no nono ano. Ele possui hiperfoco em baleias e tem problemas com barulhos altos. O seu nível de autismo encontra-se entre os níveis 1 e 2";
-    // return `Você é um assistente virtual cuja função é, a partir de documentos como laudos, diagnósticos e avaliações de um aluno com TEA, informar qual a melhor forma de trabalhar os assuntos com esse aluno (cujo nome é ${studentName}). Aqui estão as urls de acesso aberto dos documentos, separados por vírgula, em relação a essa criança`;
-    return `Você é um assistente virtual cuja função é, a partir de dados que lhe forem passado sobre um determinado aluno diagnosticado com TEA, elaborar um Plano Educacional Individualizado(PEI - Documento pedagógico formal e obrigatório no Brasil).
-    Você deve retornar diretamente o PEI (nada de comentários antes como: "Aqui está o PEI solicitado", já retorne o PEI e só) na forma de Markdown para renderização de um documento.
-    Os dados do aluno são: { Nome: ${studentName}, informações: ${example}`;
+    const documents = [];
+    return `Você é um assistente virtual cuja função é, a partir de dados que lhe forem passado sobre um determinado aluno diagnosticado com TEA, elaborar PAEE (Plano de Atendimento Educacional Especializadoum), que deverá conter tanto um Plano de Desenvolvimento Individual (PDI) quanto um Plano Educacional Individualizado (PEI - Documento pedagógico formal e obrigatório no Brasil).
+    Você deve retornar diretamente o PAEE (nada de comentários antes como: "Aqui está o PEI solicitado", já retorne o PEI e só) na forma de Markdown para renderização de um documento.
+    Os dados do aluno são: { Nome: ${studentName}, Data de Nascimento: ${studentBirthDate} informações: ${JSON.stringify(studentInfo)} }.${documents.length ? " Além de tudo isso, segue uma listagem de documentos relevantes para diagnósticos desse aluno em formato base64: ${documents}" : ""}`;
   }
 
   private readonly downloadFile = async (url: string): Promise<Buffer> => {

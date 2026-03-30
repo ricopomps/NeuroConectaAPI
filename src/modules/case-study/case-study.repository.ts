@@ -10,6 +10,7 @@ export class CaseStudyRepository {
   async findByStudentId(studentId: string) {
     return prisma.caseStudy.findFirst({
       where: { studentId },
+      orderBy: { createdAt: 'desc' }
     });
   }
 

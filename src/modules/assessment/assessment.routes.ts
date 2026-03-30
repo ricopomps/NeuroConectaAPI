@@ -5,7 +5,7 @@ const assesmentRoutes = Router();
 
 const assessmentController = new AssessmentController();
 
-assesmentRoutes.post("/generate", (req, res) => {
+assesmentRoutes.post("/generate/:studentId", (req, res) => {
   return assessmentController.generateDoc(req, res);
 });
 

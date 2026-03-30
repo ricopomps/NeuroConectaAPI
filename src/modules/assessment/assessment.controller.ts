@@ -6,7 +6,11 @@ export class AssessmentController {
 
   async generateDoc(req: Request, res: Response) {
     const files = req.body?.files;
-    const response = await this.assessmentService.generateDoc(files);
+    const { studentId } = req.params;
+    const response = await this.assessmentService.generateDoc(
+      studentId as string,
+      files,
+    );
     return res.json({ response });
   }
 
@@ -59,8 +63,8 @@ export class AssessmentController {
       const pdf = await this.assessmentService.downloadDocument(
         token as string,
       );
-      res.contentType('pdf');
-      res.send(pdf)
+      res.contentType("pdf");
+      res.send(pdf);
     } catch (error: any) {
       return res.status(400).json({ error: error.message });
     }
