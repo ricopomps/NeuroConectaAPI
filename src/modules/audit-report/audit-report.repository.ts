@@ -8,7 +8,7 @@ export class AiAuditReportFiltersDto {
   model?: string;
   dateFrom?: Date;
   dateUntil?: Date;
-  userId?: string;
+  userName?: string;
   feature?: AiFeature;
 }
 
@@ -68,7 +68,8 @@ export class AuditReportRepository {
   }
 
   private applyFilters(filters: AiAuditReportFiltersDto) {
-    const { aiProvider, model, dateFrom, dateUntil, userId, feature } = filters;
+    const { aiProvider, model, dateFrom, dateUntil, userName, feature } =
+      filters;
     const where: any = {};
 
     if (aiProvider) {
@@ -80,11 +81,19 @@ export class AuditReportRepository {
     }
 
     if (model) {
-      where.model = model;
+      where.model = {
+        contains: model,
+        mode: "insensitive",
+      };
     }
 
-    if (userId) {
-      where.userId = userId;
+    if (userName) {
+      where.user = {
+        name: {
+          contains: userName,
+          mode: "insensitive",
+        },
+      };
     }
 
     if (dateFrom) {
@@ -92,18 +101,15 @@ export class AuditReportRepository {
     }
 
     if (dateUntil) {
-      let adjustedDateUntil = dateUntil;
-
-      if (
-        dateFrom &&
-        moment.utc(dateFrom).isSame(moment.utc(dateUntil), "day")
-      ) {
-        adjustedDateUntil = moment.utc(dateUntil).endOf("day").toDate();
-      }
-
-      where.createdAt = { lte: adjustedDateUntil };
-      return where;
+      where.createdAt = {
+        lte: moment.utc(dateUntil).endOf("day").toDate(),
+        gte: dateFrom
+          ? moment.utc(dateFrom).startOf("day").toDate()
+          : new Date(2026, 1, 1),
+      };
     }
+
+    return where;
   }
 
   async saveAuditLog(data: CreateAiAuditLog) {

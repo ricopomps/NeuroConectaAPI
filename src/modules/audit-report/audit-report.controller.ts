@@ -8,9 +8,10 @@ export class AuditLogController {
   async getAuditReport(req: Request, res: Response) {
     try {
       const { page, size, filters } = req.query;
-
       const user = await this.auditLogService.getAuditReport(
-        filters as AiAuditReportFiltersDto,
+        (filters
+          ? JSON.parse(filters as string)
+          : {}) as AiAuditReportFiltersDto,
         Number(page),
         Number(size),
       );
