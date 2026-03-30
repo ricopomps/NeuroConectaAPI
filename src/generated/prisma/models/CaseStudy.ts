@@ -74,6 +74,7 @@ export type CaseStudyMinAggregateOutputType = {
   currentSupports: string | null
   aeeOpinion: string | null
   suggestedAdaptations: string | null
+  developmentStage: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -128,6 +129,7 @@ export type CaseStudyMaxAggregateOutputType = {
   currentSupports: string | null
   aeeOpinion: string | null
   suggestedAdaptations: string | null
+  developmentStage: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -185,6 +187,10 @@ export type CaseStudyCountAggregateOutputType = {
   currentSupports: number
   aeeOpinion: number
   suggestedAdaptations: number
+  developmentStage: number
+  comorbidities: number
+  crisisBehaviors: number
+  autismCharacteristics: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -241,6 +247,7 @@ export type CaseStudyMinAggregateInputType = {
   currentSupports?: true
   aeeOpinion?: true
   suggestedAdaptations?: true
+  developmentStage?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -295,6 +302,7 @@ export type CaseStudyMaxAggregateInputType = {
   currentSupports?: true
   aeeOpinion?: true
   suggestedAdaptations?: true
+  developmentStage?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -352,6 +360,10 @@ export type CaseStudyCountAggregateInputType = {
   currentSupports?: true
   aeeOpinion?: true
   suggestedAdaptations?: true
+  developmentStage?: true
+  comorbidities?: true
+  crisisBehaviors?: true
+  autismCharacteristics?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -482,6 +494,10 @@ export type CaseStudyGroupByOutputType = {
   currentSupports: string | null
   aeeOpinion: string
   suggestedAdaptations: string | null
+  developmentStage: string | null
+  comorbidities: string[]
+  crisisBehaviors: string[]
+  autismCharacteristics: string[]
   createdAt: Date
   updatedAt: Date
   _count: CaseStudyCountAggregateOutputType | null
@@ -560,6 +576,10 @@ export type CaseStudyWhereInput = {
   currentSupports?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   aeeOpinion?: Prisma.StringFilter<"CaseStudy"> | string
   suggestedAdaptations?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  developmentStage?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
+  crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
+  autismCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   student?: Prisma.XOR<Prisma.StudentScalarRelationFilter, Prisma.StudentWhereInput>
@@ -618,6 +638,10 @@ export type CaseStudyOrderByWithRelationInput = {
   currentSupports?: Prisma.SortOrderInput | Prisma.SortOrder
   aeeOpinion?: Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrderInput | Prisma.SortOrder
+  developmentStage?: Prisma.SortOrderInput | Prisma.SortOrder
+  comorbidities?: Prisma.SortOrder
+  crisisBehaviors?: Prisma.SortOrder
+  autismCharacteristics?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   student?: Prisma.StudentOrderByWithRelationInput
@@ -679,6 +703,10 @@ export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
   currentSupports?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   aeeOpinion?: Prisma.StringFilter<"CaseStudy"> | string
   suggestedAdaptations?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  developmentStage?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
+  crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
+  autismCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   student?: Prisma.XOR<Prisma.StudentScalarRelationFilter, Prisma.StudentWhereInput>
@@ -737,6 +765,10 @@ export type CaseStudyOrderByWithAggregationInput = {
   currentSupports?: Prisma.SortOrderInput | Prisma.SortOrder
   aeeOpinion?: Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrderInput | Prisma.SortOrder
+  developmentStage?: Prisma.SortOrderInput | Prisma.SortOrder
+  comorbidities?: Prisma.SortOrder
+  crisisBehaviors?: Prisma.SortOrder
+  autismCharacteristics?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.CaseStudyCountOrderByAggregateInput
@@ -800,6 +832,10 @@ export type CaseStudyScalarWhereWithAggregatesInput = {
   currentSupports?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   aeeOpinion?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
   suggestedAdaptations?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  developmentStage?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
+  crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
+  autismCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"CaseStudy"> | Date | string
 }
@@ -856,6 +892,10 @@ export type CaseStudyCreateInput = {
   currentSupports?: string | null
   aeeOpinion: string
   suggestedAdaptations?: string | null
+  developmentStage?: string | null
+  comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyCreateautismCharacteristicsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
   student: Prisma.StudentCreateNestedOneWithoutCaseStudiesInput
@@ -914,6 +954,10 @@ export type CaseStudyUncheckedCreateInput = {
   currentSupports?: string | null
   aeeOpinion: string
   suggestedAdaptations?: string | null
+  developmentStage?: string | null
+  comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyCreateautismCharacteristicsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -970,6 +1014,10 @@ export type CaseStudyUpdateInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   student?: Prisma.StudentUpdateOneRequiredWithoutCaseStudiesNestedInput
@@ -1028,6 +1076,10 @@ export type CaseStudyUncheckedUpdateInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1085,6 +1137,10 @@ export type CaseStudyCreateManyInput = {
   currentSupports?: string | null
   aeeOpinion: string
   suggestedAdaptations?: string | null
+  developmentStage?: string | null
+  comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyCreateautismCharacteristicsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1141,6 +1197,10 @@ export type CaseStudyUpdateManyMutationInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1198,6 +1258,10 @@ export type CaseStudyUncheckedUpdateManyInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1273,6 +1337,10 @@ export type CaseStudyCountOrderByAggregateInput = {
   currentSupports?: Prisma.SortOrder
   aeeOpinion?: Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrder
+  developmentStage?: Prisma.SortOrder
+  comorbidities?: Prisma.SortOrder
+  crisisBehaviors?: Prisma.SortOrder
+  autismCharacteristics?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -1327,6 +1395,7 @@ export type CaseStudyMaxOrderByAggregateInput = {
   currentSupports?: Prisma.SortOrder
   aeeOpinion?: Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrder
+  developmentStage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -1381,6 +1450,7 @@ export type CaseStudyMinOrderByAggregateInput = {
   currentSupports?: Prisma.SortOrder
   aeeOpinion?: Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrder
+  developmentStage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -1439,6 +1509,18 @@ export type CaseStudyCreatesensorySensitivityInput = {
   set: string[]
 }
 
+export type CaseStudyCreatecomorbiditiesInput = {
+  set: string[]
+}
+
+export type CaseStudyCreatecrisisBehaviorsInput = {
+  set: string[]
+}
+
+export type CaseStudyCreateautismCharacteristicsInput = {
+  set: string[]
+}
+
 export type BoolFieldUpdateOperationsInput = {
   set?: boolean
 }
@@ -1458,6 +1540,21 @@ export type CaseStudyUpdatepriorityAreasInput = {
 }
 
 export type CaseStudyUpdatesensorySensitivityInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type CaseStudyUpdatecomorbiditiesInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type CaseStudyUpdatecrisisBehaviorsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type CaseStudyUpdateautismCharacteristicsInput = {
   set?: string[]
   push?: string | string[]
 }
@@ -1514,6 +1611,10 @@ export type CaseStudyCreateWithoutStudentInput = {
   currentSupports?: string | null
   aeeOpinion: string
   suggestedAdaptations?: string | null
+  developmentStage?: string | null
+  comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyCreateautismCharacteristicsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1570,6 +1671,10 @@ export type CaseStudyUncheckedCreateWithoutStudentInput = {
   currentSupports?: string | null
   aeeOpinion: string
   suggestedAdaptations?: string | null
+  developmentStage?: string | null
+  comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyCreateautismCharacteristicsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1656,6 +1761,10 @@ export type CaseStudyScalarWhereInput = {
   currentSupports?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   aeeOpinion?: Prisma.StringFilter<"CaseStudy"> | string
   suggestedAdaptations?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  developmentStage?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
+  crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
+  autismCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
 }
@@ -1712,6 +1821,10 @@ export type CaseStudyCreateManyStudentInput = {
   currentSupports?: string | null
   aeeOpinion: string
   suggestedAdaptations?: string | null
+  developmentStage?: string | null
+  comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyCreateautismCharacteristicsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1768,6 +1881,10 @@ export type CaseStudyUpdateWithoutStudentInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1824,6 +1941,10 @@ export type CaseStudyUncheckedUpdateWithoutStudentInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1880,6 +2001,10 @@ export type CaseStudyUncheckedUpdateManyWithoutStudentInput = {
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
+  crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
+  autismCharacteristics?: Prisma.CaseStudyUpdateautismCharacteristicsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1939,6 +2064,10 @@ export type CaseStudySelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   currentSupports?: boolean
   aeeOpinion?: boolean
   suggestedAdaptations?: boolean
+  developmentStage?: boolean
+  comorbidities?: boolean
+  crisisBehaviors?: boolean
+  autismCharacteristics?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -1997,6 +2126,10 @@ export type CaseStudySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   currentSupports?: boolean
   aeeOpinion?: boolean
   suggestedAdaptations?: boolean
+  developmentStage?: boolean
+  comorbidities?: boolean
+  crisisBehaviors?: boolean
+  autismCharacteristics?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -2055,6 +2188,10 @@ export type CaseStudySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   currentSupports?: boolean
   aeeOpinion?: boolean
   suggestedAdaptations?: boolean
+  developmentStage?: boolean
+  comorbidities?: boolean
+  crisisBehaviors?: boolean
+  autismCharacteristics?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -2113,11 +2250,15 @@ export type CaseStudySelectScalar = {
   currentSupports?: boolean
   aeeOpinion?: boolean
   suggestedAdaptations?: boolean
+  developmentStage?: boolean
+  comorbidities?: boolean
+  crisisBehaviors?: boolean
+  autismCharacteristics?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "hasDiagnosis" | "diagnosis" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "developmentMilestones" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
+export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "hasDiagnosis" | "diagnosis" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "developmentMilestones" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "autismCharacteristics" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
 export type CaseStudyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
 }
@@ -2186,6 +2327,10 @@ export type $CaseStudyPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     currentSupports: string | null
     aeeOpinion: string
     suggestedAdaptations: string | null
+    developmentStage: string | null
+    comorbidities: string[]
+    crisisBehaviors: string[]
+    autismCharacteristics: string[]
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["caseStudy"]>
@@ -2664,6 +2809,10 @@ export interface CaseStudyFieldRefs {
   readonly currentSupports: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly aeeOpinion: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly suggestedAdaptations: Prisma.FieldRef<"CaseStudy", 'String'>
+  readonly developmentStage: Prisma.FieldRef<"CaseStudy", 'String'>
+  readonly comorbidities: Prisma.FieldRef<"CaseStudy", 'String[]'>
+  readonly crisisBehaviors: Prisma.FieldRef<"CaseStudy", 'String[]'>
+  readonly autismCharacteristics: Prisma.FieldRef<"CaseStudy", 'String[]'>
   readonly createdAt: Prisma.FieldRef<"CaseStudy", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"CaseStudy", 'DateTime'>
 }

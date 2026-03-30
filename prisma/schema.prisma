@@ -163,6 +163,10 @@ model CaseStudy {
     currentSupports          String?
     aeeOpinion               String
     suggestedAdaptations     String?
+    developmentStage         String?
+    comorbidities            String[]
+    crisisBehaviors          String[]
+    autismCharacteristics    String[]
     createdAt                DateTime @default(now())
     updatedAt                DateTime @updatedAt
 
