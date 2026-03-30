@@ -48,7 +48,7 @@ export class StudentService {
       throw new Error("Accesso negado");
     }
 
-    const student = await this.studentRepo.findById(studentId);
+    const student = await this.studentRepo.findById(studentId, true);
 
     if (!student) {
       throw new Error("Aluno não encontrado");

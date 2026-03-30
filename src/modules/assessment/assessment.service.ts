@@ -13,7 +13,7 @@ import { StudentService } from "../student/student.service";
 import { AssessmentRepository } from "./assessment.repository";
 import { PRIVATE_KEY, PUBLIC_KEY } from "../../constants/ai-constants/keys";
 import jwt from "jsonwebtoken";
-import { markdownToPdf } from "../../utils";
+import { htmlToPdf } from "../../utils";
 import { AssessmentHistoryRepository } from "../assessment-history/assessment-history.repository";
 import { prisma } from "../../shared/prisma";
 import { AuditLogService } from "../audit-report/audit-report.service";
@@ -67,7 +67,7 @@ export class AssessmentService {
 
   async downloadDocument(token: string) {
     const assessmentContent = this.decodeJwt(token);
-    return markdownToPdf(assessmentContent);
+    return htmlToPdf(assessmentContent);
   }
 
   decodeJwt(token: string): string {
@@ -108,7 +108,7 @@ export class AssessmentService {
       systemInstruction,
       feature: AiFeature.GENERATE_PAEE,
     });
-    return response.text?.replace(/```markdown\n?/, "")?.replace(/```$/, "") || "";
+    return response.text?.replace(/```html\n?/, "")?.replace(/```$/, "") || '';
   }
 
   private async getPromptForGenerateDoc(
@@ -118,7 +118,7 @@ export class AssessmentService {
   ): Promise<string> {
     const documents = [];
     return `Você é um assistente virtual cuja função é, a partir de dados que lhe forem passado sobre um determinado aluno diagnosticado com TEA, elaborar PAEE (Plano de Atendimento Educacional Especializadoum), que deverá conter tanto um Plano de Desenvolvimento Individual (PDI) quanto um Plano Educacional Individualizado (PEI - Documento pedagógico formal e obrigatório no Brasil).
-    Você deve retornar diretamente o PAEE (nada de comentários antes como: "Aqui está o PEI solicitado", já retorne o PEI e só) na forma de Markdown para renderização de um documento.
+    Você deve retornar diretamente o PAEE (nada de comentários antes como: "Aqui está o PEI solicitado", já retorne o PEI e só) em um formato html organizado para renderização de um documento.
     Os dados do aluno são: { Nome: ${studentName}, Data de Nascimento: ${studentBirthDate} informações: ${JSON.stringify(studentInfo)} }.${documents.length ? " Além de tudo isso, segue uma listagem de documentos relevantes para diagnósticos desse aluno em formato base64: ${documents}" : ""}`;
   }
 

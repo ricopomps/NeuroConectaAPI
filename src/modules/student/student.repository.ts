@@ -18,9 +18,12 @@ export class StudentRepository {
     });
   }
 
-  async findById(studentId: string) {
+  async findById(studentId: string, includeCases = false) {
     return prisma.student.findUnique({
       where: { id: studentId },
+      include: includeCases
+        ? { caseStudies: { include: { student: true } } }
+        : undefined,
     });
   }
 
