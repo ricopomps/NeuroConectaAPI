@@ -102,32 +102,40 @@ export class AssessmentService {
       student.name,
       student.birthDate,
       lastCaseStudy,
+      files
     );
     const response = await this.generativeAiService.generateText({
       contents: [],
       systemInstruction,
       feature: AiFeature.GENERATE_PAEE,
     });
-    return response.text?.replace(/```html\n?/, "")?.replace(/```$/, "") || '';
+    return response.text?.replace(/```html\n?/, "")?.replace(/```$/, "") || "";
   }
 
   private async getPromptForGenerateDoc(
     studentName: string,
     studentBirthDate: Date,
     studentInfo: CaseStudy,
+    files: StudentFile[],
   ): Promise<string> {
-    const documents = [];
+    const documents = files.length ? await Promise.all(
+      files.map(async (f) => await this.getFileBase64(f.url)),
+    ) : [];
     return `Você é um assistente virtual cuja função é, a partir de dados que lhe forem passado sobre um determinado aluno diagnosticado com TEA, elaborar PAEE (Plano de Atendimento Educacional Especializadoum), que deverá conter tanto um Plano de Desenvolvimento Individual (PDI) quanto um Plano Educacional Individualizado (PEI - Documento pedagógico formal e obrigatório no Brasil).
     Você deve retornar diretamente o PAEE (nada de comentários antes como: "Aqui está o PEI solicitado", já retorne o PEI e só) em um formato html organizado para renderização de um documento.
-    Os dados do aluno são: { Nome: ${studentName}, Data de Nascimento: ${studentBirthDate} informações: ${JSON.stringify(studentInfo)} }.${documents.length ? " Além de tudo isso, segue uma listagem de documentos relevantes para diagnósticos desse aluno em formato base64: ${documents}" : ""}`;
+    Os dados do aluno são: { Nome: ${studentName}, Data de Nascimento: ${studentBirthDate} informações: ${JSON.stringify(studentInfo)} }.${
+      documents.length
+        ? " Além de tudo isso, segue uma listagem de documentos relevantes para diagnósticos desse aluno em formato base64, separados por vírgula: "
+        : ""
+    } ${documents.length ? documents.join(', ') : ""}`;
   }
 
-  private readonly downloadFile = async (url: string): Promise<Buffer> => {
+  private readonly getFileBase64 = async (url: string): Promise<string> => {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch: ${response.statusText}`);
     }
     const arrayBuffer = await response.arrayBuffer();
-    return Buffer.from(arrayBuffer);
+    return Buffer.from(arrayBuffer).toString("base64");
   };
 }

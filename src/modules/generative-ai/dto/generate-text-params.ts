@@ -1,6 +1,6 @@
 import { Content } from './content';
 import { AiMessagePossibleTypes } from '../../../constants/ai-constants/ai-message-possible-types';
-import { AiFeatures } from '../../../constants/ai-constants/ai-features';
+import { AiFeature } from '../../../generated/prisma/enums';
 
 export type ResponseType = {
   type: AiMessagePossibleTypes;
@@ -9,7 +9,7 @@ export type ResponseType = {
 export interface GenerateTextParams {
   contents: Content[];
   systemInstruction?: string;
-  feature: AiFeatures;
+  feature: AiFeature;
   imagesQty?: number;
   responseType?: ResponseType;
 }
