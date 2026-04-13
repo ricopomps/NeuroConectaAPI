@@ -444,55 +444,55 @@ export type CaseStudyGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type CaseStudyGroupByOutputType = {
   id: string
   studentId: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass: string | null
+  responsibleName: string | null
+  responsibleEmail: string | null
+  referredBy: string | null
   hasDiagnosis: boolean
   diagnosis: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName: string | null
+  informantRelation: string | null
+  informantEmail: string | null
+  responsiblePhone: string | null
+  informantPhone: string | null
+  pregnancyHistory: string | null
+  developmentMilestones: string | null
+  healthHistory: string | null
+  walkingDevelopment: string | null
+  speechDevelopment: string | null
+  sphincterControl: string | null
+  vision: string | null
+  hearing: string | null
+  sleep: string | null
   usesMedication: boolean
   medicationName: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding: string | null
   foodSelectivity: boolean
   foodRestrictions: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence: string | null
+  dressing: string | null
+  locomotion: string | null
+  comprehensionLevel: string | null
+  socialInteraction: string | null
   communicationTypes: string[]
   specificInterest: string | null
   crisisRegulationStrategy: string | null
   priorityAreas: string[]
   sensorySensitivity: string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention: string | null
+  frustrationTolerance: string | null
+  commandUnderstanding: string | null
+  classificationSkill: string | null
+  seriationSkill: string | null
+  spatialConcepts: string | null
+  readingLevel: string | null
+  mathReasoning: string | null
+  learningStyle: string | null
   strengths: string | null
   difficulties: string | null
   currentSupports: string | null
-  aeeOpinion: string
+  aeeOpinion: string | null
   suggestedAdaptations: string | null
   developmentStage: string | null
   comorbidities: string[]
@@ -526,55 +526,55 @@ export type CaseStudyWhereInput = {
   NOT?: Prisma.CaseStudyWhereInput | Prisma.CaseStudyWhereInput[]
   id?: Prisma.StringFilter<"CaseStudy"> | string
   studentId?: Prisma.StringFilter<"CaseStudy"> | string
-  schoolClass?: Prisma.StringFilter<"CaseStudy"> | string
-  responsibleName?: Prisma.StringFilter<"CaseStudy"> | string
-  responsibleEmail?: Prisma.StringFilter<"CaseStudy"> | string
-  referredBy?: Prisma.StringFilter<"CaseStudy"> | string
+  schoolClass?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsibleName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsibleEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  referredBy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   hasDiagnosis?: Prisma.BoolFilter<"CaseStudy"> | boolean
   diagnosis?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  informantName?: Prisma.StringFilter<"CaseStudy"> | string
-  informantRelation?: Prisma.StringFilter<"CaseStudy"> | string
-  informantEmail?: Prisma.StringFilter<"CaseStudy"> | string
-  responsiblePhone?: Prisma.StringFilter<"CaseStudy"> | string
-  informantPhone?: Prisma.StringFilter<"CaseStudy"> | string
-  pregnancyHistory?: Prisma.StringFilter<"CaseStudy"> | string
-  developmentMilestones?: Prisma.StringFilter<"CaseStudy"> | string
-  healthHistory?: Prisma.StringFilter<"CaseStudy"> | string
-  walkingDevelopment?: Prisma.StringFilter<"CaseStudy"> | string
-  speechDevelopment?: Prisma.StringFilter<"CaseStudy"> | string
-  sphincterControl?: Prisma.StringFilter<"CaseStudy"> | string
-  vision?: Prisma.StringFilter<"CaseStudy"> | string
-  hearing?: Prisma.StringFilter<"CaseStudy"> | string
-  sleep?: Prisma.StringFilter<"CaseStudy"> | string
+  informantName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantRelation?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsiblePhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantPhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  pregnancyHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  developmentMilestones?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  healthHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  walkingDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  speechDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  sphincterControl?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  vision?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  hearing?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  sleep?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   usesMedication?: Prisma.BoolFilter<"CaseStudy"> | boolean
   medicationName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   medicationAtSchool?: Prisma.BoolFilter<"CaseStudy"> | boolean
-  feeding?: Prisma.StringFilter<"CaseStudy"> | string
+  feeding?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   foodSelectivity?: Prisma.BoolFilter<"CaseStudy"> | boolean
   foodRestrictions?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  bathroomIndependence?: Prisma.StringFilter<"CaseStudy"> | string
-  dressing?: Prisma.StringFilter<"CaseStudy"> | string
-  locomotion?: Prisma.StringFilter<"CaseStudy"> | string
-  comprehensionLevel?: Prisma.StringFilter<"CaseStudy"> | string
-  socialInteraction?: Prisma.StringFilter<"CaseStudy"> | string
+  bathroomIndependence?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  dressing?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  locomotion?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  comprehensionLevel?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  socialInteraction?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   communicationTypes?: Prisma.StringNullableListFilter<"CaseStudy">
   specificInterest?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   crisisRegulationStrategy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   priorityAreas?: Prisma.StringNullableListFilter<"CaseStudy">
   sensorySensitivity?: Prisma.StringNullableListFilter<"CaseStudy">
-  attention?: Prisma.StringFilter<"CaseStudy"> | string
-  frustrationTolerance?: Prisma.StringFilter<"CaseStudy"> | string
-  commandUnderstanding?: Prisma.StringFilter<"CaseStudy"> | string
-  classificationSkill?: Prisma.StringFilter<"CaseStudy"> | string
-  seriationSkill?: Prisma.StringFilter<"CaseStudy"> | string
-  spatialConcepts?: Prisma.StringFilter<"CaseStudy"> | string
-  readingLevel?: Prisma.StringFilter<"CaseStudy"> | string
-  mathReasoning?: Prisma.StringFilter<"CaseStudy"> | string
-  learningStyle?: Prisma.StringFilter<"CaseStudy"> | string
+  attention?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  frustrationTolerance?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  commandUnderstanding?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  classificationSkill?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  seriationSkill?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  spatialConcepts?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  readingLevel?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  mathReasoning?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  learningStyle?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   strengths?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   difficulties?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   currentSupports?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  aeeOpinion?: Prisma.StringFilter<"CaseStudy"> | string
+  aeeOpinion?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   suggestedAdaptations?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   developmentStage?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
@@ -588,55 +588,55 @@ export type CaseStudyWhereInput = {
 export type CaseStudyOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
-  schoolClass?: Prisma.SortOrder
-  responsibleName?: Prisma.SortOrder
-  responsibleEmail?: Prisma.SortOrder
-  referredBy?: Prisma.SortOrder
+  schoolClass?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsibleName?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsibleEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  referredBy?: Prisma.SortOrderInput | Prisma.SortOrder
   hasDiagnosis?: Prisma.SortOrder
   diagnosis?: Prisma.SortOrderInput | Prisma.SortOrder
-  informantName?: Prisma.SortOrder
-  informantRelation?: Prisma.SortOrder
-  informantEmail?: Prisma.SortOrder
-  responsiblePhone?: Prisma.SortOrder
-  informantPhone?: Prisma.SortOrder
-  pregnancyHistory?: Prisma.SortOrder
-  developmentMilestones?: Prisma.SortOrder
-  healthHistory?: Prisma.SortOrder
-  walkingDevelopment?: Prisma.SortOrder
-  speechDevelopment?: Prisma.SortOrder
-  sphincterControl?: Prisma.SortOrder
-  vision?: Prisma.SortOrder
-  hearing?: Prisma.SortOrder
-  sleep?: Prisma.SortOrder
+  informantName?: Prisma.SortOrderInput | Prisma.SortOrder
+  informantRelation?: Prisma.SortOrderInput | Prisma.SortOrder
+  informantEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsiblePhone?: Prisma.SortOrderInput | Prisma.SortOrder
+  informantPhone?: Prisma.SortOrderInput | Prisma.SortOrder
+  pregnancyHistory?: Prisma.SortOrderInput | Prisma.SortOrder
+  developmentMilestones?: Prisma.SortOrderInput | Prisma.SortOrder
+  healthHistory?: Prisma.SortOrderInput | Prisma.SortOrder
+  walkingDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
+  speechDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
+  sphincterControl?: Prisma.SortOrderInput | Prisma.SortOrder
+  vision?: Prisma.SortOrderInput | Prisma.SortOrder
+  hearing?: Prisma.SortOrderInput | Prisma.SortOrder
+  sleep?: Prisma.SortOrderInput | Prisma.SortOrder
   usesMedication?: Prisma.SortOrder
   medicationName?: Prisma.SortOrderInput | Prisma.SortOrder
   medicationAtSchool?: Prisma.SortOrder
-  feeding?: Prisma.SortOrder
+  feeding?: Prisma.SortOrderInput | Prisma.SortOrder
   foodSelectivity?: Prisma.SortOrder
   foodRestrictions?: Prisma.SortOrderInput | Prisma.SortOrder
-  bathroomIndependence?: Prisma.SortOrder
-  dressing?: Prisma.SortOrder
-  locomotion?: Prisma.SortOrder
-  comprehensionLevel?: Prisma.SortOrder
-  socialInteraction?: Prisma.SortOrder
+  bathroomIndependence?: Prisma.SortOrderInput | Prisma.SortOrder
+  dressing?: Prisma.SortOrderInput | Prisma.SortOrder
+  locomotion?: Prisma.SortOrderInput | Prisma.SortOrder
+  comprehensionLevel?: Prisma.SortOrderInput | Prisma.SortOrder
+  socialInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
   communicationTypes?: Prisma.SortOrder
   specificInterest?: Prisma.SortOrderInput | Prisma.SortOrder
   crisisRegulationStrategy?: Prisma.SortOrderInput | Prisma.SortOrder
   priorityAreas?: Prisma.SortOrder
   sensorySensitivity?: Prisma.SortOrder
-  attention?: Prisma.SortOrder
-  frustrationTolerance?: Prisma.SortOrder
-  commandUnderstanding?: Prisma.SortOrder
-  classificationSkill?: Prisma.SortOrder
-  seriationSkill?: Prisma.SortOrder
-  spatialConcepts?: Prisma.SortOrder
-  readingLevel?: Prisma.SortOrder
-  mathReasoning?: Prisma.SortOrder
-  learningStyle?: Prisma.SortOrder
+  attention?: Prisma.SortOrderInput | Prisma.SortOrder
+  frustrationTolerance?: Prisma.SortOrderInput | Prisma.SortOrder
+  commandUnderstanding?: Prisma.SortOrderInput | Prisma.SortOrder
+  classificationSkill?: Prisma.SortOrderInput | Prisma.SortOrder
+  seriationSkill?: Prisma.SortOrderInput | Prisma.SortOrder
+  spatialConcepts?: Prisma.SortOrderInput | Prisma.SortOrder
+  readingLevel?: Prisma.SortOrderInput | Prisma.SortOrder
+  mathReasoning?: Prisma.SortOrderInput | Prisma.SortOrder
+  learningStyle?: Prisma.SortOrderInput | Prisma.SortOrder
   strengths?: Prisma.SortOrderInput | Prisma.SortOrder
   difficulties?: Prisma.SortOrderInput | Prisma.SortOrder
   currentSupports?: Prisma.SortOrderInput | Prisma.SortOrder
-  aeeOpinion?: Prisma.SortOrder
+  aeeOpinion?: Prisma.SortOrderInput | Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrderInput | Prisma.SortOrder
   developmentStage?: Prisma.SortOrderInput | Prisma.SortOrder
   comorbidities?: Prisma.SortOrder
@@ -653,55 +653,55 @@ export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.CaseStudyWhereInput[]
   NOT?: Prisma.CaseStudyWhereInput | Prisma.CaseStudyWhereInput[]
   studentId?: Prisma.StringFilter<"CaseStudy"> | string
-  schoolClass?: Prisma.StringFilter<"CaseStudy"> | string
-  responsibleName?: Prisma.StringFilter<"CaseStudy"> | string
-  responsibleEmail?: Prisma.StringFilter<"CaseStudy"> | string
-  referredBy?: Prisma.StringFilter<"CaseStudy"> | string
+  schoolClass?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsibleName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsibleEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  referredBy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   hasDiagnosis?: Prisma.BoolFilter<"CaseStudy"> | boolean
   diagnosis?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  informantName?: Prisma.StringFilter<"CaseStudy"> | string
-  informantRelation?: Prisma.StringFilter<"CaseStudy"> | string
-  informantEmail?: Prisma.StringFilter<"CaseStudy"> | string
-  responsiblePhone?: Prisma.StringFilter<"CaseStudy"> | string
-  informantPhone?: Prisma.StringFilter<"CaseStudy"> | string
-  pregnancyHistory?: Prisma.StringFilter<"CaseStudy"> | string
-  developmentMilestones?: Prisma.StringFilter<"CaseStudy"> | string
-  healthHistory?: Prisma.StringFilter<"CaseStudy"> | string
-  walkingDevelopment?: Prisma.StringFilter<"CaseStudy"> | string
-  speechDevelopment?: Prisma.StringFilter<"CaseStudy"> | string
-  sphincterControl?: Prisma.StringFilter<"CaseStudy"> | string
-  vision?: Prisma.StringFilter<"CaseStudy"> | string
-  hearing?: Prisma.StringFilter<"CaseStudy"> | string
-  sleep?: Prisma.StringFilter<"CaseStudy"> | string
+  informantName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantRelation?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsiblePhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantPhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  pregnancyHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  developmentMilestones?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  healthHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  walkingDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  speechDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  sphincterControl?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  vision?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  hearing?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  sleep?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   usesMedication?: Prisma.BoolFilter<"CaseStudy"> | boolean
   medicationName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   medicationAtSchool?: Prisma.BoolFilter<"CaseStudy"> | boolean
-  feeding?: Prisma.StringFilter<"CaseStudy"> | string
+  feeding?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   foodSelectivity?: Prisma.BoolFilter<"CaseStudy"> | boolean
   foodRestrictions?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  bathroomIndependence?: Prisma.StringFilter<"CaseStudy"> | string
-  dressing?: Prisma.StringFilter<"CaseStudy"> | string
-  locomotion?: Prisma.StringFilter<"CaseStudy"> | string
-  comprehensionLevel?: Prisma.StringFilter<"CaseStudy"> | string
-  socialInteraction?: Prisma.StringFilter<"CaseStudy"> | string
+  bathroomIndependence?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  dressing?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  locomotion?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  comprehensionLevel?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  socialInteraction?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   communicationTypes?: Prisma.StringNullableListFilter<"CaseStudy">
   specificInterest?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   crisisRegulationStrategy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   priorityAreas?: Prisma.StringNullableListFilter<"CaseStudy">
   sensorySensitivity?: Prisma.StringNullableListFilter<"CaseStudy">
-  attention?: Prisma.StringFilter<"CaseStudy"> | string
-  frustrationTolerance?: Prisma.StringFilter<"CaseStudy"> | string
-  commandUnderstanding?: Prisma.StringFilter<"CaseStudy"> | string
-  classificationSkill?: Prisma.StringFilter<"CaseStudy"> | string
-  seriationSkill?: Prisma.StringFilter<"CaseStudy"> | string
-  spatialConcepts?: Prisma.StringFilter<"CaseStudy"> | string
-  readingLevel?: Prisma.StringFilter<"CaseStudy"> | string
-  mathReasoning?: Prisma.StringFilter<"CaseStudy"> | string
-  learningStyle?: Prisma.StringFilter<"CaseStudy"> | string
+  attention?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  frustrationTolerance?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  commandUnderstanding?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  classificationSkill?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  seriationSkill?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  spatialConcepts?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  readingLevel?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  mathReasoning?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  learningStyle?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   strengths?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   difficulties?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   currentSupports?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  aeeOpinion?: Prisma.StringFilter<"CaseStudy"> | string
+  aeeOpinion?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   suggestedAdaptations?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   developmentStage?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
@@ -715,55 +715,55 @@ export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
 export type CaseStudyOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
-  schoolClass?: Prisma.SortOrder
-  responsibleName?: Prisma.SortOrder
-  responsibleEmail?: Prisma.SortOrder
-  referredBy?: Prisma.SortOrder
+  schoolClass?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsibleName?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsibleEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  referredBy?: Prisma.SortOrderInput | Prisma.SortOrder
   hasDiagnosis?: Prisma.SortOrder
   diagnosis?: Prisma.SortOrderInput | Prisma.SortOrder
-  informantName?: Prisma.SortOrder
-  informantRelation?: Prisma.SortOrder
-  informantEmail?: Prisma.SortOrder
-  responsiblePhone?: Prisma.SortOrder
-  informantPhone?: Prisma.SortOrder
-  pregnancyHistory?: Prisma.SortOrder
-  developmentMilestones?: Prisma.SortOrder
-  healthHistory?: Prisma.SortOrder
-  walkingDevelopment?: Prisma.SortOrder
-  speechDevelopment?: Prisma.SortOrder
-  sphincterControl?: Prisma.SortOrder
-  vision?: Prisma.SortOrder
-  hearing?: Prisma.SortOrder
-  sleep?: Prisma.SortOrder
+  informantName?: Prisma.SortOrderInput | Prisma.SortOrder
+  informantRelation?: Prisma.SortOrderInput | Prisma.SortOrder
+  informantEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsiblePhone?: Prisma.SortOrderInput | Prisma.SortOrder
+  informantPhone?: Prisma.SortOrderInput | Prisma.SortOrder
+  pregnancyHistory?: Prisma.SortOrderInput | Prisma.SortOrder
+  developmentMilestones?: Prisma.SortOrderInput | Prisma.SortOrder
+  healthHistory?: Prisma.SortOrderInput | Prisma.SortOrder
+  walkingDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
+  speechDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
+  sphincterControl?: Prisma.SortOrderInput | Prisma.SortOrder
+  vision?: Prisma.SortOrderInput | Prisma.SortOrder
+  hearing?: Prisma.SortOrderInput | Prisma.SortOrder
+  sleep?: Prisma.SortOrderInput | Prisma.SortOrder
   usesMedication?: Prisma.SortOrder
   medicationName?: Prisma.SortOrderInput | Prisma.SortOrder
   medicationAtSchool?: Prisma.SortOrder
-  feeding?: Prisma.SortOrder
+  feeding?: Prisma.SortOrderInput | Prisma.SortOrder
   foodSelectivity?: Prisma.SortOrder
   foodRestrictions?: Prisma.SortOrderInput | Prisma.SortOrder
-  bathroomIndependence?: Prisma.SortOrder
-  dressing?: Prisma.SortOrder
-  locomotion?: Prisma.SortOrder
-  comprehensionLevel?: Prisma.SortOrder
-  socialInteraction?: Prisma.SortOrder
+  bathroomIndependence?: Prisma.SortOrderInput | Prisma.SortOrder
+  dressing?: Prisma.SortOrderInput | Prisma.SortOrder
+  locomotion?: Prisma.SortOrderInput | Prisma.SortOrder
+  comprehensionLevel?: Prisma.SortOrderInput | Prisma.SortOrder
+  socialInteraction?: Prisma.SortOrderInput | Prisma.SortOrder
   communicationTypes?: Prisma.SortOrder
   specificInterest?: Prisma.SortOrderInput | Prisma.SortOrder
   crisisRegulationStrategy?: Prisma.SortOrderInput | Prisma.SortOrder
   priorityAreas?: Prisma.SortOrder
   sensorySensitivity?: Prisma.SortOrder
-  attention?: Prisma.SortOrder
-  frustrationTolerance?: Prisma.SortOrder
-  commandUnderstanding?: Prisma.SortOrder
-  classificationSkill?: Prisma.SortOrder
-  seriationSkill?: Prisma.SortOrder
-  spatialConcepts?: Prisma.SortOrder
-  readingLevel?: Prisma.SortOrder
-  mathReasoning?: Prisma.SortOrder
-  learningStyle?: Prisma.SortOrder
+  attention?: Prisma.SortOrderInput | Prisma.SortOrder
+  frustrationTolerance?: Prisma.SortOrderInput | Prisma.SortOrder
+  commandUnderstanding?: Prisma.SortOrderInput | Prisma.SortOrder
+  classificationSkill?: Prisma.SortOrderInput | Prisma.SortOrder
+  seriationSkill?: Prisma.SortOrderInput | Prisma.SortOrder
+  spatialConcepts?: Prisma.SortOrderInput | Prisma.SortOrder
+  readingLevel?: Prisma.SortOrderInput | Prisma.SortOrder
+  mathReasoning?: Prisma.SortOrderInput | Prisma.SortOrder
+  learningStyle?: Prisma.SortOrderInput | Prisma.SortOrder
   strengths?: Prisma.SortOrderInput | Prisma.SortOrder
   difficulties?: Prisma.SortOrderInput | Prisma.SortOrder
   currentSupports?: Prisma.SortOrderInput | Prisma.SortOrder
-  aeeOpinion?: Prisma.SortOrder
+  aeeOpinion?: Prisma.SortOrderInput | Prisma.SortOrder
   suggestedAdaptations?: Prisma.SortOrderInput | Prisma.SortOrder
   developmentStage?: Prisma.SortOrderInput | Prisma.SortOrder
   comorbidities?: Prisma.SortOrder
@@ -782,55 +782,55 @@ export type CaseStudyScalarWhereWithAggregatesInput = {
   NOT?: Prisma.CaseStudyScalarWhereWithAggregatesInput | Prisma.CaseStudyScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
   studentId?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  schoolClass?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  responsibleName?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  responsibleEmail?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  referredBy?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
+  schoolClass?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  responsibleName?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  responsibleEmail?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  referredBy?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   hasDiagnosis?: Prisma.BoolWithAggregatesFilter<"CaseStudy"> | boolean
   diagnosis?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
-  informantName?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  informantRelation?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  informantEmail?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  responsiblePhone?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  informantPhone?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  pregnancyHistory?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  developmentMilestones?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  healthHistory?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  walkingDevelopment?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  speechDevelopment?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  sphincterControl?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  vision?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  hearing?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  sleep?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
+  informantName?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  informantRelation?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  informantEmail?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  responsiblePhone?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  informantPhone?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  pregnancyHistory?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  developmentMilestones?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  healthHistory?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  walkingDevelopment?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  speechDevelopment?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  sphincterControl?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  vision?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  hearing?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  sleep?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   usesMedication?: Prisma.BoolWithAggregatesFilter<"CaseStudy"> | boolean
   medicationName?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   medicationAtSchool?: Prisma.BoolWithAggregatesFilter<"CaseStudy"> | boolean
-  feeding?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
+  feeding?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   foodSelectivity?: Prisma.BoolWithAggregatesFilter<"CaseStudy"> | boolean
   foodRestrictions?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
-  bathroomIndependence?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  dressing?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  locomotion?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  comprehensionLevel?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  socialInteraction?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
+  bathroomIndependence?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  dressing?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  locomotion?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  comprehensionLevel?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  socialInteraction?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   communicationTypes?: Prisma.StringNullableListFilter<"CaseStudy">
   specificInterest?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   crisisRegulationStrategy?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   priorityAreas?: Prisma.StringNullableListFilter<"CaseStudy">
   sensorySensitivity?: Prisma.StringNullableListFilter<"CaseStudy">
-  attention?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  frustrationTolerance?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  commandUnderstanding?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  classificationSkill?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  seriationSkill?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  spatialConcepts?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  readingLevel?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  mathReasoning?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
-  learningStyle?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
+  attention?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  frustrationTolerance?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  commandUnderstanding?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  classificationSkill?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  seriationSkill?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  spatialConcepts?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  readingLevel?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  mathReasoning?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  learningStyle?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   strengths?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   difficulties?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   currentSupports?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
-  aeeOpinion?: Prisma.StringWithAggregatesFilter<"CaseStudy"> | string
+  aeeOpinion?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   suggestedAdaptations?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   developmentStage?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
@@ -842,55 +842,55 @@ export type CaseStudyScalarWhereWithAggregatesInput = {
 
 export type CaseStudyCreateInput = {
   id?: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass?: string | null
+  responsibleName?: string | null
+  responsibleEmail?: string | null
+  referredBy?: string | null
   hasDiagnosis: boolean
   diagnosis?: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName?: string | null
+  informantRelation?: string | null
+  informantEmail?: string | null
+  responsiblePhone?: string | null
+  informantPhone?: string | null
+  pregnancyHistory?: string | null
+  developmentMilestones?: string | null
+  healthHistory?: string | null
+  walkingDevelopment?: string | null
+  speechDevelopment?: string | null
+  sphincterControl?: string | null
+  vision?: string | null
+  hearing?: string | null
+  sleep?: string | null
   usesMedication: boolean
   medicationName?: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding?: string | null
   foodSelectivity: boolean
   foodRestrictions?: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence?: string | null
+  dressing?: string | null
+  locomotion?: string | null
+  comprehensionLevel?: string | null
+  socialInteraction?: string | null
   communicationTypes?: Prisma.CaseStudyCreatecommunicationTypesInput | string[]
   specificInterest?: string | null
   crisisRegulationStrategy?: string | null
   priorityAreas?: Prisma.CaseStudyCreatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyCreatesensorySensitivityInput | string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention?: string | null
+  frustrationTolerance?: string | null
+  commandUnderstanding?: string | null
+  classificationSkill?: string | null
+  seriationSkill?: string | null
+  spatialConcepts?: string | null
+  readingLevel?: string | null
+  mathReasoning?: string | null
+  learningStyle?: string | null
   strengths?: string | null
   difficulties?: string | null
   currentSupports?: string | null
-  aeeOpinion: string
+  aeeOpinion?: string | null
   suggestedAdaptations?: string | null
   developmentStage?: string | null
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
@@ -904,55 +904,55 @@ export type CaseStudyCreateInput = {
 export type CaseStudyUncheckedCreateInput = {
   id?: string
   studentId: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass?: string | null
+  responsibleName?: string | null
+  responsibleEmail?: string | null
+  referredBy?: string | null
   hasDiagnosis: boolean
   diagnosis?: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName?: string | null
+  informantRelation?: string | null
+  informantEmail?: string | null
+  responsiblePhone?: string | null
+  informantPhone?: string | null
+  pregnancyHistory?: string | null
+  developmentMilestones?: string | null
+  healthHistory?: string | null
+  walkingDevelopment?: string | null
+  speechDevelopment?: string | null
+  sphincterControl?: string | null
+  vision?: string | null
+  hearing?: string | null
+  sleep?: string | null
   usesMedication: boolean
   medicationName?: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding?: string | null
   foodSelectivity: boolean
   foodRestrictions?: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence?: string | null
+  dressing?: string | null
+  locomotion?: string | null
+  comprehensionLevel?: string | null
+  socialInteraction?: string | null
   communicationTypes?: Prisma.CaseStudyCreatecommunicationTypesInput | string[]
   specificInterest?: string | null
   crisisRegulationStrategy?: string | null
   priorityAreas?: Prisma.CaseStudyCreatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyCreatesensorySensitivityInput | string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention?: string | null
+  frustrationTolerance?: string | null
+  commandUnderstanding?: string | null
+  classificationSkill?: string | null
+  seriationSkill?: string | null
+  spatialConcepts?: string | null
+  readingLevel?: string | null
+  mathReasoning?: string | null
+  learningStyle?: string | null
   strengths?: string | null
   difficulties?: string | null
   currentSupports?: string | null
-  aeeOpinion: string
+  aeeOpinion?: string | null
   suggestedAdaptations?: string | null
   developmentStage?: string | null
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
@@ -964,55 +964,55 @@ export type CaseStudyUncheckedCreateInput = {
 
 export type CaseStudyUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -1026,55 +1026,55 @@ export type CaseStudyUpdateInput = {
 export type CaseStudyUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -1087,55 +1087,55 @@ export type CaseStudyUncheckedUpdateInput = {
 export type CaseStudyCreateManyInput = {
   id?: string
   studentId: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass?: string | null
+  responsibleName?: string | null
+  responsibleEmail?: string | null
+  referredBy?: string | null
   hasDiagnosis: boolean
   diagnosis?: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName?: string | null
+  informantRelation?: string | null
+  informantEmail?: string | null
+  responsiblePhone?: string | null
+  informantPhone?: string | null
+  pregnancyHistory?: string | null
+  developmentMilestones?: string | null
+  healthHistory?: string | null
+  walkingDevelopment?: string | null
+  speechDevelopment?: string | null
+  sphincterControl?: string | null
+  vision?: string | null
+  hearing?: string | null
+  sleep?: string | null
   usesMedication: boolean
   medicationName?: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding?: string | null
   foodSelectivity: boolean
   foodRestrictions?: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence?: string | null
+  dressing?: string | null
+  locomotion?: string | null
+  comprehensionLevel?: string | null
+  socialInteraction?: string | null
   communicationTypes?: Prisma.CaseStudyCreatecommunicationTypesInput | string[]
   specificInterest?: string | null
   crisisRegulationStrategy?: string | null
   priorityAreas?: Prisma.CaseStudyCreatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyCreatesensorySensitivityInput | string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention?: string | null
+  frustrationTolerance?: string | null
+  commandUnderstanding?: string | null
+  classificationSkill?: string | null
+  seriationSkill?: string | null
+  spatialConcepts?: string | null
+  readingLevel?: string | null
+  mathReasoning?: string | null
+  learningStyle?: string | null
   strengths?: string | null
   difficulties?: string | null
   currentSupports?: string | null
-  aeeOpinion: string
+  aeeOpinion?: string | null
   suggestedAdaptations?: string | null
   developmentStage?: string | null
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
@@ -1147,55 +1147,55 @@ export type CaseStudyCreateManyInput = {
 
 export type CaseStudyUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -1208,55 +1208,55 @@ export type CaseStudyUpdateManyMutationInput = {
 export type CaseStudyUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -1521,12 +1521,12 @@ export type CaseStudyCreateautismCharacteristicsInput = {
   set: string[]
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type CaseStudyUpdatecommunicationTypesInput = {
@@ -1561,55 +1561,55 @@ export type CaseStudyUpdateautismCharacteristicsInput = {
 
 export type CaseStudyCreateWithoutStudentInput = {
   id?: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass?: string | null
+  responsibleName?: string | null
+  responsibleEmail?: string | null
+  referredBy?: string | null
   hasDiagnosis: boolean
   diagnosis?: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName?: string | null
+  informantRelation?: string | null
+  informantEmail?: string | null
+  responsiblePhone?: string | null
+  informantPhone?: string | null
+  pregnancyHistory?: string | null
+  developmentMilestones?: string | null
+  healthHistory?: string | null
+  walkingDevelopment?: string | null
+  speechDevelopment?: string | null
+  sphincterControl?: string | null
+  vision?: string | null
+  hearing?: string | null
+  sleep?: string | null
   usesMedication: boolean
   medicationName?: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding?: string | null
   foodSelectivity: boolean
   foodRestrictions?: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence?: string | null
+  dressing?: string | null
+  locomotion?: string | null
+  comprehensionLevel?: string | null
+  socialInteraction?: string | null
   communicationTypes?: Prisma.CaseStudyCreatecommunicationTypesInput | string[]
   specificInterest?: string | null
   crisisRegulationStrategy?: string | null
   priorityAreas?: Prisma.CaseStudyCreatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyCreatesensorySensitivityInput | string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention?: string | null
+  frustrationTolerance?: string | null
+  commandUnderstanding?: string | null
+  classificationSkill?: string | null
+  seriationSkill?: string | null
+  spatialConcepts?: string | null
+  readingLevel?: string | null
+  mathReasoning?: string | null
+  learningStyle?: string | null
   strengths?: string | null
   difficulties?: string | null
   currentSupports?: string | null
-  aeeOpinion: string
+  aeeOpinion?: string | null
   suggestedAdaptations?: string | null
   developmentStage?: string | null
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
@@ -1621,55 +1621,55 @@ export type CaseStudyCreateWithoutStudentInput = {
 
 export type CaseStudyUncheckedCreateWithoutStudentInput = {
   id?: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass?: string | null
+  responsibleName?: string | null
+  responsibleEmail?: string | null
+  referredBy?: string | null
   hasDiagnosis: boolean
   diagnosis?: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName?: string | null
+  informantRelation?: string | null
+  informantEmail?: string | null
+  responsiblePhone?: string | null
+  informantPhone?: string | null
+  pregnancyHistory?: string | null
+  developmentMilestones?: string | null
+  healthHistory?: string | null
+  walkingDevelopment?: string | null
+  speechDevelopment?: string | null
+  sphincterControl?: string | null
+  vision?: string | null
+  hearing?: string | null
+  sleep?: string | null
   usesMedication: boolean
   medicationName?: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding?: string | null
   foodSelectivity: boolean
   foodRestrictions?: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence?: string | null
+  dressing?: string | null
+  locomotion?: string | null
+  comprehensionLevel?: string | null
+  socialInteraction?: string | null
   communicationTypes?: Prisma.CaseStudyCreatecommunicationTypesInput | string[]
   specificInterest?: string | null
   crisisRegulationStrategy?: string | null
   priorityAreas?: Prisma.CaseStudyCreatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyCreatesensorySensitivityInput | string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention?: string | null
+  frustrationTolerance?: string | null
+  commandUnderstanding?: string | null
+  classificationSkill?: string | null
+  seriationSkill?: string | null
+  spatialConcepts?: string | null
+  readingLevel?: string | null
+  mathReasoning?: string | null
+  learningStyle?: string | null
   strengths?: string | null
   difficulties?: string | null
   currentSupports?: string | null
-  aeeOpinion: string
+  aeeOpinion?: string | null
   suggestedAdaptations?: string | null
   developmentStage?: string | null
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
@@ -1711,55 +1711,55 @@ export type CaseStudyScalarWhereInput = {
   NOT?: Prisma.CaseStudyScalarWhereInput | Prisma.CaseStudyScalarWhereInput[]
   id?: Prisma.StringFilter<"CaseStudy"> | string
   studentId?: Prisma.StringFilter<"CaseStudy"> | string
-  schoolClass?: Prisma.StringFilter<"CaseStudy"> | string
-  responsibleName?: Prisma.StringFilter<"CaseStudy"> | string
-  responsibleEmail?: Prisma.StringFilter<"CaseStudy"> | string
-  referredBy?: Prisma.StringFilter<"CaseStudy"> | string
+  schoolClass?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsibleName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsibleEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  referredBy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   hasDiagnosis?: Prisma.BoolFilter<"CaseStudy"> | boolean
   diagnosis?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  informantName?: Prisma.StringFilter<"CaseStudy"> | string
-  informantRelation?: Prisma.StringFilter<"CaseStudy"> | string
-  informantEmail?: Prisma.StringFilter<"CaseStudy"> | string
-  responsiblePhone?: Prisma.StringFilter<"CaseStudy"> | string
-  informantPhone?: Prisma.StringFilter<"CaseStudy"> | string
-  pregnancyHistory?: Prisma.StringFilter<"CaseStudy"> | string
-  developmentMilestones?: Prisma.StringFilter<"CaseStudy"> | string
-  healthHistory?: Prisma.StringFilter<"CaseStudy"> | string
-  walkingDevelopment?: Prisma.StringFilter<"CaseStudy"> | string
-  speechDevelopment?: Prisma.StringFilter<"CaseStudy"> | string
-  sphincterControl?: Prisma.StringFilter<"CaseStudy"> | string
-  vision?: Prisma.StringFilter<"CaseStudy"> | string
-  hearing?: Prisma.StringFilter<"CaseStudy"> | string
-  sleep?: Prisma.StringFilter<"CaseStudy"> | string
+  informantName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantRelation?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  responsiblePhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  informantPhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  pregnancyHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  developmentMilestones?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  healthHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  walkingDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  speechDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  sphincterControl?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  vision?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  hearing?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  sleep?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   usesMedication?: Prisma.BoolFilter<"CaseStudy"> | boolean
   medicationName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   medicationAtSchool?: Prisma.BoolFilter<"CaseStudy"> | boolean
-  feeding?: Prisma.StringFilter<"CaseStudy"> | string
+  feeding?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   foodSelectivity?: Prisma.BoolFilter<"CaseStudy"> | boolean
   foodRestrictions?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  bathroomIndependence?: Prisma.StringFilter<"CaseStudy"> | string
-  dressing?: Prisma.StringFilter<"CaseStudy"> | string
-  locomotion?: Prisma.StringFilter<"CaseStudy"> | string
-  comprehensionLevel?: Prisma.StringFilter<"CaseStudy"> | string
-  socialInteraction?: Prisma.StringFilter<"CaseStudy"> | string
+  bathroomIndependence?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  dressing?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  locomotion?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  comprehensionLevel?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  socialInteraction?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   communicationTypes?: Prisma.StringNullableListFilter<"CaseStudy">
   specificInterest?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   crisisRegulationStrategy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   priorityAreas?: Prisma.StringNullableListFilter<"CaseStudy">
   sensorySensitivity?: Prisma.StringNullableListFilter<"CaseStudy">
-  attention?: Prisma.StringFilter<"CaseStudy"> | string
-  frustrationTolerance?: Prisma.StringFilter<"CaseStudy"> | string
-  commandUnderstanding?: Prisma.StringFilter<"CaseStudy"> | string
-  classificationSkill?: Prisma.StringFilter<"CaseStudy"> | string
-  seriationSkill?: Prisma.StringFilter<"CaseStudy"> | string
-  spatialConcepts?: Prisma.StringFilter<"CaseStudy"> | string
-  readingLevel?: Prisma.StringFilter<"CaseStudy"> | string
-  mathReasoning?: Prisma.StringFilter<"CaseStudy"> | string
-  learningStyle?: Prisma.StringFilter<"CaseStudy"> | string
+  attention?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  frustrationTolerance?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  commandUnderstanding?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  classificationSkill?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  seriationSkill?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  spatialConcepts?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  readingLevel?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  mathReasoning?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  learningStyle?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   strengths?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   difficulties?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   currentSupports?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  aeeOpinion?: Prisma.StringFilter<"CaseStudy"> | string
+  aeeOpinion?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   suggestedAdaptations?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   developmentStage?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
@@ -1771,55 +1771,55 @@ export type CaseStudyScalarWhereInput = {
 
 export type CaseStudyCreateManyStudentInput = {
   id?: string
-  schoolClass: string
-  responsibleName: string
-  responsibleEmail: string
-  referredBy: string
+  schoolClass?: string | null
+  responsibleName?: string | null
+  responsibleEmail?: string | null
+  referredBy?: string | null
   hasDiagnosis: boolean
   diagnosis?: string | null
-  informantName: string
-  informantRelation: string
-  informantEmail: string
-  responsiblePhone: string
-  informantPhone: string
-  pregnancyHistory: string
-  developmentMilestones: string
-  healthHistory: string
-  walkingDevelopment: string
-  speechDevelopment: string
-  sphincterControl: string
-  vision: string
-  hearing: string
-  sleep: string
+  informantName?: string | null
+  informantRelation?: string | null
+  informantEmail?: string | null
+  responsiblePhone?: string | null
+  informantPhone?: string | null
+  pregnancyHistory?: string | null
+  developmentMilestones?: string | null
+  healthHistory?: string | null
+  walkingDevelopment?: string | null
+  speechDevelopment?: string | null
+  sphincterControl?: string | null
+  vision?: string | null
+  hearing?: string | null
+  sleep?: string | null
   usesMedication: boolean
   medicationName?: string | null
   medicationAtSchool: boolean
-  feeding: string
+  feeding?: string | null
   foodSelectivity: boolean
   foodRestrictions?: string | null
-  bathroomIndependence: string
-  dressing: string
-  locomotion: string
-  comprehensionLevel: string
-  socialInteraction: string
+  bathroomIndependence?: string | null
+  dressing?: string | null
+  locomotion?: string | null
+  comprehensionLevel?: string | null
+  socialInteraction?: string | null
   communicationTypes?: Prisma.CaseStudyCreatecommunicationTypesInput | string[]
   specificInterest?: string | null
   crisisRegulationStrategy?: string | null
   priorityAreas?: Prisma.CaseStudyCreatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyCreatesensorySensitivityInput | string[]
-  attention: string
-  frustrationTolerance: string
-  commandUnderstanding: string
-  classificationSkill: string
-  seriationSkill: string
-  spatialConcepts: string
-  readingLevel: string
-  mathReasoning: string
-  learningStyle: string
+  attention?: string | null
+  frustrationTolerance?: string | null
+  commandUnderstanding?: string | null
+  classificationSkill?: string | null
+  seriationSkill?: string | null
+  spatialConcepts?: string | null
+  readingLevel?: string | null
+  mathReasoning?: string | null
+  learningStyle?: string | null
   strengths?: string | null
   difficulties?: string | null
   currentSupports?: string | null
-  aeeOpinion: string
+  aeeOpinion?: string | null
   suggestedAdaptations?: string | null
   developmentStage?: string | null
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
@@ -1831,55 +1831,55 @@ export type CaseStudyCreateManyStudentInput = {
 
 export type CaseStudyUpdateWithoutStudentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -1891,55 +1891,55 @@ export type CaseStudyUpdateWithoutStudentInput = {
 
 export type CaseStudyUncheckedUpdateWithoutStudentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -1951,55 +1951,55 @@ export type CaseStudyUncheckedUpdateWithoutStudentInput = {
 
 export type CaseStudyUncheckedUpdateManyWithoutStudentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  schoolClass?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleName?: Prisma.StringFieldUpdateOperationsInput | string
-  responsibleEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  referredBy?: Prisma.StringFieldUpdateOperationsInput | string
+  schoolClass?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
   diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  informantName?: Prisma.StringFieldUpdateOperationsInput | string
-  informantRelation?: Prisma.StringFieldUpdateOperationsInput | string
-  informantEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  responsiblePhone?: Prisma.StringFieldUpdateOperationsInput | string
-  informantPhone?: Prisma.StringFieldUpdateOperationsInput | string
-  pregnancyHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  developmentMilestones?: Prisma.StringFieldUpdateOperationsInput | string
-  healthHistory?: Prisma.StringFieldUpdateOperationsInput | string
-  walkingDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  speechDevelopment?: Prisma.StringFieldUpdateOperationsInput | string
-  sphincterControl?: Prisma.StringFieldUpdateOperationsInput | string
-  vision?: Prisma.StringFieldUpdateOperationsInput | string
-  hearing?: Prisma.StringFieldUpdateOperationsInput | string
-  sleep?: Prisma.StringFieldUpdateOperationsInput | string
+  informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  speechDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sphincterControl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  hearing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sleep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usesMedication?: Prisma.BoolFieldUpdateOperationsInput | boolean
   medicationName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   medicationAtSchool?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  feeding?: Prisma.StringFieldUpdateOperationsInput | string
+  feeding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foodSelectivity?: Prisma.BoolFieldUpdateOperationsInput | boolean
   foodRestrictions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bathroomIndependence?: Prisma.StringFieldUpdateOperationsInput | string
-  dressing?: Prisma.StringFieldUpdateOperationsInput | string
-  locomotion?: Prisma.StringFieldUpdateOperationsInput | string
-  comprehensionLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  socialInteraction?: Prisma.StringFieldUpdateOperationsInput | string
+  bathroomIndependence?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dressing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locomotion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comprehensionLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  socialInteraction?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   communicationTypes?: Prisma.CaseStudyUpdatecommunicationTypesInput | string[]
   specificInterest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   crisisRegulationStrategy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   priorityAreas?: Prisma.CaseStudyUpdatepriorityAreasInput | string[]
   sensorySensitivity?: Prisma.CaseStudyUpdatesensorySensitivityInput | string[]
-  attention?: Prisma.StringFieldUpdateOperationsInput | string
-  frustrationTolerance?: Prisma.StringFieldUpdateOperationsInput | string
-  commandUnderstanding?: Prisma.StringFieldUpdateOperationsInput | string
-  classificationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  seriationSkill?: Prisma.StringFieldUpdateOperationsInput | string
-  spatialConcepts?: Prisma.StringFieldUpdateOperationsInput | string
-  readingLevel?: Prisma.StringFieldUpdateOperationsInput | string
-  mathReasoning?: Prisma.StringFieldUpdateOperationsInput | string
-  learningStyle?: Prisma.StringFieldUpdateOperationsInput | string
+  attention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  frustrationTolerance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commandUnderstanding?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seriationSkill?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spatialConcepts?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  readingLevel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  mathReasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  learningStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strengths?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   difficulties?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentSupports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aeeOpinion?: Prisma.StringFieldUpdateOperationsInput | string
+  aeeOpinion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   suggestedAdaptations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentStage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
@@ -2277,55 +2277,55 @@ export type $CaseStudyPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     studentId: string
-    schoolClass: string
-    responsibleName: string
-    responsibleEmail: string
-    referredBy: string
+    schoolClass: string | null
+    responsibleName: string | null
+    responsibleEmail: string | null
+    referredBy: string | null
     hasDiagnosis: boolean
     diagnosis: string | null
-    informantName: string
-    informantRelation: string
-    informantEmail: string
-    responsiblePhone: string
-    informantPhone: string
-    pregnancyHistory: string
-    developmentMilestones: string
-    healthHistory: string
-    walkingDevelopment: string
-    speechDevelopment: string
-    sphincterControl: string
-    vision: string
-    hearing: string
-    sleep: string
+    informantName: string | null
+    informantRelation: string | null
+    informantEmail: string | null
+    responsiblePhone: string | null
+    informantPhone: string | null
+    pregnancyHistory: string | null
+    developmentMilestones: string | null
+    healthHistory: string | null
+    walkingDevelopment: string | null
+    speechDevelopment: string | null
+    sphincterControl: string | null
+    vision: string | null
+    hearing: string | null
+    sleep: string | null
     usesMedication: boolean
     medicationName: string | null
     medicationAtSchool: boolean
-    feeding: string
+    feeding: string | null
     foodSelectivity: boolean
     foodRestrictions: string | null
-    bathroomIndependence: string
-    dressing: string
-    locomotion: string
-    comprehensionLevel: string
-    socialInteraction: string
+    bathroomIndependence: string | null
+    dressing: string | null
+    locomotion: string | null
+    comprehensionLevel: string | null
+    socialInteraction: string | null
     communicationTypes: string[]
     specificInterest: string | null
     crisisRegulationStrategy: string | null
     priorityAreas: string[]
     sensorySensitivity: string[]
-    attention: string
-    frustrationTolerance: string
-    commandUnderstanding: string
-    classificationSkill: string
-    seriationSkill: string
-    spatialConcepts: string
-    readingLevel: string
-    mathReasoning: string
-    learningStyle: string
+    attention: string | null
+    frustrationTolerance: string | null
+    commandUnderstanding: string | null
+    classificationSkill: string | null
+    seriationSkill: string | null
+    spatialConcepts: string | null
+    readingLevel: string | null
+    mathReasoning: string | null
+    learningStyle: string | null
     strengths: string | null
     difficulties: string | null
     currentSupports: string | null
-    aeeOpinion: string
+    aeeOpinion: string | null
     suggestedAdaptations: string | null
     developmentStage: string | null
     comorbidities: string[]

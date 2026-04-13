@@ -113,55 +113,55 @@ model AuditLog {
 model CaseStudy {
     id                       String   @id @default(uuid())
     studentId                String
-    schoolClass              String
-    responsibleName          String
-    responsibleEmail         String
-    referredBy               String
+    schoolClass              String?
+    responsibleName          String?
+    responsibleEmail         String?
+    referredBy               String?
     hasDiagnosis             Boolean
     diagnosis                String?
-    informantName            String
-    informantRelation        String
-    informantEmail           String
-    responsiblePhone         String
-    informantPhone           String
-    pregnancyHistory         String
-    developmentMilestones    String
-    healthHistory            String
-    walkingDevelopment       String
-    speechDevelopment        String
-    sphincterControl         String
-    vision                   String
-    hearing                  String
-    sleep                    String
+    informantName            String?
+    informantRelation        String?
+    informantEmail           String?
+    responsiblePhone         String?
+    informantPhone           String?
+    pregnancyHistory         String?
+    developmentMilestones    String?
+    healthHistory            String?
+    walkingDevelopment       String?
+    speechDevelopment        String?
+    sphincterControl         String?
+    vision                   String?
+    hearing                  String?
+    sleep                    String?
     usesMedication           Boolean
     medicationName           String?
     medicationAtSchool       Boolean
-    feeding                  String
+    feeding                  String?
     foodSelectivity          Boolean
     foodRestrictions         String?
-    bathroomIndependence     String
-    dressing                 String
-    locomotion               String
-    comprehensionLevel       String
-    socialInteraction        String
+    bathroomIndependence     String?
+    dressing                 String?
+    locomotion               String?
+    comprehensionLevel       String?
+    socialInteraction        String?
     communicationTypes       String[]
     specificInterest         String?
     crisisRegulationStrategy String?
     priorityAreas            String[]
     sensorySensitivity       String[]
-    attention                String
-    frustrationTolerance     String
-    commandUnderstanding     String
-    classificationSkill      String
-    seriationSkill           String
-    spatialConcepts          String
-    readingLevel             String
-    mathReasoning            String
-    learningStyle            String
+    attention                String?
+    frustrationTolerance     String?
+    commandUnderstanding     String?
+    classificationSkill      String?
+    seriationSkill           String?
+    spatialConcepts          String?
+    readingLevel             String?
+    mathReasoning            String?
+    learningStyle            String?
     strengths                String?
     difficulties             String?
     currentSupports          String?
-    aeeOpinion               String
+    aeeOpinion               String?
     suggestedAdaptations     String?
     developmentStage         String?
     comorbidities            String[]
