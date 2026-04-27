@@ -31,4 +31,24 @@ export class UserController {
       return res.status(400).json({ error: err.message });
     }
   }
+
+  async listByInstitution(req: Request, res: Response) {
+    try {
+      const users = await this.userService.listUsersByInstitution(
+        req.params.institutionId as string,
+      );
+      return res.status(200).json(users);
+    } catch (err: any) {
+      return res.status(400).json({ error: err.message });
+    }
+  }
+
+  async list(req: Request, res: Response) {
+    try {
+      const users = await this.userService.list();
+      return res.status(200).json(users);
+    } catch (err: any) {
+      return res.status(400).json({ error: err.message });
+    }
+  }
 }

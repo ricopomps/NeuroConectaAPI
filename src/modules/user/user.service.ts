@@ -29,4 +29,12 @@ export class UserService {
 
     return user;
   }
+
+  async listUsersByInstitution(institutionId: string) {
+    return await this.userRepository.listByInstitution(institutionId);
+  }
+
+  async list() {
+    return await this.userRepository.list();
+  }
 }

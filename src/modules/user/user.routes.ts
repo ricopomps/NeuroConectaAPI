@@ -18,4 +18,8 @@ userRoutes.post("/", (req, res) => {
   return userController.create(req, res);
 });
 
+userRoutes.get("/", (req, res) => {
+  return userController.list(req, res);
+});
+
 export default userRoutes;

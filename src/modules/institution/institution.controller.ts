@@ -36,4 +36,33 @@ export class InstitutionController {
 
     return res.status(201).json(result);
   }
+
+  async removeUser(req: Request, res: Response) {
+    const { institutionId, userId } = req.params;
+
+    const result = await this.institutionService.removeUserFromInstitution(
+      institutionId as string,
+      userId as string,
+    );
+
+    return res.status(200).json(result);
+  }
+
+  async listUsers(req: Request, res: Response) {
+    try {
+      const { institutionId } = req.params;
+      const { take, skip, search, excludeInstitution } = req.query;
+
+      const users = await this.institutionService.listInstitutionUsers(
+        institutionId as string,
+        take ? Number(take) : 10,
+        skip ? Number(skip) : 0,
+        search as string,
+        excludeInstitution === "true",
+      );
+      return res.status(200).json(users);
+    } catch (err: any) {
+      return res.status(400).json({ error: err.message });
+    }
+  }
 }

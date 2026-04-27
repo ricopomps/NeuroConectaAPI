@@ -36,4 +36,35 @@ export class UserRepository {
       data,
     });
   }
+
+  async listByInstitution(institutionId: string) {
+    return prisma.user.findMany({
+      where: {
+        institutionUsers: {
+          some: {
+            institutionId,
+          },
+        },
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  }
+
+  async list() {
+    return prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  }
 }
