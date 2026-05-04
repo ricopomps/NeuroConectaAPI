@@ -1,37 +1,29 @@
-import htmlPdf, { CreateOptions } from "html-pdf";
 import moment, { MomentInput } from "moment-timezone";
 import ExcelJS from "exceljs";
 import _ from "lodash";
+import puppeteer from 'puppeteer';
 
-export const htmlToPdf = (
-  htmlContent: string,
-  options: CreateOptions = {},
-): Promise<Buffer> =>
-  new Promise((resolve, reject) => {
-    const defaultOptions: CreateOptions = {
-      format: "A4",
-      childProcessOptions: <any>{
-        env: {
-          OPENSSL_CONF: "/dev/null",
-        },
-      },
-    };
-    htmlPdf
-      .create(htmlContent, { ...defaultOptions, ...options })
-      .toBuffer((err, res) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(res);
-      });
+export const htmlToPdf = async (htmlContent: string) => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
+
+  const pdf = await page.pdf({
+    path: 'output.pdf',
+    format: 'A4',
+    printBackground: true
   });
+
+  await browser.close();
+  return pdf;
+};
 
 export const markdownToPdf = async (
   markdownContent: string,
-  options: CreateOptions = {},
 ) => {
   const htmlContent = await markdownToHtml(markdownContent);
-  return htmlToPdf(htmlContent, options);
+  return htmlToPdf(htmlContent);
 };
 
 export const markdownToHtml = async (
