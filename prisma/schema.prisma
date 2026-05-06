@@ -28,6 +28,11 @@ model User {
 model Institution {
     id        String   @id @default(uuid())
     name      String
+    address   String?
+    email     String?
+    state     String?
+    city      String?
+    phone     String?
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 

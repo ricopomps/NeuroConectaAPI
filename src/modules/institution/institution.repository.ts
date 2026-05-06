@@ -1,5 +1,14 @@
 import { prisma } from "../../shared/prisma";
 
+export type UpdateInstitutionData = {
+  name?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  phone?: string;
+  email?: string;
+};
+
 export class InstitutionRepository {
   async create(name: string, ownerId: string) {
     return prisma.institution.create({
@@ -11,6 +20,16 @@ export class InstitutionRepository {
           },
         },
       },
+    });
+  }
+
+  async update(id: string, data: UpdateInstitutionData) {
+    console.log('____________________________________');
+    console.log(data);
+    console.log('____________________________________');
+    return prisma.institution.update({
+      where: { id },
+      data: data,
     });
   }
 

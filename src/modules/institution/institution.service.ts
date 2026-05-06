@@ -1,5 +1,5 @@
 import { UserRepository } from "../user/user.repository";
-import { InstitutionRepository } from "./institution.repository";
+import { InstitutionRepository, UpdateInstitutionData } from "./institution.repository";
 
 export class InstitutionService {
   private institutionRepository = new InstitutionRepository();
@@ -11,6 +11,10 @@ export class InstitutionService {
     }
 
     return this.institutionRepository.create(name, ownerId);
+  }
+
+  async updateInstitution(institutionId: string, partialInstitution: UpdateInstitutionData) {
+    return this.institutionRepository.update(institutionId, partialInstitution);
   }
 
   async listUserInstitutions(userId: string) {

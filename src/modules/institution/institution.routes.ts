@@ -9,6 +9,9 @@ institutionsRoutes.use(ensureAuthenticated);
 
 institutionsRoutes.post("/", (req, res) => controller.create(req, res));
 institutionsRoutes.get("/", (req, res) => controller.listMine(req, res));
+institutionsRoutes.put("/:institutionId", (req, res) =>
+  controller.update(req, res),
+);
 institutionsRoutes.post("/:institutionId/users", (req, res) =>
   controller.addUser(req, res),
 );

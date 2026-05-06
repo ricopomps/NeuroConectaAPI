@@ -27,6 +27,11 @@ export type AggregateInstitution = {
 export type InstitutionMinAggregateOutputType = {
   id: string | null
   name: string | null
+  address: string | null
+  email: string | null
+  state: string | null
+  city: string | null
+  phone: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -34,6 +39,11 @@ export type InstitutionMinAggregateOutputType = {
 export type InstitutionMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  address: string | null
+  email: string | null
+  state: string | null
+  city: string | null
+  phone: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -41,6 +51,11 @@ export type InstitutionMaxAggregateOutputType = {
 export type InstitutionCountAggregateOutputType = {
   id: number
   name: number
+  address: number
+  email: number
+  state: number
+  city: number
+  phone: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -50,6 +65,11 @@ export type InstitutionCountAggregateOutputType = {
 export type InstitutionMinAggregateInputType = {
   id?: true
   name?: true
+  address?: true
+  email?: true
+  state?: true
+  city?: true
+  phone?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -57,6 +77,11 @@ export type InstitutionMinAggregateInputType = {
 export type InstitutionMaxAggregateInputType = {
   id?: true
   name?: true
+  address?: true
+  email?: true
+  state?: true
+  city?: true
+  phone?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -64,6 +89,11 @@ export type InstitutionMaxAggregateInputType = {
 export type InstitutionCountAggregateInputType = {
   id?: true
   name?: true
+  address?: true
+  email?: true
+  state?: true
+  city?: true
+  phone?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -144,6 +174,11 @@ export type InstitutionGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 export type InstitutionGroupByOutputType = {
   id: string
   name: string
+  address: string | null
+  email: string | null
+  state: string | null
+  city: string | null
+  phone: string | null
   createdAt: Date
   updatedAt: Date
   _count: InstitutionCountAggregateOutputType | null
@@ -172,6 +207,11 @@ export type InstitutionWhereInput = {
   NOT?: Prisma.InstitutionWhereInput | Prisma.InstitutionWhereInput[]
   id?: Prisma.StringFilter<"Institution"> | string
   name?: Prisma.StringFilter<"Institution"> | string
+  address?: Prisma.StringNullableFilter<"Institution"> | string | null
+  email?: Prisma.StringNullableFilter<"Institution"> | string | null
+  state?: Prisma.StringNullableFilter<"Institution"> | string | null
+  city?: Prisma.StringNullableFilter<"Institution"> | string | null
+  phone?: Prisma.StringNullableFilter<"Institution"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Institution"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Institution"> | Date | string
   users?: Prisma.InstitutionUserListRelationFilter
@@ -181,6 +221,11 @@ export type InstitutionWhereInput = {
 export type InstitutionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  state?: Prisma.SortOrderInput | Prisma.SortOrder
+  city?: Prisma.SortOrderInput | Prisma.SortOrder
+  phone?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   users?: Prisma.InstitutionUserOrderByRelationAggregateInput
@@ -193,6 +238,11 @@ export type InstitutionWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.InstitutionWhereInput[]
   NOT?: Prisma.InstitutionWhereInput | Prisma.InstitutionWhereInput[]
   name?: Prisma.StringFilter<"Institution"> | string
+  address?: Prisma.StringNullableFilter<"Institution"> | string | null
+  email?: Prisma.StringNullableFilter<"Institution"> | string | null
+  state?: Prisma.StringNullableFilter<"Institution"> | string | null
+  city?: Prisma.StringNullableFilter<"Institution"> | string | null
+  phone?: Prisma.StringNullableFilter<"Institution"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Institution"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Institution"> | Date | string
   users?: Prisma.InstitutionUserListRelationFilter
@@ -202,6 +252,11 @@ export type InstitutionWhereUniqueInput = Prisma.AtLeast<{
 export type InstitutionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  state?: Prisma.SortOrderInput | Prisma.SortOrder
+  city?: Prisma.SortOrderInput | Prisma.SortOrder
+  phone?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.InstitutionCountOrderByAggregateInput
@@ -215,6 +270,11 @@ export type InstitutionScalarWhereWithAggregatesInput = {
   NOT?: Prisma.InstitutionScalarWhereWithAggregatesInput | Prisma.InstitutionScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Institution"> | string
   name?: Prisma.StringWithAggregatesFilter<"Institution"> | string
+  address?: Prisma.StringNullableWithAggregatesFilter<"Institution"> | string | null
+  email?: Prisma.StringNullableWithAggregatesFilter<"Institution"> | string | null
+  state?: Prisma.StringNullableWithAggregatesFilter<"Institution"> | string | null
+  city?: Prisma.StringNullableWithAggregatesFilter<"Institution"> | string | null
+  phone?: Prisma.StringNullableWithAggregatesFilter<"Institution"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Institution"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Institution"> | Date | string
 }
@@ -222,6 +282,11 @@ export type InstitutionScalarWhereWithAggregatesInput = {
 export type InstitutionCreateInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.InstitutionUserCreateNestedManyWithoutInstitutionInput
@@ -231,6 +296,11 @@ export type InstitutionCreateInput = {
 export type InstitutionUncheckedCreateInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.InstitutionUserUncheckedCreateNestedManyWithoutInstitutionInput
@@ -240,6 +310,11 @@ export type InstitutionUncheckedCreateInput = {
 export type InstitutionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.InstitutionUserUpdateManyWithoutInstitutionNestedInput
@@ -249,6 +324,11 @@ export type InstitutionUpdateInput = {
 export type InstitutionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.InstitutionUserUncheckedUpdateManyWithoutInstitutionNestedInput
@@ -258,6 +338,11 @@ export type InstitutionUncheckedUpdateInput = {
 export type InstitutionCreateManyInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -265,6 +350,11 @@ export type InstitutionCreateManyInput = {
 export type InstitutionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -272,6 +362,11 @@ export type InstitutionUpdateManyMutationInput = {
 export type InstitutionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -279,6 +374,11 @@ export type InstitutionUncheckedUpdateManyInput = {
 export type InstitutionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  address?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  state?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -286,6 +386,11 @@ export type InstitutionCountOrderByAggregateInput = {
 export type InstitutionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  address?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  state?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -293,6 +398,11 @@ export type InstitutionMaxOrderByAggregateInput = {
 export type InstitutionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  address?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  state?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  phone?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -300,6 +410,10 @@ export type InstitutionMinOrderByAggregateInput = {
 export type InstitutionScalarRelationFilter = {
   is?: Prisma.InstitutionWhereInput
   isNot?: Prisma.InstitutionWhereInput
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 export type InstitutionCreateNestedOneWithoutUsersInput = {
@@ -333,6 +447,11 @@ export type InstitutionUpdateOneRequiredWithoutStudentsNestedInput = {
 export type InstitutionCreateWithoutUsersInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   students?: Prisma.StudentCreateNestedManyWithoutInstitutionInput
@@ -341,6 +460,11 @@ export type InstitutionCreateWithoutUsersInput = {
 export type InstitutionUncheckedCreateWithoutUsersInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   students?: Prisma.StudentUncheckedCreateNestedManyWithoutInstitutionInput
@@ -365,6 +489,11 @@ export type InstitutionUpdateToOneWithWhereWithoutUsersInput = {
 export type InstitutionUpdateWithoutUsersInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   students?: Prisma.StudentUpdateManyWithoutInstitutionNestedInput
@@ -373,6 +502,11 @@ export type InstitutionUpdateWithoutUsersInput = {
 export type InstitutionUncheckedUpdateWithoutUsersInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   students?: Prisma.StudentUncheckedUpdateManyWithoutInstitutionNestedInput
@@ -381,6 +515,11 @@ export type InstitutionUncheckedUpdateWithoutUsersInput = {
 export type InstitutionCreateWithoutStudentsInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.InstitutionUserCreateNestedManyWithoutInstitutionInput
@@ -389,6 +528,11 @@ export type InstitutionCreateWithoutStudentsInput = {
 export type InstitutionUncheckedCreateWithoutStudentsInput = {
   id?: string
   name: string
+  address?: string | null
+  email?: string | null
+  state?: string | null
+  city?: string | null
+  phone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.InstitutionUserUncheckedCreateNestedManyWithoutInstitutionInput
@@ -413,6 +557,11 @@ export type InstitutionUpdateToOneWithWhereWithoutStudentsInput = {
 export type InstitutionUpdateWithoutStudentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.InstitutionUserUpdateManyWithoutInstitutionNestedInput
@@ -421,6 +570,11 @@ export type InstitutionUpdateWithoutStudentsInput = {
 export type InstitutionUncheckedUpdateWithoutStudentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.InstitutionUserUncheckedUpdateManyWithoutInstitutionNestedInput
@@ -469,6 +623,11 @@ export type InstitutionCountOutputTypeCountStudentsArgs<ExtArgs extends runtime.
 export type InstitutionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  address?: boolean
+  email?: boolean
+  state?: boolean
+  city?: boolean
+  phone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   users?: boolean | Prisma.Institution$usersArgs<ExtArgs>
@@ -479,6 +638,11 @@ export type InstitutionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 export type InstitutionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  address?: boolean
+  email?: boolean
+  state?: boolean
+  city?: boolean
+  phone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["institution"]>
@@ -486,6 +650,11 @@ export type InstitutionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 export type InstitutionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  address?: boolean
+  email?: boolean
+  state?: boolean
+  city?: boolean
+  phone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["institution"]>
@@ -493,11 +662,16 @@ export type InstitutionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type InstitutionSelectScalar = {
   id?: boolean
   name?: boolean
+  address?: boolean
+  email?: boolean
+  state?: boolean
+  city?: boolean
+  phone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type InstitutionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["institution"]>
+export type InstitutionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "address" | "email" | "state" | "city" | "phone" | "createdAt" | "updatedAt", ExtArgs["result"]["institution"]>
 export type InstitutionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | Prisma.Institution$usersArgs<ExtArgs>
   students?: boolean | Prisma.Institution$studentsArgs<ExtArgs>
@@ -515,6 +689,11 @@ export type $InstitutionPayload<ExtArgs extends runtime.Types.Extensions.Interna
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    address: string | null
+    email: string | null
+    state: string | null
+    city: string | null
+    phone: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["institution"]>
@@ -944,6 +1123,11 @@ export interface Prisma__InstitutionClient<T, Null = never, ExtArgs extends runt
 export interface InstitutionFieldRefs {
   readonly id: Prisma.FieldRef<"Institution", 'String'>
   readonly name: Prisma.FieldRef<"Institution", 'String'>
+  readonly address: Prisma.FieldRef<"Institution", 'String'>
+  readonly email: Prisma.FieldRef<"Institution", 'String'>
+  readonly state: Prisma.FieldRef<"Institution", 'String'>
+  readonly city: Prisma.FieldRef<"Institution", 'String'>
+  readonly phone: Prisma.FieldRef<"Institution", 'String'>
   readonly createdAt: Prisma.FieldRef<"Institution", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Institution", 'DateTime'>
 }

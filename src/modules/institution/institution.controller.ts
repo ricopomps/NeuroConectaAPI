@@ -18,6 +18,20 @@ export class InstitutionController {
     }
   }
 
+  async update(req: Request, res: Response) {
+    try {
+      const { params, body } = req;
+      const institution = await this.institutionService.updateInstitution(
+        params.institutionId as string,
+        body,
+      );
+
+      return res.status(200).json(institution);
+    } catch (error: any) {
+      return res.status(400).json({ error: error.message });
+    }
+  }
+
   async listMine(req: Request, res: Response) {
     const institutions = await this.institutionService.listUserInstitutions(
       req.userId!,
