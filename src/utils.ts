@@ -1,27 +1,34 @@
-import moment, { MomentInput } from "moment-timezone";
+import chromium from "@sparticuz/chromium";
 import ExcelJS from "exceljs";
-import _ from "lodash";
-import puppeteer from 'puppeteer';
+import moment, { MomentInput } from "moment-timezone";
+import puppeteer from "puppeteer-core";
 
 export const htmlToPdf = async (htmlContent: string) => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-
-  await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
-
-  const pdf = await page.pdf({
-    path: 'output.pdf',
-    format: 'A4',
-    printBackground: true
+  const browser = await puppeteer.launch({
+    args: chromium.args,
+    executablePath: await chromium.executablePath(),
+    headless: true,
   });
 
-  await browser.close();
-  return pdf;
+  try {
+    const page = await browser.newPage();
+
+    await page.setContent(htmlContent, {
+      waitUntil: "networkidle0",
+    });
+
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+    });
+
+    return pdf;
+  } finally {
+    await browser.close();
+  }
 };
 
-export const markdownToPdf = async (
-  markdownContent: string,
-) => {
+export const markdownToPdf = async (markdownContent: string) => {
   const htmlContent = await markdownToHtml(markdownContent);
   return htmlToPdf(htmlContent);
 };
