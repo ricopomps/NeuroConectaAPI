@@ -7,6 +7,12 @@ export type CreateUserData = {
   password: string;
 };
 
+export type UpdateUserData = {
+  name: string;
+  email: string;
+  password?: string;
+};
+
 type UserWithPassword = User & { password?: string };
 
 export class UserRepository {
@@ -34,6 +40,13 @@ export class UserRepository {
   async create(data: CreateUserData) {
     return prisma.user.create({
       data,
+    });
+  }
+
+  async update(id: string, data: UpdateUserData) {
+    return prisma.user.update({
+      where: { id },
+      data: data,
     });
   }
 

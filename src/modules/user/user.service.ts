@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { CreateUserData, UserRepository } from "./user.repository";
+import { CreateUserData, UpdateUserData, UserRepository } from "./user.repository";
 
 export class UserService {
   private readonly userRepository = new UserRepository();
@@ -26,6 +26,24 @@ export class UserService {
       email,
       password: hashedPassword,
     });
+
+    return user;
+  }
+
+  async updateUser(userId: string, { name, email, password }: UpdateUserData) {
+    const userExists = await this.userRepository.findByEmail(email);
+
+    if (userExists && userExists.id !== userId) {
+      throw new Error("Email já cadastrado");
+    }
+
+    const newData: UpdateUserData = { name, email, password: undefined };
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      newData.password = hashedPassword;
+    }
+
+    const user = await this.userRepository.update(userId, newData);
 
     return user;
   }

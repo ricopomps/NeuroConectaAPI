@@ -24,9 +24,6 @@ export class InstitutionRepository {
   }
 
   async update(id: string, data: UpdateInstitutionData) {
-    console.log('____________________________________');
-    console.log(data);
-    console.log('____________________________________');
     return prisma.institution.update({
       where: { id },
       data: data,

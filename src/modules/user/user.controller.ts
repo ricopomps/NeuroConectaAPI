@@ -32,6 +32,16 @@ export class UserController {
     }
   }
 
+  async update(req: Request, res: Response) {
+    try {
+      const userId = req.params.userId;
+      const user = await this.userService.updateUser(userId as string, req.body);
+      return res.status(200).json(user);
+    } catch (err: any) {
+      return res.status(400).json({ error: err.message });
+    }
+  }
+
   async listByInstitution(req: Request, res: Response) {
     try {
       const users = await this.userService.listUsersByInstitution(
