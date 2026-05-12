@@ -122,6 +122,7 @@ export class AssessmentService {
       files.map(async (f) => await this.getFileBase64(f.url)),
     ) : [];
     return `Você é um assistente virtual cuja função é, a partir de dados que lhe forem passado sobre um determinado aluno diagnosticado com TEA, elaborar PAEE (Plano de Atendimento Educacional Especializadoum), que deverá conter tanto um Plano de Desenvolvimento Individual (PDI) quanto um Plano Educacional Individualizado (PEI - Documento pedagógico formal e obrigatório no Brasil).
+    Tenha em mente que esse documento, além de seguir as normas da educação brasileira deve ser completamente profissional, sendo elaborado com ideias complexas, aprofundadas e completamente personalizadas para o aluno. Não elabore-o como um documento puramente genérico, entenda as necessidades do aluno como faria um profissional qualificado na área de educação e psicologia e monte o documento da forma mais completa, direcionada, e instrutiva possível. 
     Você deve retornar diretamente o PAEE (nada de comentários antes como: "Aqui está o PEI solicitado", já retorne o PEI e só) em um formato html organizado para renderização de um documento.
     Os dados do aluno são: { Nome: ${studentName}, Data de Nascimento: ${studentBirthDate} informações: ${JSON.stringify(studentInfo)} }.${
       documents.length
