@@ -34,7 +34,8 @@
     "moment-timezone": "^0.6.0",
     "openai": "^6.16.0",
     "puppeteer": "^24.42.0",
-    "puppeteer-core": "^24.43.0"
+    "puppeteer-core": "^24.43.0",
+    "resend": "^6.12.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",

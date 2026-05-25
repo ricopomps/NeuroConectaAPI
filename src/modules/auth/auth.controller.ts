@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { AuthService } from "./auth.service";
 
 export class AuthController {
-  private authService = new AuthService();
+  private readonly authService = new AuthService();
 
   async login(req: Request, res: Response) {
     try {
@@ -13,6 +13,30 @@ export class AuthController {
       return res.json(result);
     } catch (error: any) {
       return res.status(401).json({ error: error.message });
+    }
+  }
+
+  async requestPasswordReset(req: Request, res: Response) {
+    try {
+      const { email } = req.body;
+
+      const result = await this.authService.requestPasswordReset(email);
+
+      return res.json(result);
+    } catch (error: any) {
+      return res.status(400).json({ error: error.message });
+    }
+  }
+
+  async resetPassword(req: Request, res: Response) {
+    try {
+      const { token, password } = req.body;
+
+      const result = await this.authService.resetPassword(token, password);
+
+      return res.json(result);
+    } catch (error: any) {
+      return res.status(400).json({ error: error.message });
     }
   }
 }
