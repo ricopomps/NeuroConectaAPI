@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import { CreateUserData, UpdateUserData, UserRepository } from "./user.repository";
+import { emailService } from "../email/email.service";
 
 export class UserService {
   private readonly userRepository = new UserRepository();
@@ -26,6 +27,12 @@ export class UserService {
       email,
       password: hashedPassword,
     });
+
+    try {
+      await emailService.sendWelcomeEmail(user.email, user.name);
+    } catch (err) {
+      console.error("Failed to send welcome email", err);
+    }
 
     return user;
   }

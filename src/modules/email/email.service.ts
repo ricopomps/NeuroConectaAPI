@@ -1,5 +1,7 @@
 import { Resend } from "resend";
-import { EMAIL_FROM, RESEND_API_KEY } from "../../config/env";
+import { EMAIL_FROM, FRONT_URL, RESEND_API_KEY } from "../../config/env";
+import { PasswordResetEmail } from "../../emails/PasswordResetEmail";
+import { WelcomeEmail } from "../../emails/WelcomeEmail";
 
 export class EmailService {
   private client?: Resend;
@@ -40,21 +42,29 @@ export class EmailService {
     const client = this.getClient();
     const from = EMAIL_FROM ?? "onboarding@resend.dev";
     const subject = "Troca de senha";
-    const displayName = name ? `Olá ${name},` : "Olá,";
-    const html = `
-      <div style="font-family: Arial, sans-serif; font-size: 14px; color: #111">
-        <p>${displayName}</p>
-        <p>Recebemos uma solicitação para trocar a sua senha. Clique no link abaixo para criar uma nova senha. O link expira em 1 hora.</p>
-        <p><a href="${link}" target="_blank" rel="noopener">Trocar minha senha</a></p>
-        <p>Se você não solicitou essa troca, apenas ignore este e-mail.</p>
-      </div>
-    `;
 
     const resp = await client.emails.send({
       from,
       to,
       subject,
-      html,
+      react: PasswordResetEmail({ name, resetLink: link }),
+    });
+
+    return resp;
+  }
+
+  async sendWelcomeEmail(to: string, name?: string) {
+    const client = this.getClient();
+    const from = EMAIL_FROM ?? "onboarding@resend.dev";
+    const subject = "Bem-vindo ao sistema";
+    const base = FRONT_URL ?? "http://localhost:3000";
+    const loginLink = `${base}/auth/login`;
+
+    const resp = await client.emails.send({
+      from,
+      to,
+      subject,
+      react: WelcomeEmail({ name, loginLink }),
     });
 
     return resp;
