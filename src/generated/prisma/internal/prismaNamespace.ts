@@ -1355,7 +1355,7 @@ export const CaseStudyScalarFieldEnum = {
   developmentStage: 'developmentStage',
   comorbidities: 'comorbidities',
   crisisBehaviors: 'crisisBehaviors',
-  autismCharacteristics: 'autismCharacteristics',
+  neurodivergentCharacteristics: 'neurodivergentCharacteristics',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
