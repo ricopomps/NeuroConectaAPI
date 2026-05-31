@@ -43,6 +43,11 @@ export { Prisma }
  */
 export type User = Prisma.UserModel
 /**
+ * Model ActionToken
+ * 
+ */
+export type ActionToken = Prisma.ActionTokenModel
+/**
  * Model Institution
  * 
  */

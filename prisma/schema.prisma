@@ -25,6 +25,24 @@ model User {
     requisitionsToAi AuditLog[]
 }
 
+enum TokenType {
+    ACCOUNT_CONFIRMATION
+    PASSWORD_RESET
+}
+
+model ActionToken {
+    id        String    @id @default(uuid())
+    email     String
+    type      TokenType
+    token     String
+    used      Boolean   @default(false)
+    expiresAt DateTime
+    createdAt DateTime  @default(now())
+
+    @@index([email, type])
+    @@index([email, type, token])
+}
+
 model Institution {
     id        String   @id @default(uuid())
     name      String

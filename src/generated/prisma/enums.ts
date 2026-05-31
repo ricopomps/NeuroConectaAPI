@@ -9,6 +9,14 @@
 * 🟢 You can import this file directly.
 */
 
+export const TokenType = {
+  ACCOUNT_CONFIRMATION: 'ACCOUNT_CONFIRMATION',
+  PASSWORD_RESET: 'PASSWORD_RESET'
+} as const
+
+export type TokenType = (typeof TokenType)[keyof typeof TokenType]
+
+
 export const AiFeature = {
   GENERATE_PAEE: 'GENERATE_PAEE',
   SUMMARIZE_TEXT: 'SUMMARIZE_TEXT'

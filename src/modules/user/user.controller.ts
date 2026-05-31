@@ -32,10 +32,29 @@ export class UserController {
     }
   }
 
+  async requestConfirmationCode(req: Request, res: Response) {
+    try {
+      const email = req.body?.email;
+
+      if (!email || typeof email !== "string") {
+        return res.status(400).json({ error: "Missing 'email' parameter" });
+      }
+
+      const result = await this.userService.requestConfirmationCode(email);
+
+      return res.status(200).json(result);
+    } catch (err: any) {
+      return res.status(400).json({ error: err.message });
+    }
+  }
+
   async update(req: Request, res: Response) {
     try {
       const userId = req.params.userId;
-      const user = await this.userService.updateUser(userId as string, req.body);
+      const user = await this.userService.updateUser(
+        userId as string,
+        req.body,
+      );
       return res.status(200).json(user);
     } catch (err: any) {
       return res.status(400).json({ error: err.message });

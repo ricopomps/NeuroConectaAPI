@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { EMAIL_FROM, FRONT_URL, RESEND_API_KEY } from "../../config/env";
+import { AccountConfirmationEmail } from "../../emails/AccountConfirmationEmail";
 import { PasswordResetEmail } from "../../emails/PasswordResetEmail";
 import { WelcomeEmail } from "../../emails/WelcomeEmail";
 
@@ -65,6 +66,21 @@ export class EmailService {
       to,
       subject,
       react: WelcomeEmail({ name, loginLink }),
+    });
+
+    return resp;
+  }
+
+  async sendAccountConfirmationCode(to: string, code: string) {
+    const client = this.getClient();
+    const from = EMAIL_FROM ?? "onboarding@resend.dev";
+    const subject = "Código de confirmação de cadastro";
+
+    const resp = await client.emails.send({
+      from,
+      to,
+      subject,
+      react: AccountConfirmationEmail({ email: to, confirmationCode: code }),
     });
 
     return resp;

@@ -9,6 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
+export type * from './models/ActionToken'
 export type * from './models/Institution'
 export type * from './models/InstitutionUser'
 export type * from './models/Student'

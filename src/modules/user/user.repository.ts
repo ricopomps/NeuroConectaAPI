@@ -5,6 +5,7 @@ export type CreateUserData = {
   name: string;
   email: string;
   password: string;
+  confirmationCode?: string;
 };
 
 export type UpdateUserData = {
@@ -38,8 +39,9 @@ export class UserRepository {
   }
 
   async create(data: CreateUserData) {
+    const { confirmationCode, ...userData } = data;
     return prisma.user.create({
-      data,
+      data: userData,
     });
   }
 

@@ -385,6 +385,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
+  ActionToken: 'ActionToken',
   Institution: 'Institution',
   InstitutionUser: 'InstitutionUser',
   Student: 'Student',
@@ -408,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "institution" | "institutionUser" | "student" | "studentFile" | "assessment" | "assessmentHistory" | "auditLog" | "caseStudy"
+    modelProps: "user" | "actionToken" | "institution" | "institutionUser" | "student" | "studentFile" | "assessment" | "assessmentHistory" | "auditLog" | "caseStudy"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -483,6 +484,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.UserCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.UserCountAggregateOutputType> | number
+        }
+      }
+    }
+    ActionToken: {
+      payload: Prisma.$ActionTokenPayload<ExtArgs>
+      fields: Prisma.ActionTokenFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ActionTokenFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ActionTokenFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>
+        }
+        findFirst: {
+          args: Prisma.ActionTokenFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ActionTokenFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>
+        }
+        findMany: {
+          args: Prisma.ActionTokenFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>[]
+        }
+        create: {
+          args: Prisma.ActionTokenCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>
+        }
+        createMany: {
+          args: Prisma.ActionTokenCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ActionTokenCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>[]
+        }
+        delete: {
+          args: Prisma.ActionTokenDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>
+        }
+        update: {
+          args: Prisma.ActionTokenUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>
+        }
+        deleteMany: {
+          args: Prisma.ActionTokenDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ActionTokenUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ActionTokenUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>[]
+        }
+        upsert: {
+          args: Prisma.ActionTokenUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ActionTokenPayload>
+        }
+        aggregate: {
+          args: Prisma.ActionTokenAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateActionToken>
+        }
+        groupBy: {
+          args: Prisma.ActionTokenGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ActionTokenGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ActionTokenCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ActionTokenCountAggregateOutputType> | number
         }
       }
     }
@@ -1129,6 +1204,19 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+export const ActionTokenScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  type: 'type',
+  token: 'token',
+  used: 'used',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type ActionTokenScalarFieldEnum = (typeof ActionTokenScalarFieldEnum)[keyof typeof ActionTokenScalarFieldEnum]
+
+
 export const InstitutionScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -1334,6 +1422,27 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
+ * Reference to a field of type 'TokenType'
+ */
+export type EnumTokenTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TokenType'>
+    
+
+
+/**
+ * Reference to a field of type 'TokenType[]'
+ */
+export type ListEnumTokenTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TokenType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
  * Reference to a field of type 'AiFeature'
  */
 export type EnumAiFeatureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiFeature'>
@@ -1358,13 +1467,6 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-/**
- * Reference to a field of type 'Boolean'
- */
-export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -1477,6 +1579,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
+  actionToken?: Prisma.ActionTokenOmit
   institution?: Prisma.InstitutionOmit
   institutionUser?: Prisma.InstitutionUserOmit
   student?: Prisma.StudentOmit

@@ -14,6 +14,10 @@ userRoutes.get("/:userUuid", (req, res) => {
   return userController.get(req, res);
 });
 
+userRoutes.post("/confirmation-code", (req, res) => {
+  return userController.requestConfirmationCode(req, res);
+});
+
 userRoutes.post("/", (req, res) => {
   return userController.create(req, res);
 });

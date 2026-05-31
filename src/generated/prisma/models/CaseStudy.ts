@@ -1521,10 +1521,6 @@ export type CaseStudyCreateautismCharacteristicsInput = {
   set: string[]
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type CaseStudyUpdatecommunicationTypesInput = {
   set?: string[]
   push?: string | string[]
