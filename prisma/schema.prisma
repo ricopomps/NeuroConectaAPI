@@ -149,7 +149,7 @@ model CaseStudy {
     informantPhone                String?
     pregnancyHistory              String?
     pregnancyType                 String?
-    developmentMilestones         String?
+    observations                  String?
     healthHistory                 String?
     walkingDevelopment            String?
     speechDevelopment             String?
