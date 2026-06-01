@@ -140,8 +140,7 @@ model CaseStudy {
     responsibleName               String?
     responsibleEmail              String?
     referredBy                    String?
-    hasDiagnosis                  Boolean
-    diagnosis                     String?
+    diagnoses                     Json?
     informantName                 String?
     informantRelation             String?
     informantEmail                String?

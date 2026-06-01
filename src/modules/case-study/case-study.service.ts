@@ -1,5 +1,6 @@
 import { prisma } from "../../shared/prisma";
 import { CaseStudyRepository } from "./case-study.repository";
+import { CaseStudyInput } from "./case-study.types";
 
 export class CaseStudyService {
   private readonly caseStudyRepo = new CaseStudyRepository();
@@ -8,7 +9,7 @@ export class CaseStudyService {
     userId: string,
     institutionId: string,
     studentId: string,
-    data: any,
+    data: CaseStudyInput,
   ) {
     // Check if user has access to the institution
     const membership = await prisma.institutionUser.findFirst({
@@ -78,7 +79,7 @@ export class CaseStudyService {
     userId: string,
     institutionId: string,
     studentId: string,
-    data: any,
+    data: CaseStudyInput,
   ) {
     // Check access
     const membership = await prisma.institutionUser.findFirst({

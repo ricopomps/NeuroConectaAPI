@@ -31,8 +31,6 @@ export type CaseStudyMinAggregateOutputType = {
   responsibleName: string | null
   responsibleEmail: string | null
   referredBy: string | null
-  hasDiagnosis: boolean | null
-  diagnosis: string | null
   informantName: string | null
   informantRelation: string | null
   informantEmail: string | null
@@ -87,8 +85,6 @@ export type CaseStudyMaxAggregateOutputType = {
   responsibleName: string | null
   responsibleEmail: string | null
   referredBy: string | null
-  hasDiagnosis: boolean | null
-  diagnosis: string | null
   informantName: string | null
   informantRelation: string | null
   informantEmail: string | null
@@ -143,8 +139,7 @@ export type CaseStudyCountAggregateOutputType = {
   responsibleName: number
   responsibleEmail: number
   referredBy: number
-  hasDiagnosis: number
-  diagnosis: number
+  diagnoses: number
   informantName: number
   informantRelation: number
   informantEmail: number
@@ -207,8 +202,6 @@ export type CaseStudyMinAggregateInputType = {
   responsibleName?: true
   responsibleEmail?: true
   referredBy?: true
-  hasDiagnosis?: true
-  diagnosis?: true
   informantName?: true
   informantRelation?: true
   informantEmail?: true
@@ -263,8 +256,6 @@ export type CaseStudyMaxAggregateInputType = {
   responsibleName?: true
   responsibleEmail?: true
   referredBy?: true
-  hasDiagnosis?: true
-  diagnosis?: true
   informantName?: true
   informantRelation?: true
   informantEmail?: true
@@ -319,8 +310,7 @@ export type CaseStudyCountAggregateInputType = {
   responsibleName?: true
   responsibleEmail?: true
   referredBy?: true
-  hasDiagnosis?: true
-  diagnosis?: true
+  diagnoses?: true
   informantName?: true
   informantRelation?: true
   informantEmail?: true
@@ -454,8 +444,7 @@ export type CaseStudyGroupByOutputType = {
   responsibleName: string | null
   responsibleEmail: string | null
   referredBy: string | null
-  hasDiagnosis: boolean
-  diagnosis: string | null
+  diagnoses: runtime.JsonValue | null
   informantName: string | null
   informantRelation: string | null
   informantEmail: string | null
@@ -537,8 +526,7 @@ export type CaseStudyWhereInput = {
   responsibleName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   responsibleEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   referredBy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  hasDiagnosis?: Prisma.BoolFilter<"CaseStudy"> | boolean
-  diagnosis?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  diagnoses?: Prisma.JsonNullableFilter<"CaseStudy">
   informantName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantRelation?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
@@ -600,8 +588,7 @@ export type CaseStudyOrderByWithRelationInput = {
   responsibleName?: Prisma.SortOrderInput | Prisma.SortOrder
   responsibleEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   referredBy?: Prisma.SortOrderInput | Prisma.SortOrder
-  hasDiagnosis?: Prisma.SortOrder
-  diagnosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  diagnoses?: Prisma.SortOrderInput | Prisma.SortOrder
   informantName?: Prisma.SortOrderInput | Prisma.SortOrder
   informantRelation?: Prisma.SortOrderInput | Prisma.SortOrder
   informantEmail?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -666,8 +653,7 @@ export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
   responsibleName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   responsibleEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   referredBy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  hasDiagnosis?: Prisma.BoolFilter<"CaseStudy"> | boolean
-  diagnosis?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  diagnoses?: Prisma.JsonNullableFilter<"CaseStudy">
   informantName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantRelation?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
@@ -729,8 +715,7 @@ export type CaseStudyOrderByWithAggregationInput = {
   responsibleName?: Prisma.SortOrderInput | Prisma.SortOrder
   responsibleEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   referredBy?: Prisma.SortOrderInput | Prisma.SortOrder
-  hasDiagnosis?: Prisma.SortOrder
-  diagnosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  diagnoses?: Prisma.SortOrderInput | Prisma.SortOrder
   informantName?: Prisma.SortOrderInput | Prisma.SortOrder
   informantRelation?: Prisma.SortOrderInput | Prisma.SortOrder
   informantEmail?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -797,8 +782,7 @@ export type CaseStudyScalarWhereWithAggregatesInput = {
   responsibleName?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   responsibleEmail?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   referredBy?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
-  hasDiagnosis?: Prisma.BoolWithAggregatesFilter<"CaseStudy"> | boolean
-  diagnosis?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  diagnoses?: Prisma.JsonNullableWithAggregatesFilter<"CaseStudy">
   informantName?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   informantRelation?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   informantEmail?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
@@ -858,8 +842,7 @@ export type CaseStudyCreateInput = {
   responsibleName?: string | null
   responsibleEmail?: string | null
   referredBy?: string | null
-  hasDiagnosis: boolean
-  diagnosis?: string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: string | null
   informantRelation?: string | null
   informantEmail?: string | null
@@ -921,8 +904,7 @@ export type CaseStudyUncheckedCreateInput = {
   responsibleName?: string | null
   responsibleEmail?: string | null
   referredBy?: string | null
-  hasDiagnosis: boolean
-  diagnosis?: string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: string | null
   informantRelation?: string | null
   informantEmail?: string | null
@@ -982,8 +964,7 @@ export type CaseStudyUpdateInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1045,8 +1026,7 @@ export type CaseStudyUncheckedUpdateInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1107,8 +1087,7 @@ export type CaseStudyCreateManyInput = {
   responsibleName?: string | null
   responsibleEmail?: string | null
   referredBy?: string | null
-  hasDiagnosis: boolean
-  diagnosis?: string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: string | null
   informantRelation?: string | null
   informantEmail?: string | null
@@ -1168,8 +1147,7 @@ export type CaseStudyUpdateManyMutationInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1230,8 +1208,7 @@ export type CaseStudyUncheckedUpdateManyInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1310,8 +1287,7 @@ export type CaseStudyCountOrderByAggregateInput = {
   responsibleName?: Prisma.SortOrder
   responsibleEmail?: Prisma.SortOrder
   referredBy?: Prisma.SortOrder
-  hasDiagnosis?: Prisma.SortOrder
-  diagnosis?: Prisma.SortOrder
+  diagnoses?: Prisma.SortOrder
   informantName?: Prisma.SortOrder
   informantRelation?: Prisma.SortOrder
   informantEmail?: Prisma.SortOrder
@@ -1372,8 +1348,6 @@ export type CaseStudyMaxOrderByAggregateInput = {
   responsibleName?: Prisma.SortOrder
   responsibleEmail?: Prisma.SortOrder
   referredBy?: Prisma.SortOrder
-  hasDiagnosis?: Prisma.SortOrder
-  diagnosis?: Prisma.SortOrder
   informantName?: Prisma.SortOrder
   informantRelation?: Prisma.SortOrder
   informantEmail?: Prisma.SortOrder
@@ -1428,8 +1402,6 @@ export type CaseStudyMinOrderByAggregateInput = {
   responsibleName?: Prisma.SortOrder
   responsibleEmail?: Prisma.SortOrder
   referredBy?: Prisma.SortOrder
-  hasDiagnosis?: Prisma.SortOrder
-  diagnosis?: Prisma.SortOrder
   informantName?: Prisma.SortOrder
   informantRelation?: Prisma.SortOrder
   informantEmail?: Prisma.SortOrder
@@ -1579,8 +1551,7 @@ export type CaseStudyCreateWithoutStudentInput = {
   responsibleName?: string | null
   responsibleEmail?: string | null
   referredBy?: string | null
-  hasDiagnosis: boolean
-  diagnosis?: string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: string | null
   informantRelation?: string | null
   informantEmail?: string | null
@@ -1640,8 +1611,7 @@ export type CaseStudyUncheckedCreateWithoutStudentInput = {
   responsibleName?: string | null
   responsibleEmail?: string | null
   referredBy?: string | null
-  hasDiagnosis: boolean
-  diagnosis?: string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: string | null
   informantRelation?: string | null
   informantEmail?: string | null
@@ -1731,8 +1701,7 @@ export type CaseStudyScalarWhereInput = {
   responsibleName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   responsibleEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   referredBy?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
-  hasDiagnosis?: Prisma.BoolFilter<"CaseStudy"> | boolean
-  diagnosis?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  diagnoses?: Prisma.JsonNullableFilter<"CaseStudy">
   informantName?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantRelation?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantEmail?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
@@ -1792,8 +1761,7 @@ export type CaseStudyCreateManyStudentInput = {
   responsibleName?: string | null
   responsibleEmail?: string | null
   referredBy?: string | null
-  hasDiagnosis: boolean
-  diagnosis?: string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: string | null
   informantRelation?: string | null
   informantEmail?: string | null
@@ -1853,8 +1821,7 @@ export type CaseStudyUpdateWithoutStudentInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1914,8 +1881,7 @@ export type CaseStudyUncheckedUpdateWithoutStudentInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1975,8 +1941,7 @@ export type CaseStudyUncheckedUpdateManyWithoutStudentInput = {
   responsibleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsibleEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referredBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  hasDiagnosis?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  diagnosis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnoses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   informantName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantRelation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2039,8 +2004,7 @@ export type CaseStudySelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   responsibleName?: boolean
   responsibleEmail?: boolean
   referredBy?: boolean
-  hasDiagnosis?: boolean
-  diagnosis?: boolean
+  diagnoses?: boolean
   informantName?: boolean
   informantRelation?: boolean
   informantEmail?: boolean
@@ -2102,8 +2066,7 @@ export type CaseStudySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   responsibleName?: boolean
   responsibleEmail?: boolean
   referredBy?: boolean
-  hasDiagnosis?: boolean
-  diagnosis?: boolean
+  diagnoses?: boolean
   informantName?: boolean
   informantRelation?: boolean
   informantEmail?: boolean
@@ -2165,8 +2128,7 @@ export type CaseStudySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   responsibleName?: boolean
   responsibleEmail?: boolean
   referredBy?: boolean
-  hasDiagnosis?: boolean
-  diagnosis?: boolean
+  diagnoses?: boolean
   informantName?: boolean
   informantRelation?: boolean
   informantEmail?: boolean
@@ -2228,8 +2190,7 @@ export type CaseStudySelectScalar = {
   responsibleName?: boolean
   responsibleEmail?: boolean
   referredBy?: boolean
-  hasDiagnosis?: boolean
-  diagnosis?: boolean
+  diagnoses?: boolean
   informantName?: boolean
   informantRelation?: boolean
   informantEmail?: boolean
@@ -2283,7 +2244,7 @@ export type CaseStudySelectScalar = {
   updatedAt?: boolean
 }
 
-export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "hasDiagnosis" | "diagnosis" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "pregnancyType" | "observations" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "neurodivergentCharacteristics" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
+export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "diagnoses" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "pregnancyType" | "observations" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "neurodivergentCharacteristics" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
 export type CaseStudyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
 }
@@ -2306,8 +2267,7 @@ export type $CaseStudyPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     responsibleName: string | null
     responsibleEmail: string | null
     referredBy: string | null
-    hasDiagnosis: boolean
-    diagnosis: string | null
+    diagnoses: runtime.JsonValue | null
     informantName: string | null
     informantRelation: string | null
     informantEmail: string | null
@@ -2789,8 +2749,7 @@ export interface CaseStudyFieldRefs {
   readonly responsibleName: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly responsibleEmail: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly referredBy: Prisma.FieldRef<"CaseStudy", 'String'>
-  readonly hasDiagnosis: Prisma.FieldRef<"CaseStudy", 'Boolean'>
-  readonly diagnosis: Prisma.FieldRef<"CaseStudy", 'String'>
+  readonly diagnoses: Prisma.FieldRef<"CaseStudy", 'Json'>
   readonly informantName: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly informantRelation: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly informantEmail: Prisma.FieldRef<"CaseStudy", 'String'>

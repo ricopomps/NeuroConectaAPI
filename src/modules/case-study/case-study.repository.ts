@@ -1,7 +1,8 @@
 import { prisma } from "../../shared/prisma";
+import { CaseStudyInput } from "./case-study.types";
 
 export class CaseStudyRepository {
-  async create(data: any) {
+  async create(data: CaseStudyInput & { studentId: string }) {
     return prisma.caseStudy.create({
       data,
     });
@@ -14,7 +15,7 @@ export class CaseStudyRepository {
     });
   }
 
-  async update(id: string, data: any) {
+  async update(id: string, data: CaseStudyInput) {
     return prisma.caseStudy.update({
       where: { id },
       data,
