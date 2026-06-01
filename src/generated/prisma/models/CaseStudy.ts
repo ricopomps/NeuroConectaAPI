@@ -39,6 +39,7 @@ export type CaseStudyMinAggregateOutputType = {
   responsiblePhone: string | null
   informantPhone: string | null
   pregnancyHistory: string | null
+  pregnancyType: string | null
   developmentMilestones: string | null
   healthHistory: string | null
   walkingDevelopment: string | null
@@ -94,6 +95,7 @@ export type CaseStudyMaxAggregateOutputType = {
   responsiblePhone: string | null
   informantPhone: string | null
   pregnancyHistory: string | null
+  pregnancyType: string | null
   developmentMilestones: string | null
   healthHistory: string | null
   walkingDevelopment: string | null
@@ -149,6 +151,7 @@ export type CaseStudyCountAggregateOutputType = {
   responsiblePhone: number
   informantPhone: number
   pregnancyHistory: number
+  pregnancyType: number
   developmentMilestones: number
   healthHistory: number
   walkingDevelopment: number
@@ -212,6 +215,7 @@ export type CaseStudyMinAggregateInputType = {
   responsiblePhone?: true
   informantPhone?: true
   pregnancyHistory?: true
+  pregnancyType?: true
   developmentMilestones?: true
   healthHistory?: true
   walkingDevelopment?: true
@@ -267,6 +271,7 @@ export type CaseStudyMaxAggregateInputType = {
   responsiblePhone?: true
   informantPhone?: true
   pregnancyHistory?: true
+  pregnancyType?: true
   developmentMilestones?: true
   healthHistory?: true
   walkingDevelopment?: true
@@ -322,6 +327,7 @@ export type CaseStudyCountAggregateInputType = {
   responsiblePhone?: true
   informantPhone?: true
   pregnancyHistory?: true
+  pregnancyType?: true
   developmentMilestones?: true
   healthHistory?: true
   walkingDevelopment?: true
@@ -456,6 +462,7 @@ export type CaseStudyGroupByOutputType = {
   responsiblePhone: string | null
   informantPhone: string | null
   pregnancyHistory: string | null
+  pregnancyType: string | null
   developmentMilestones: string | null
   healthHistory: string | null
   walkingDevelopment: string | null
@@ -538,6 +545,7 @@ export type CaseStudyWhereInput = {
   responsiblePhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantPhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   pregnancyHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  pregnancyType?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   developmentMilestones?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   healthHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   walkingDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
@@ -600,6 +608,7 @@ export type CaseStudyOrderByWithRelationInput = {
   responsiblePhone?: Prisma.SortOrderInput | Prisma.SortOrder
   informantPhone?: Prisma.SortOrderInput | Prisma.SortOrder
   pregnancyHistory?: Prisma.SortOrderInput | Prisma.SortOrder
+  pregnancyType?: Prisma.SortOrderInput | Prisma.SortOrder
   developmentMilestones?: Prisma.SortOrderInput | Prisma.SortOrder
   healthHistory?: Prisma.SortOrderInput | Prisma.SortOrder
   walkingDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -665,6 +674,7 @@ export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
   responsiblePhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantPhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   pregnancyHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  pregnancyType?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   developmentMilestones?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   healthHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   walkingDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
@@ -727,6 +737,7 @@ export type CaseStudyOrderByWithAggregationInput = {
   responsiblePhone?: Prisma.SortOrderInput | Prisma.SortOrder
   informantPhone?: Prisma.SortOrderInput | Prisma.SortOrder
   pregnancyHistory?: Prisma.SortOrderInput | Prisma.SortOrder
+  pregnancyType?: Prisma.SortOrderInput | Prisma.SortOrder
   developmentMilestones?: Prisma.SortOrderInput | Prisma.SortOrder
   healthHistory?: Prisma.SortOrderInput | Prisma.SortOrder
   walkingDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -794,6 +805,7 @@ export type CaseStudyScalarWhereWithAggregatesInput = {
   responsiblePhone?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   informantPhone?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   pregnancyHistory?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+  pregnancyType?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   developmentMilestones?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   healthHistory?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
   walkingDevelopment?: Prisma.StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
@@ -854,6 +866,7 @@ export type CaseStudyCreateInput = {
   responsiblePhone?: string | null
   informantPhone?: string | null
   pregnancyHistory?: string | null
+  pregnancyType?: string | null
   developmentMilestones?: string | null
   healthHistory?: string | null
   walkingDevelopment?: string | null
@@ -916,6 +929,7 @@ export type CaseStudyUncheckedCreateInput = {
   responsiblePhone?: string | null
   informantPhone?: string | null
   pregnancyHistory?: string | null
+  pregnancyType?: string | null
   developmentMilestones?: string | null
   healthHistory?: string | null
   walkingDevelopment?: string | null
@@ -976,6 +990,7 @@ export type CaseStudyUpdateInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1038,6 +1053,7 @@ export type CaseStudyUncheckedUpdateInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1099,6 +1115,7 @@ export type CaseStudyCreateManyInput = {
   responsiblePhone?: string | null
   informantPhone?: string | null
   pregnancyHistory?: string | null
+  pregnancyType?: string | null
   developmentMilestones?: string | null
   healthHistory?: string | null
   walkingDevelopment?: string | null
@@ -1159,6 +1176,7 @@ export type CaseStudyUpdateManyMutationInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1220,6 +1238,7 @@ export type CaseStudyUncheckedUpdateManyInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1299,6 +1318,7 @@ export type CaseStudyCountOrderByAggregateInput = {
   responsiblePhone?: Prisma.SortOrder
   informantPhone?: Prisma.SortOrder
   pregnancyHistory?: Prisma.SortOrder
+  pregnancyType?: Prisma.SortOrder
   developmentMilestones?: Prisma.SortOrder
   healthHistory?: Prisma.SortOrder
   walkingDevelopment?: Prisma.SortOrder
@@ -1360,6 +1380,7 @@ export type CaseStudyMaxOrderByAggregateInput = {
   responsiblePhone?: Prisma.SortOrder
   informantPhone?: Prisma.SortOrder
   pregnancyHistory?: Prisma.SortOrder
+  pregnancyType?: Prisma.SortOrder
   developmentMilestones?: Prisma.SortOrder
   healthHistory?: Prisma.SortOrder
   walkingDevelopment?: Prisma.SortOrder
@@ -1415,6 +1436,7 @@ export type CaseStudyMinOrderByAggregateInput = {
   responsiblePhone?: Prisma.SortOrder
   informantPhone?: Prisma.SortOrder
   pregnancyHistory?: Prisma.SortOrder
+  pregnancyType?: Prisma.SortOrder
   developmentMilestones?: Prisma.SortOrder
   healthHistory?: Prisma.SortOrder
   walkingDevelopment?: Prisma.SortOrder
@@ -1565,6 +1587,7 @@ export type CaseStudyCreateWithoutStudentInput = {
   responsiblePhone?: string | null
   informantPhone?: string | null
   pregnancyHistory?: string | null
+  pregnancyType?: string | null
   developmentMilestones?: string | null
   healthHistory?: string | null
   walkingDevelopment?: string | null
@@ -1625,6 +1648,7 @@ export type CaseStudyUncheckedCreateWithoutStudentInput = {
   responsiblePhone?: string | null
   informantPhone?: string | null
   pregnancyHistory?: string | null
+  pregnancyType?: string | null
   developmentMilestones?: string | null
   healthHistory?: string | null
   walkingDevelopment?: string | null
@@ -1715,6 +1739,7 @@ export type CaseStudyScalarWhereInput = {
   responsiblePhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   informantPhone?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   pregnancyHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
+  pregnancyType?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   developmentMilestones?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   healthHistory?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
   walkingDevelopment?: Prisma.StringNullableFilter<"CaseStudy"> | string | null
@@ -1775,6 +1800,7 @@ export type CaseStudyCreateManyStudentInput = {
   responsiblePhone?: string | null
   informantPhone?: string | null
   pregnancyHistory?: string | null
+  pregnancyType?: string | null
   developmentMilestones?: string | null
   healthHistory?: string | null
   walkingDevelopment?: string | null
@@ -1835,6 +1861,7 @@ export type CaseStudyUpdateWithoutStudentInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1895,6 +1922,7 @@ export type CaseStudyUncheckedUpdateWithoutStudentInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1955,6 +1983,7 @@ export type CaseStudyUncheckedUpdateManyWithoutStudentInput = {
   responsiblePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   informantPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pregnancyHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pregnancyType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   developmentMilestones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   healthHistory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   walkingDevelopment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2018,6 +2047,7 @@ export type CaseStudySelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   responsiblePhone?: boolean
   informantPhone?: boolean
   pregnancyHistory?: boolean
+  pregnancyType?: boolean
   developmentMilestones?: boolean
   healthHistory?: boolean
   walkingDevelopment?: boolean
@@ -2080,6 +2110,7 @@ export type CaseStudySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   responsiblePhone?: boolean
   informantPhone?: boolean
   pregnancyHistory?: boolean
+  pregnancyType?: boolean
   developmentMilestones?: boolean
   healthHistory?: boolean
   walkingDevelopment?: boolean
@@ -2142,6 +2173,7 @@ export type CaseStudySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   responsiblePhone?: boolean
   informantPhone?: boolean
   pregnancyHistory?: boolean
+  pregnancyType?: boolean
   developmentMilestones?: boolean
   healthHistory?: boolean
   walkingDevelopment?: boolean
@@ -2204,6 +2236,7 @@ export type CaseStudySelectScalar = {
   responsiblePhone?: boolean
   informantPhone?: boolean
   pregnancyHistory?: boolean
+  pregnancyType?: boolean
   developmentMilestones?: boolean
   healthHistory?: boolean
   walkingDevelopment?: boolean
@@ -2250,7 +2283,7 @@ export type CaseStudySelectScalar = {
   updatedAt?: boolean
 }
 
-export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "hasDiagnosis" | "diagnosis" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "developmentMilestones" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "neurodivergentCharacteristics" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
+export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "hasDiagnosis" | "diagnosis" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "pregnancyType" | "developmentMilestones" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "neurodivergentCharacteristics" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
 export type CaseStudyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
 }
@@ -2281,6 +2314,7 @@ export type $CaseStudyPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     responsiblePhone: string | null
     informantPhone: string | null
     pregnancyHistory: string | null
+    pregnancyType: string | null
     developmentMilestones: string | null
     healthHistory: string | null
     walkingDevelopment: string | null
@@ -2763,6 +2797,7 @@ export interface CaseStudyFieldRefs {
   readonly responsiblePhone: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly informantPhone: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly pregnancyHistory: Prisma.FieldRef<"CaseStudy", 'String'>
+  readonly pregnancyType: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly developmentMilestones: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly healthHistory: Prisma.FieldRef<"CaseStudy", 'String'>
   readonly walkingDevelopment: Prisma.FieldRef<"CaseStudy", 'String'>

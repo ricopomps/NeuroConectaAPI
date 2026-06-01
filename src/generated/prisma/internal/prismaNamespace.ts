@@ -1314,6 +1314,7 @@ export const CaseStudyScalarFieldEnum = {
   responsiblePhone: 'responsiblePhone',
   informantPhone: 'informantPhone',
   pregnancyHistory: 'pregnancyHistory',
+  pregnancyType: 'pregnancyType',
   developmentMilestones: 'developmentMilestones',
   healthHistory: 'healthHistory',
   walkingDevelopment: 'walkingDevelopment',
