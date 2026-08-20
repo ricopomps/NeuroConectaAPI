@@ -27,7 +27,9 @@ export class AuthService {
     const passwordMatch = await bcrypt.compare(password, userPassword);
 
     if (!passwordMatch) {
-      throw new Error("Senha incorreta. Verifique sua senha e tente novamente.");
+      throw new Error(
+        "Senha incorreta. Verifique sua senha e tente novamente.",
+      );
     }
 
     const token = jwt.sign({ sub: user.id }, JWT_SECRET!, {

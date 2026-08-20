@@ -30,7 +30,9 @@ export class StudentRepository {
       data: {
         ...(data.name !== undefined ? { name: data.name } : {}),
         ...(data.birthDate !== undefined ? { birthDate: data.birthDate } : {}),
-        ...(data.segment !== undefined ? { segment: data.segment?.trim?.() || null } : {}),
+        ...(data.segment !== undefined
+          ? { segment: data.segment?.trim?.() || null }
+          : {}),
       },
     });
   }
