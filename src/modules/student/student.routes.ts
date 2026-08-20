@@ -19,6 +19,10 @@ studentsRoutes.get("/:institutionId/students/:studentId", (req, res) =>
   controller.getStudent(req, res),
 );
 
+studentsRoutes.put("/:institutionId/students/:studentId", (req, res) =>
+  controller.update(req, res),
+);
+
 studentsRoutes.post("/:institutionId/students/:studentId/files", (req, res) =>
   controller.addFile(req, res),
 );

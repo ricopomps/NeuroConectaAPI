@@ -1,12 +1,36 @@
 import { prisma } from "../../shared/prisma";
 
 export class StudentRepository {
-  async create(name: string, institutionId: string, birthDate: Date) {
+  async create(
+    name: string,
+    institutionId: string,
+    birthDate: Date,
+    segment?: string,
+  ) {
     return prisma.student.create({
       data: {
         name,
         institutionId,
         birthDate,
+        segment: segment?.trim() || null,
+      },
+    });
+  }
+
+  async update(
+    studentId: string,
+    data: {
+      name?: string;
+      birthDate?: Date;
+      segment?: string | null;
+    },
+  ) {
+    return prisma.student.update({
+      where: { id: studentId },
+      data: {
+        ...(data.name !== undefined ? { name: data.name } : {}),
+        ...(data.birthDate !== undefined ? { birthDate: data.birthDate } : {}),
+        ...(data.segment !== undefined ? { segment: data.segment?.trim?.() || null } : {}),
       },
     });
   }

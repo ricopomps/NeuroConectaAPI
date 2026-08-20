@@ -7,13 +7,14 @@ export class StudentController {
   async create(req: Request, res: Response) {
     try {
       const { institutionId } = req.params;
-      const { name, birthDate } = req.body;
+      const { name, birthDate, segment } = req.body;
 
       const student = await this.studentService.createStudent(
         req.userId!,
         institutionId as string,
         name,
         birthDate,
+        segment,
       );
 
       return res.status(201).json(student);
@@ -85,6 +86,26 @@ export class StudentController {
       );
 
       return res.json(studentFiles);
+    } catch (error: any) {
+      return res.status(400).json({ error: error.message });
+    }
+  }
+
+  async update(req: Request, res: Response) {
+    try {
+      const { institutionId, studentId } = req.params;
+      const { name, birthDate, segment } = req.body;
+
+      const student = await this.studentService.updateStudent(
+        req.userId!,
+        institutionId as string,
+        studentId as string,
+        name,
+        birthDate,
+        segment,
+      );
+
+      return res.json(student);
     } catch (error: any) {
       return res.status(400).json({ error: error.message });
     }

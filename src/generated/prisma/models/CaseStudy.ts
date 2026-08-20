@@ -189,6 +189,7 @@ export type CaseStudyCountAggregateOutputType = {
   comorbidities: number
   crisisBehaviors: number
   neurodivergentCharacteristics: number
+  neurodivergentObservations: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -360,6 +361,7 @@ export type CaseStudyCountAggregateInputType = {
   comorbidities?: true
   crisisBehaviors?: true
   neurodivergentCharacteristics?: true
+  neurodivergentObservations?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -494,6 +496,7 @@ export type CaseStudyGroupByOutputType = {
   comorbidities: string[]
   crisisBehaviors: string[]
   neurodivergentCharacteristics: string[]
+  neurodivergentObservations: runtime.JsonValue | null
   createdAt: Date
   updatedAt: Date
   _count: CaseStudyCountAggregateOutputType | null
@@ -576,6 +579,7 @@ export type CaseStudyWhereInput = {
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
   crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
   neurodivergentCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
+  neurodivergentObservations?: Prisma.JsonNullableFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   student?: Prisma.XOR<Prisma.StudentScalarRelationFilter, Prisma.StudentWhereInput>
@@ -638,6 +642,7 @@ export type CaseStudyOrderByWithRelationInput = {
   comorbidities?: Prisma.SortOrder
   crisisBehaviors?: Prisma.SortOrder
   neurodivergentCharacteristics?: Prisma.SortOrder
+  neurodivergentObservations?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   student?: Prisma.StudentOrderByWithRelationInput
@@ -703,6 +708,7 @@ export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
   crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
   neurodivergentCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
+  neurodivergentObservations?: Prisma.JsonNullableFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   student?: Prisma.XOR<Prisma.StudentScalarRelationFilter, Prisma.StudentWhereInput>
@@ -765,6 +771,7 @@ export type CaseStudyOrderByWithAggregationInput = {
   comorbidities?: Prisma.SortOrder
   crisisBehaviors?: Prisma.SortOrder
   neurodivergentCharacteristics?: Prisma.SortOrder
+  neurodivergentObservations?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.CaseStudyCountOrderByAggregateInput
@@ -832,6 +839,7 @@ export type CaseStudyScalarWhereWithAggregatesInput = {
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
   crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
   neurodivergentCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
+  neurodivergentObservations?: Prisma.JsonNullableWithAggregatesFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"CaseStudy"> | Date | string
 }
@@ -892,6 +900,7 @@ export type CaseStudyCreateInput = {
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyCreateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   student: Prisma.StudentCreateNestedOneWithoutCaseStudiesInput
@@ -954,6 +963,7 @@ export type CaseStudyUncheckedCreateInput = {
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyCreateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1014,6 +1024,7 @@ export type CaseStudyUpdateInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   student?: Prisma.StudentUpdateOneRequiredWithoutCaseStudiesNestedInput
@@ -1076,6 +1087,7 @@ export type CaseStudyUncheckedUpdateInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1137,6 +1149,7 @@ export type CaseStudyCreateManyInput = {
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyCreateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1197,6 +1210,7 @@ export type CaseStudyUpdateManyMutationInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1258,6 +1272,7 @@ export type CaseStudyUncheckedUpdateManyInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1337,6 +1352,7 @@ export type CaseStudyCountOrderByAggregateInput = {
   comorbidities?: Prisma.SortOrder
   crisisBehaviors?: Prisma.SortOrder
   neurodivergentCharacteristics?: Prisma.SortOrder
+  neurodivergentObservations?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -1601,6 +1617,7 @@ export type CaseStudyCreateWithoutStudentInput = {
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyCreateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1661,6 +1678,7 @@ export type CaseStudyUncheckedCreateWithoutStudentInput = {
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyCreateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1751,6 +1769,7 @@ export type CaseStudyScalarWhereInput = {
   comorbidities?: Prisma.StringNullableListFilter<"CaseStudy">
   crisisBehaviors?: Prisma.StringNullableListFilter<"CaseStudy">
   neurodivergentCharacteristics?: Prisma.StringNullableListFilter<"CaseStudy">
+  neurodivergentObservations?: Prisma.JsonNullableFilter<"CaseStudy">
   createdAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CaseStudy"> | Date | string
 }
@@ -1811,6 +1830,7 @@ export type CaseStudyCreateManyStudentInput = {
   comorbidities?: Prisma.CaseStudyCreatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyCreatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyCreateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1871,6 +1891,7 @@ export type CaseStudyUpdateWithoutStudentInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1931,6 +1952,7 @@ export type CaseStudyUncheckedUpdateWithoutStudentInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1991,6 +2013,7 @@ export type CaseStudyUncheckedUpdateManyWithoutStudentInput = {
   comorbidities?: Prisma.CaseStudyUpdatecomorbiditiesInput | string[]
   crisisBehaviors?: Prisma.CaseStudyUpdatecrisisBehaviorsInput | string[]
   neurodivergentCharacteristics?: Prisma.CaseStudyUpdateneurodivergentCharacteristicsInput | string[]
+  neurodivergentObservations?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -2054,6 +2077,7 @@ export type CaseStudySelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   comorbidities?: boolean
   crisisBehaviors?: boolean
   neurodivergentCharacteristics?: boolean
+  neurodivergentObservations?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -2116,6 +2140,7 @@ export type CaseStudySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   comorbidities?: boolean
   crisisBehaviors?: boolean
   neurodivergentCharacteristics?: boolean
+  neurodivergentObservations?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -2178,6 +2203,7 @@ export type CaseStudySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   comorbidities?: boolean
   crisisBehaviors?: boolean
   neurodivergentCharacteristics?: boolean
+  neurodivergentObservations?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
@@ -2240,11 +2266,12 @@ export type CaseStudySelectScalar = {
   comorbidities?: boolean
   crisisBehaviors?: boolean
   neurodivergentCharacteristics?: boolean
+  neurodivergentObservations?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "diagnoses" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "pregnancyType" | "observations" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "neurodivergentCharacteristics" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
+export type CaseStudyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "studentId" | "schoolClass" | "responsibleName" | "responsibleEmail" | "referredBy" | "diagnoses" | "informantName" | "informantRelation" | "informantEmail" | "responsiblePhone" | "informantPhone" | "pregnancyHistory" | "pregnancyType" | "observations" | "healthHistory" | "walkingDevelopment" | "speechDevelopment" | "sphincterControl" | "vision" | "hearing" | "sleep" | "usesMedication" | "medicationName" | "medicationAtSchool" | "feeding" | "foodSelectivity" | "foodRestrictions" | "bathroomIndependence" | "dressing" | "locomotion" | "comprehensionLevel" | "socialInteraction" | "communicationTypes" | "specificInterest" | "crisisRegulationStrategy" | "priorityAreas" | "sensorySensitivity" | "attention" | "frustrationTolerance" | "commandUnderstanding" | "classificationSkill" | "seriationSkill" | "spatialConcepts" | "readingLevel" | "mathReasoning" | "learningStyle" | "strengths" | "difficulties" | "currentSupports" | "aeeOpinion" | "suggestedAdaptations" | "developmentStage" | "comorbidities" | "crisisBehaviors" | "neurodivergentCharacteristics" | "neurodivergentObservations" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
 export type CaseStudyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   student?: boolean | Prisma.StudentDefaultArgs<ExtArgs>
 }
@@ -2317,6 +2344,7 @@ export type $CaseStudyPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     comorbidities: string[]
     crisisBehaviors: string[]
     neurodivergentCharacteristics: string[]
+    neurodivergentObservations: runtime.JsonValue | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["caseStudy"]>
@@ -2799,6 +2827,7 @@ export interface CaseStudyFieldRefs {
   readonly comorbidities: Prisma.FieldRef<"CaseStudy", 'String[]'>
   readonly crisisBehaviors: Prisma.FieldRef<"CaseStudy", 'String[]'>
   readonly neurodivergentCharacteristics: Prisma.FieldRef<"CaseStudy", 'String[]'>
+  readonly neurodivergentObservations: Prisma.FieldRef<"CaseStudy", 'Json'>
   readonly createdAt: Prisma.FieldRef<"CaseStudy", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"CaseStudy", 'DateTime'>
 }

@@ -73,6 +73,7 @@ model Student {
     id            String   @id @default(uuid())
     name          String
     birthDate     DateTime
+    segment       String?
     institutionId String
     createdAt     DateTime @default(now())
 
@@ -190,6 +191,7 @@ model CaseStudy {
     comorbidities                 String[]
     crisisBehaviors               String[]
     neurodivergentCharacteristics String[]
+    neurodivergentObservations     Json?
     createdAt                     DateTime @default(now())
     updatedAt                     DateTime @updatedAt
 

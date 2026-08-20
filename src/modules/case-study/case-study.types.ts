@@ -60,4 +60,5 @@ export interface CaseStudyInput {
   comorbidities?: string[];
   crisisBehaviors?: string[];
   neurodivergentCharacteristics?: string[];
+  neurodivergentObservations?: Prisma.InputJsonValue;
 }

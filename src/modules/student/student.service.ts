@@ -9,12 +9,13 @@ export class StudentService {
     institutionId: string,
     name: string,
     birthDate: Date,
+    segment?: string,
   ) {
     if (!name) {
       throw new Error("Student name is required");
     }
 
-    return this.studentRepo.create(name, institutionId, birthDate);
+    return this.studentRepo.create(name, institutionId, birthDate, segment);
   }
 
   async listStudents(userId: string, institutionId: string) {
@@ -109,5 +110,46 @@ export class StudentService {
     }
 
     return this.studentRepo.getFiles(studentId, take, skip);
+  }
+
+  async updateStudent(
+    userId: string,
+    institutionId: string,
+    studentId: string,
+    name?: string,
+    birthDate?: Date,
+    segment?: string,
+  ) {
+    const membership = await prisma.institutionUser.findFirst({
+      where: {
+        institutionId,
+        userId,
+      },
+    });
+
+    if (!membership) {
+      throw new Error("Access denied");
+    }
+
+    const student = await this.studentRepo.findById(studentId);
+
+    if (!student) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    if (student.institutionId !== institutionId) {
+      throw new Error("Aluno não encontrado");
+    }
+
+    const updatedName = name?.trim();
+    if (updatedName !== undefined && !updatedName) {
+      throw new Error("Student name is required");
+    }
+
+    return this.studentRepo.update(studentId, {
+      name: updatedName,
+      birthDate,
+      segment,
+    });
   }
 }

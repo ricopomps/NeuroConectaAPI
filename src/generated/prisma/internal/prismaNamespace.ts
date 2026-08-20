@@ -1245,6 +1245,7 @@ export const StudentScalarFieldEnum = {
   id: 'id',
   name: 'name',
   birthDate: 'birthDate',
+  segment: 'segment',
   institutionId: 'institutionId',
   createdAt: 'createdAt'
 } as const
@@ -1356,6 +1357,7 @@ export const CaseStudyScalarFieldEnum = {
   comorbidities: 'comorbidities',
   crisisBehaviors: 'crisisBehaviors',
   neurodivergentCharacteristics: 'neurodivergentCharacteristics',
+  neurodivergentObservations: 'neurodivergentObservations',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
